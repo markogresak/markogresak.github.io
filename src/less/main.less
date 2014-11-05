@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+@img-size: 300px;
+@img-margin: (@img-size * -0.5);
+@number-of-images: 3;
+@img-info-size: 44px;
+
+.container-fluid {
+  position: relative;
+  height: 100%;
+}
+
+.name {
+  font-size: 4em;
+  text-align: center;
+}
+
+.img-container {
+  height: @img-size;
+  width: (@img-size * @number-of-images);
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  margin-top: (-@img-size);
+}
+
+.img-container:hover {
+
+  #twitter {
+    transform: translate((-(floor(@img-size / 3))), (@img-size * -0.1));
+  }
+
+  #facebook {
+    transform: translate((floor(@img-size / 3)), (@img-size * -0.1));
+  }
+}
+
+.profile-image {
+  width: @img-size;
+  height: @img-size;
+  background: 0 0/@img-size @img-size url(https://avatars.githubusercontent.com/u/6675751?v=2);
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: @img-margin;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  opacity: .5;
+}
+
+.profile-image:hover {
+
+  opacity: 1;
+
+  .image-info {
+    margin: (@img-size - @img-info-size) auto;
+  }
+}
+
+#github {
+  z-index: 100;
+  margin-top: (@img-size * .1);
+  opacity: 1;
+}
+
+.profile-icon {
+  background: none;
+
+  .fa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: (floor((@img-size * .85) * -0.5));
+    margin-top: (floor((@img-size * .85) * -0.5));
+    opacity: 1;
+  }
+}
+
+#twitter {
+  margin-left: (@img-margin - @img-size / 2);
+}
+
+#facebook {
+  margin-left: (@img-margin + @img-size / 2);
+}
+
+.image-info {
+  width: @img-size;
+  height: @img-info-size;
+  margin: (@img-size) auto;
+  background-color: #111;
+  color: #fff;
+  z-index: -1;
+  box-sizing: border-box;
+  opacity: .4;
+  text-align: center;
+  padding: 4px 0;
+  transition: margin 0.3s ease-in-out;
+}
