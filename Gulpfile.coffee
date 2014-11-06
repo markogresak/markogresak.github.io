@@ -32,6 +32,7 @@ imgDest = "public/img/"
 jsConcatDest = "public/js/"
 jsConcatFile = "app.js"
 jsLibsFile = "libs.js"
+jsSources = []
 testsDest = "public/tests/"
 testsConcatFile = "allTests-comb.js"
 testsFile = "allTests.js"
@@ -49,18 +50,13 @@ lessSources = ["src/less/*.less"]
 lessMain = "src/less/main.less"
 htmlSources = ["src/html/*.html"]
 imgSources = ["src/img/*.{png, jpg}"]
-jsSources = [
-  "#{jsLibPath}/jquery.min.js"
-  "#{jsLibPath}/bootstrap.min.js"
- ]
 lessImports = [
   "src/less/bootstrap/mixins.less"
   "src/less/bootstrap/variables.less"
 ]
 cssLibsSources = [
-  "#{lessDest}/bootstrap.min.css"
-  # "#{lessDest}/bootstrap-theme.min.css"
-  "#{lessDest}/font-awesome.min.css"
+  "src/css/fontello.min.css"
+  "src/css/flag-icon.min.css"
 ]
 cssConcatFile = "libs.css"
 
@@ -111,39 +107,12 @@ gulp.task "coffeelint", ->
 
 gulp.task "coffee", ->
   gulp.src(coffeeSources)
-    # .pipe(sourcemaps.init())
     .pipe(coffee(
       bare: true
     )
       .on("error", onError))
-    # .pipe(sourcemaps.write())
     .pipe(gulp.dest(coffeeDest))
-
-gulp.task "browserify", ["coffee"], ->
-  # bundleStream = browserify("./" + coffeeDest + jsConcatFile)
-  #     .on("error", handleError)
-  #   .bundle()
-  #   .pipe(source(jsConcatFile))
-  #   .pipe(gulp.dest(jsConcatDest))
-  #   .pipe(connect.reload())
-
-gulp.task "js", ->
-  gulp.src(jsSources)
-    .pipe(concat(jsLibsFile))
-    .pipe(gulp.dest(jsConcatDest))
-
-  bundleStream = browserify("./" + coffeeDest + jsConcatFile)
-      .on("error", handleError)
-    .bundle()
-    .pipe(source(jsConcatFile))
-    .pipe(gulp.dest(jsConcatDest))
     .pipe(connect.reload())
-
-  # gulp.src(coffeeDest + "app.js")
-    # .pipe(concat("main.js"))
-    # .pipe(gulpif(env is "production", uglify()))
-    # .pipe(gulp.dest(jsConcatDest))
-    # .pipe(connect.reload())
 
 gulp.task "less", ->
   gulp.src(cssLibsSources)
@@ -161,6 +130,7 @@ gulp.task "less", ->
       .on("error", onError))
     # .pipe(sourcemaps.write("./maps"))
     .pipe(autoprefix("last 2 version"))
+    .pipe(minifyCSS())
     .pipe(concat("main.css"))
     .pipe(gulp.dest(lessDest))
     .pipe(connect.reload())
@@ -171,56 +141,10 @@ gulp.task "html", ->
     .pipe(gulp.dest(htmlDest))
     .pipe(connect.reload())
 
-gulp.task "images", ->
-  gulp.src(imgSources)
-    .pipe(gulpif(env is "production", imagemin(
-      progressive: true
-      svgoPlugins: [
-        removeViewBox: false
-      ]
-      use: [
-        pngcrush()
-      ]
-    )))
-    .pipe(gulpif(env is "production", gulp.dest(imgDest)))
-    # .pipe(connect.reload())
-
-gulp.task "test", ->
-  gulp.src(testSources,
-    read: false
-  )
-  .pipe(mocha(
-    reporter: "min"
-  )
-    .on("error", onTestError))
-
-gulp.task "compileTests", ->
-  gulp.src(testSources)
-    .pipe(coffee(
-      bare: true
-    )
-      .on("error", onError))
-    .pipe(concat(testsConcatFile))
-    .pipe(gulp.dest(testsDest))
-
-gulp.task "browserifyTests", ["compileTests"], ->
-  bundleStream = browserify("./" + testsDest + testsConcatFile)
-      .on("error", handleError)
-    .bundle()
-  bundleStream
-    .pipe(source(testsFile))
-    .pipe(gulp.dest(testsDest))
-    # .pipe(connect.reload())
-
 gulp.task "watch", ->
-  fatalLevel = fatalLevel || "off"
-  gulp.watch(coffeeSources, ["coffeelint", "coffee", "browserify", "js"])
   gulp.watch(lessSources, ["less"])
-  gulp.watch(jsSources, ["browserify", "js"])
   gulp.watch(htmlSources, ["html"])
-  gulp.watch(imgSources, ["images"])
-  gulp.watch(testSources, ["test", "compileTests", "browserifyTests"])
-  gulp.watch(testsDest, ["compileTests", "browserifyTests"])
+  gulp.watch(coffeeSources, ["coffeelint", "coffee"])
 
 gulp.task "connect", ->
   connect.server
@@ -228,16 +152,9 @@ gulp.task "connect", ->
     livereload: true
 
 gulp.task "default", [
-  "test"
-  "compileTests"
-  "browserifyTests"
-  "coffeelint"
-  "coffee"
-  "browserify"
-  "js"
   "html"
   "less"
-  "images"
+  "coffee"
   "connect"
   "watch"
 ]
