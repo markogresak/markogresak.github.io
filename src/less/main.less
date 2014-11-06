@@ -1,108 +1,103 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  background-color: #f5f5f5;
-}
-
+// ----------  Imports  ----------
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/responsive-utilities.less";
+// ---------- Variables ----------
 @img-size: 300px;
-@img-margin: (@img-size * -0.5);
-@number-of-images: 3;
-@img-info-size: 44px;
+@footer-height: 50px;
+// ----------  Styles   ----------
 
-.container-fluid {
-  position: relative;
-  height: 100%;
+html {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background: #f5f5f5;
+    margin-bottom: @footer-height;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.main {
+    margin-bottom: @footer-height;
 }
 
 .name {
-  font-size: 4em;
-  text-align: center;
-}
-
-.img-container {
-  height: @img-size;
-  width: (@img-size * @number-of-images);
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  margin-top: (-@img-size);
-}
-
-.img-container:hover {
-
-  #twitter {
-    transform: translate((-(floor(@img-size / 3))), (@img-size * -0.1));
-  }
-
-  #facebook {
-    transform: translate((floor(@img-size / 3)), (@img-size * -0.1));
-  }
+    font-size: 4em;
+    font-weight: 300;
+    text-align: center;
+    line-height: normal;
 }
 
 .profile-image {
   width: @img-size;
   height: @img-size;
   background: 0 0/@img-size @img-size url(https://avatars.githubusercontent.com/u/6675751?v=2);
-  border-radius: 100%;
-  position: absolute;
-  left: 50%;
-  margin-left: @img-margin;
-  transition: 0.5s ease-in-out;
-  overflow: hidden;
-  opacity: .5;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.profile-image:hover {
-
-  opacity: 1;
-
-  .image-info {
-    margin: (@img-size - @img-info-size) auto;
-  }
+.content-center {
+    width: @img-size;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
 }
 
-#github {
-  z-index: 100;
-  margin-top: (@img-size * .1);
-  opacity: 1;
+.description {
+    font-size: 2em;
 }
 
-.profile-icon {
-  background: none;
+.icon {
+    font-size: 4em;
+    display: inline;
+}
 
-  .fa {
+.icon-github {
+    color: #4183c4;
+}
+
+.icon-bitbucket {
+    color: #205081;
+}
+
+.icon-twitter {
+    color: #55acee;
+}
+
+.icon-facebook {
+    color: #3b5998;
+}
+
+.icon-google-plus {
+    color: #dc4c3c;
+}
+
+.icon-mail {
+    color: #428bca;
+}
+
+.footer {
+    height: @footer-height;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 10px;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: (floor((@img-size * .85) * -0.5));
-    margin-top: (floor((@img-size * .85) * -0.5));
-    opacity: 1;
-  }
-}
+    text-align: center;
+    font-size: medium;
 
-#twitter {
-  margin-left: (@img-margin - @img-size / 2);
-}
+    p {
+        padding-top: 10px;
+    }
 
-#facebook {
-  margin-left: (@img-margin + @img-size / 2);
-}
-
-.image-info {
-  width: @img-size;
-  height: @img-info-size;
-  margin: (@img-size) auto;
-  background-color: #111;
-  color: #fff;
-  z-index: -1;
-  box-sizing: border-box;
-  opacity: .4;
-  text-align: center;
-  padding: 4px 0;
-  transition: margin 0.3s ease-in-out;
+    .flag-icon {
+        margin-left: 5px;
+    }
 }
