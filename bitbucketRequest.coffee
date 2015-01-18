@@ -1,6 +1,7 @@
 https = require "https"
 http = require "http"
-port = 9999
+fs = require "fs"
+basePort = 9000
 
 getJSON = (options, onResult) ->
   try
@@ -41,7 +42,8 @@ githubOptions =
   headers:
     "Content-Type": "application/json"
 
-server = http.createServer (req, res) ->
+
+app = (req, res) ->
   res.setHeader "Access-Control-Allow-Origin", "*"
   res.setHeader "Access-Control-Allow-Methods", "GET"
   res.setHeader "Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control"
@@ -67,6 +69,23 @@ server = http.createServer (req, res) ->
   catch e
     res.end()
 
+serverListening = (protocol, port) ->
+  console.log "Listening #{protocol} on port #{port}"
 
-server.listen port, ->
-  console.log "Listening on port #{port}"
+keyPath = ""
+certPath = ""
+
+if not keyPath or not certPath
+  throw Error "No key/cert file specified"
+
+sslOptions =
+  key: fs.readFileSync keyPath
+  cert: fs.readFileSync certPath
+
+
+http.createServer app
+  .listen basePort + 80, -> serverListening "http", basePort + 80
+
+https.createServer sslOptions, app
+  .listen basePort + 443, -> serverListening "https", basePort + 443
+
