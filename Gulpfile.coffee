@@ -54,9 +54,10 @@ lessImports = [
   "src/less/bootstrap/mixins.less"
   "src/less/bootstrap/variables.less"
 ]
-cssLibsSources = [
+cssSources = [
   "src/css/fontello.min.css"
   "src/css/flag-icon.min.css"
+  lessMain
 ]
 cssConcatFile = "libs.css"
 
@@ -115,23 +116,23 @@ gulp.task "coffee", ->
     .pipe(connect.reload())
 
 gulp.task "less", ->
-  gulp.src(cssLibsSources)
-    .pipe(concat(cssConcatFile))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest(lessDest))
+  # libs = gulp.src(cssLibsSources)
+  #   .pipe(concat(cssConcatFile))
+    # .pipe(minifyCSS())
+    # .pipe(gulp.dest(lessDest))
 
-  gulp.src(lessMain)
-    .pipe(less(
+  gulp.src(cssSources)
+    .pipe(gulpif(/[.]less$/, less(
       strictMath: true
       ieCompat: false
       paths: lessSources
       imports: lessImports
     )
-      .on("error", onError))
+      .on("error", onError)))
     # .pipe(sourcemaps.write("./maps"))
     .pipe(autoprefix("last 2 version"))
     .pipe(minifyCSS())
-    .pipe(concat("main.css"))
+    .pipe(concat("main.min.css"))
     .pipe(gulp.dest(lessDest))
     .pipe(connect.reload())
 
