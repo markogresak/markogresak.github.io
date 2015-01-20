@@ -1,5 +1,5 @@
 apiPort = if location.protocol is "https:" then 9443 else 9080
-basePath = location.protocol + "//localhost:" + apiPort
+basePath = "#{location.protocol}//gresak.io:#{apiPort}"
 repos = [
   {
     url: "https://api.github.com/users/markogresak"
