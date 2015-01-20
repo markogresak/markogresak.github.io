@@ -1,6 +1,8 @@
-var addProjectCount, basePath, getRepositoriesCount, projectCount, repos;
+var addProjectCount, apiPort, basePath, getRepositoriesCount, projectCount, repos;
 
-basePath = "http://localhost:9999";
+apiPort = location.protocol === "https:" ? 9443 : 9080;
+
+basePath = "" + location.protocol + "//gresak.io:" + apiPort;
 
 repos = [
   {
