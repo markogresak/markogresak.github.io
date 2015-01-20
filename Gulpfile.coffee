@@ -107,11 +107,11 @@ gulp.task "coffeelint", ->
 
 gulp.task "coffee", ->
   gulp.src(coffeeSources)
-    .pipe(coffee(
-      bare: true
-    )
+    .pipe(coffee()
       .on("error", onError))
-    .pipe(gulp.dest(coffeeDest))
+    .pipe(uglify())
+    .pipe(concat("app.min.js"))
+    .pipe(gulp.dest(jsConcatDest))
     .pipe(connect.reload())
 
 gulp.task "less", ->
