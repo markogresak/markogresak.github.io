@@ -164,11 +164,4 @@ gulp.task "connect", ->
 
 gulp.task "build", ["icon", "html", "flags", "less", "coffee"]
 
-gulp.task "default", [
-  "html"
-  "flags"
-  "less"
-  "coffee"
-  "connect"
-  "watch"
-]
+gulp.task "default", ["build", "connect", "watch"]
