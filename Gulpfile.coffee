@@ -148,6 +148,10 @@ gulp.task "flags", ->
   gulp.src(flagSources)
     .pipe(gulp.dest(flagDest))
 
+gulp.task "icon", ->
+  gulp.src("src/favicon.ico")
+    .pipe(gulp.dest("public"))
+
 gulp.task "watch", ->
   gulp.watch(lessSources, ["less"])
   gulp.watch(htmlSources, ["html"])
@@ -158,7 +162,7 @@ gulp.task "connect", ->
     root: serverRoot,
     livereload: true
 
-gulp.task "build", ["html", "flags", "less", "coffee"]
+gulp.task "build", ["icon", "html", "flags", "less", "coffee"]
 
 gulp.task "default", [
   "html"
