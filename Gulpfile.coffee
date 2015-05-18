@@ -152,6 +152,8 @@ gulp.task "connect", ->
     root: serverRoot,
     livereload: true
 
+gulp.task "build", ["html", "less", "coffee"]
+
 gulp.task "default", [
   "html"
   "less"
