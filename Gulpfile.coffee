@@ -28,6 +28,7 @@ serverRoot = "public/"
 coffeeDest = "public/js/dev/"
 lessDest = "public/css/"
 htmlDest = "public/"
+flagDest = "public/flags"
 imgDest = "public/img/"
 jsConcatDest = "public/js/"
 jsConcatFile = "app.js"
@@ -49,6 +50,7 @@ coffeeSources = ["src/coffee/*.coffee"]
 lessSources = ["src/less/*.less"]
 lessMain = "src/less/main.less"
 htmlSources = ["src/html/*.html"]
+flagSources = ["src/flags/**/*.*"]
 imgSources = ["src/img/*.{png, jpg}"]
 lessImports = [
   "src/less/bootstrap/mixins.less"
@@ -142,6 +144,10 @@ gulp.task "html", ->
     .pipe(gulp.dest(htmlDest))
     .pipe(connect.reload())
 
+gulp.task "flags", ->
+  gulp.src(flagSources)
+    .pipe(gulp.dest(flagDest))
+
 gulp.task "watch", ->
   gulp.watch(lessSources, ["less"])
   gulp.watch(htmlSources, ["html"])
@@ -152,10 +158,11 @@ gulp.task "connect", ->
     root: serverRoot,
     livereload: true
 
-gulp.task "build", ["html", "less", "coffee"]
+gulp.task "build", ["html", "flags", "less", "coffee"]
 
 gulp.task "default", [
   "html"
+  "flags"
   "less"
   "coffee"
   "connect"
