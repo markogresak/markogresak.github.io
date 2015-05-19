@@ -1,5 +1,6 @@
 'use strict';
 var gulp = require('gulp'),
+    rimraf = require('rimraf'),
     g = require('gulp-load-plugins')(),
     isProduction = process.env.NODE_ENV === 'production';
 
@@ -50,7 +51,9 @@ gulp.task('watch', function () {
 });
 
 gulp.task('clean', function () {
-  require('rimraf').sync('public');
+  ['js', 'css', 'index.html'].map(function (f) { return 'public/' + f; }).forEach(function (path) {
+    rimraf.sync(path);
+  });
 });
 
 gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon']);
