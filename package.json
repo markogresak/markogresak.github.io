@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "My Homepage",
   "scripts": {
-    "build": "./node_modules/gulp/bin/gulp.js build"
+    "build": "./node_modules/gulp/bin/gulp.js build",
+    "deploy": "NODE_ENV=production npm run-script build"
   },
   "repository": {
     "type": "git",
