@@ -2,7 +2,9 @@
   "name": "gresak.io",
   "version": "1.0.0",
   "description": "My Homepage",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "gulp build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/markogresak/markogresak.github.io"
