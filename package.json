@@ -1,21 +1,18 @@
 {
-  "name": "NovaStran",
-  "version": "0.0.1",
-  "description": "Posodobljena stran za oddajo RFC zahtev",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "gresak.io",
+  "version": "1.0.0",
+  "description": "My Homepage",
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/markogresak/3TAV-RFC"
+    "url": "https://github.com/markogresak/markogresak.github.io"
   },
-  "author": "Marko Gresak",
-  "license": "ISC",
+  "author": "Marko Grešak",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/markogresak/3TAV-RFC/issues"
+    "url": "https://github.com/markogresak/markogresak.github.io/issues"
   },
-  "homepage": "https://github.com/markogresak/3TAV-RFC",
+  "homepage": "https://gresak.io",
   "devDependencies": {
     "browserify": "^4.2.3",
     "browserify-shim": "^3.6.0",
