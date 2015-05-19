@@ -15,7 +15,7 @@
     "url": "https://github.com/markogresak/markogresak.github.io/issues"
   },
   "homepage": "https://gresak.io",
-  "devDependencies": {
+  "dependencies": {
     "coffee-script": "^1.9.2",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.3.0",
