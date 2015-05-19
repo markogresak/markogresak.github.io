@@ -9,7 +9,8 @@ gulp.task('js', function () {
     .pipe(g.plumber())
     .pipe(g.if(isProduction, g.uglify()))
     .pipe(g.concat('app.min.js'))
-    .pipe(gulp.dest('public/js'));
+    .pipe(gulp.dest('public/js'))
+    .pipe(g.connect.reload());
 });
 
 gulp.task('less', function () {
