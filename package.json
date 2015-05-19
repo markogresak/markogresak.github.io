@@ -16,7 +16,6 @@
   },
   "homepage": "https://gresak.io",
   "dependencies": {
-    "coffee-script": "^1.9.2",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.3.0",
     "gulp-concat": "^2.5.2",
