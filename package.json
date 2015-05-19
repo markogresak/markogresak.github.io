@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My Homepage",
   "scripts": {
-    "postinstall": "./node_modules/gulp/bin/gulp.js build"
+    "build": "./node_modules/gulp/bin/gulp.js build"
   },
   "repository": {
     "type": "git",
