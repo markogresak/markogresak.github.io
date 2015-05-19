@@ -1,16 +1,12 @@
 gulp = require("gulp")
 
-g = require("gulp-load-plugins")
-  rename:
-    'gulp-if': 'gulpif'
-    'gulp-minify-html': 'minifyHTML'
-    'gulp-minify-css': 'minifyCSS'
+g = require("gulp-load-plugins")()
 
 isProduction = process.env.NODE_ENV is "production"
 
 gulp.task "js", ->
   gulp.src "src/js/*.js"
-    .pipe g.gulpif isProduction, g.uglify()
+    .pipe g.if isProduction, g.uglify()
     .pipe g.concat "app.min.js"
     .pipe gulp.dest "public/js"
 
@@ -21,14 +17,14 @@ gulp.task "less", ->
         paths: "src/less/*.less"
         imports: ["src/less/bootstrap/mixins.less", "src/less/bootstrap/variables.less"]
     .pipe g.autoprefixer "last 2 version"
-    .pipe g.gulpif isProduction, g.minifyCSS()
+    .pipe g.if isProduction, g.minifyCss()
     .pipe g.concat "main.min.css"
     .pipe gulp.dest "public/css/"
     .pipe g.connect.reload()
 
 gulp.task "html", ->
   gulp.src "src/html/*.html"
-    .pipe g.gulpif isProduction, g.minifyHTML()
+    .pipe g.if isProduction, g.minifyHtml()
     .pipe gulp.dest "public/"
     .pipe g.connect.reload()
 
