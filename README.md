@@ -1,3 +1,5 @@
 ## My homepage
 
-Redirects to [gresak.io](http://gresak.io/)
+Source to my homepage.
+
+GitHub Pages redirects to [gresak.io](http://gresak.io/).
