@@ -27,5 +27,6 @@
 .icon-github:before { content: '\e800'; }
 .icon-linkedin:before { content: '\e802'; }
 .icon-facebook:before { content: '\e803'; }
+.icon-twitter:before { content: '\e806'; }
 .icon-mail:before { content: '\e805'; }
 .icon-stackoverflow:before { content: '\e807'; }
