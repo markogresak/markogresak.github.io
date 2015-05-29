@@ -98,9 +98,13 @@ gulp.task('watch', function () {
  * User rimraf to clean js, css and index.html files in public folder.
  */
 gulp.task('clean', function () {
-  ['js', 'css', 'index.html'].map(function (f) { return 'public/' + f; }).forEach(function (path) {
-    rimraf.sync(path);
-  });
+  ['js', 'css', 'index.html', 'humans.txt', 'robots.txt']
+    // Prepend public to each of listed files/folders.
+    .map(function (f) { return 'public/' + f; })
+    // Synchronously remove each file / folder.
+    .forEach(function (path) {
+      rimraf.sync(path);
+    });
 });
 
 /**
