@@ -4,7 +4,7 @@
 # TEAM
 
   Owner: Marko Grešak
-  Site: email, link to a contact form, etc.
+  Site: marko@gresak.io
   Twitter: @markogresak
   From: Ljubljana, Slovenia
 
