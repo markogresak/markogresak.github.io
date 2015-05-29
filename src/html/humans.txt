@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Owner: Marko Grešak
+  Site: email, link to a contact form, etc.
+  Twitter: @markogresak
+  From: Ljubljana, Slovenia
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Nginx, Bootstrap 3
