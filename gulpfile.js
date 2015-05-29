@@ -68,6 +68,14 @@ gulp.task('flags+favicon', function () {
 });
 
 /**
+ * humans+robots task:
+ * Copy *.txt (humas.txt, robots.txt) files from src/html folder to public folder.
+ */
+gulp.task('humans+robots', function () {
+  gulp.src('src/html/*.txt').pipe(gulp.dest('public'));
+});
+
+/**
  * serve task:
  * Start a connect server, serve files from public and use livereload.
  */
@@ -99,7 +107,7 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon']);
+gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon', 'humans+robots']);
 
 /**
  * default task:
