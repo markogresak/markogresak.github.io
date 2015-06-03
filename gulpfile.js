@@ -45,6 +45,17 @@ gulp.task('less', function () {
 });
 
 /**
+ * css task:
+ * Compile css/ files (libs), always minify css concat into lib.css.
+ */
+gulp.task('css', function () {
+  gulp.src('src/css/*.css')
+    .pipe(g.minifyCss())
+    .pipe(g.concat('lib.css'))
+    .pipe(gulp.dest('public/css'));
+});
+
+/**
  * html task:
  * Copy html from src to public, minfy it if in production.
  * If running a connect server, reload client(s).
@@ -88,7 +99,7 @@ gulp.task('serve', function () {
  * Watch js, less and html folders, call file extension task on change.
  */
 gulp.task('watch', function () {
-  ['js', 'less', 'html'].forEach(function (t) {
+  ['js', 'less', 'css', 'html'].forEach(function (t) {
     gulp.watch('src/' + t + '/*.' + t, [t]);
   });
 });
@@ -111,7 +122,7 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon', 'humans+robots']);
+gulp.task('build', ['clean', 'js', 'less', 'css', 'html', 'flags+favicon', 'humans+robots']);
 
 /**
  * default task:
