@@ -2,7 +2,7 @@
 
 var cb = function() {
   var l = document.createElement('link'); l.rel = 'stylesheet';
-  l.href = 'lib.css';
+  l.href = 'css/lib.css';
   var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
 };
 var raf = requestAnimationFrame || mozRequestAnimationFrame ||
