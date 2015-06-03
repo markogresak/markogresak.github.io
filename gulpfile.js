@@ -74,7 +74,9 @@ gulp.task('html', function () {
  * Copy src/favicon.ico to public/favicon.ico.
  */
 gulp.task('flags+favicon', function () {
-  gulp.src('src/flags/**/*.*').pipe(gulp.dest('public/flags'));
+  gulp.src('src/flags/*.svg')
+    .pipe(g.svgmin())
+    .pipe(gulp.dest('public/flags'));
   gulp.src('src/favicon.ico').pipe(gulp.dest('public'));
 });
 
