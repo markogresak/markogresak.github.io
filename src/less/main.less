@@ -1,0 +1,89 @@
+@img-size: 300px;
+@footer-height: 50px;
+
+* {
+  font-weight: 300;
+
+  &:before, &:after {
+    box-sizing:border-box;
+  }
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+  background: #f5f5f5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42;
+  color: #333;
+  margin: 0;
+  margin-top: -30px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.profile-image {
+  width: @img-size;
+  height: @img-size;
+  background: 0 0 e('/') @img-size @img-size url(https://avatars.githubusercontent.com/u/6675751?size=300);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.main {
+    margin-bottom: @footer-height;
+}
+
+.name {
+    font-size: 3em;
+    line-height: normal;
+    margin-top: 1em;
+}
+
+.about-me {
+  padding-left: 0;
+  font-size: 1.1em;
+
+  li {
+    margin-top: 5px;
+  }
+}
+
+.content-center {
+    width: @img-size;
+    margin: 0 auto;
+    padding-top: 1em;
+}
+
+.description {
+    font-size: 1.5em;
+}
+
+@import "icons.less";
+
+.footer {
+    font-size: medium;
+    height: @footer-height;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 10px;
+    position: absolute;
+
+    p {
+        padding-top: 10px;
+    }
+
+    .flag-icon {
+        margin-left: 5px;
+    }
+}
