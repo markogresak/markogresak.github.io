@@ -2,6 +2,8 @@
 var gulp = require('gulp');
 var rimraf = require('rimraf');
 var mergeStream = require('merge-stream');
+var Imagemin = require('imagemin');
+var request = require('request');
 /**
  * Load all gulp-* plugins.
  */
@@ -90,6 +92,33 @@ gulp.task('humans+robots', function () {
 });
 
 /**
+ * get-profile-image task:
+ * Get profile image from GitHub, use Imagemin to minify it and save it as public/profile.jpg.
+ */
+gulp.task('get-profile-image', function () {
+  // Make a request to image location.
+  request.get({
+    url: 'https://avatars.githubusercontent.com/u/6675751?size=300',
+    encoding: null // Null encoding means response body is type Buffer.
+  }, function (err, res, bodyBuffer) {
+    // Check for response errors.
+    if (err || res.statusCode >= 400) {
+      throw err || Error('Get profile image responded with status ' + res.statusCode);
+    }
+    // Use imagemin to minify reponse body, use max optimization level and store image as public/profile.jpg.
+    new Imagemin()
+      .src(bodyBuffer)
+      .use(Imagemin.jpegtran({
+        optimizationLevel: 7,
+        progressive: true
+      }))
+      .use(g.rename('profile.jpg'))
+      .dest('public')
+      .run();
+  });
+});
+
+/**
  * serve task:
  * Start a connect server, serve files from public and use livereload.
  */
@@ -125,7 +154,7 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon', 'humans+robots']);
+gulp.task('build', ['clean', 'js', 'less', 'html', 'get-profile-image', 'flags+favicon', 'humans+robots']);
 
 /**
  * default task:
