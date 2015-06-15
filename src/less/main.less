@@ -3,7 +3,7 @@
 
 * {
   &:before, &:after {
-    box-sizing:border-box;
+    box-sizing: border-box;
   }
 }
 
@@ -12,16 +12,16 @@ body {
 }
 
 html {
-    min-height: 100%;
-    position: relative;
+  min-height: 100%;
+  position: relative;
 }
 
 a, a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .profile-image {
-  background: 0 0 e('/') @img-size @img-size url(https://avatars.githubusercontent.com/u/6675751?size=300);
+  background: 0 0 e('/') @img-size @img-size url("https://avatars.githubusercontent.com/u/6675751?size=300");
   margin: 0 auto;
   padding: 0;
 }
@@ -31,36 +31,39 @@ a, a:hover {
 }
 
 .main {
-    margin-bottom: @footer-height;
+  margin-bottom: @footer-height;
 }
 
 .about-me {
   padding-left: 0;
+
   li {
     margin-top: 5px;
   }
 }
 
 .content-center {
-    width: @img-size;
-    margin: 0 auto;
+  width: @img-size;
+  margin: 0 auto;
 }
 
+// Import icons style.
 @import "icons.less";
 
+
 .footer {
-    font-size: medium;
-    height: @footer-height;
-    width: 100%;
-    bottom: 0;
-    margin-bottom: 10px;
-    position: absolute;
+  font-size: medium;
+  height: @footer-height;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 10px;
+  position: absolute;
 
-    p {
-        padding-top: 10px;
-    }
+  p {
+    padding-top: 10px;
+  }
 
-    .flag-icon {
-        margin-left: 5px;
-    }
+  .flag-icon {
+    margin-left: 5px;
+  }
 }
