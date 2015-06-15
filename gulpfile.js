@@ -44,16 +44,6 @@ gulp.task('less', function () {
 
   mergeStream(libStream, mainStream)
     .pipe(g.concat('lib.css'))
-    .pipe(gulp.dest('public/css'));
-
-  gulp.src('src/less/essential.less')
-    .pipe(g.plumber())
-    .pipe(g.less({
-      paths: 'src/less/*.less'
-    }))
-    .pipe(g.autoprefixer('last 2 version'))
-    .pipe(g.if(isProduction, g.minifyCss()))
-    .pipe(g.concat('main.min.css'))
     .pipe(gulp.dest('public/css'))
     .pipe(g.connect.reload());
 });
