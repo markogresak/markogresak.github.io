@@ -125,7 +125,7 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'less', 'css', 'html', 'flags+favicon', 'humans+robots']);
+gulp.task('build', ['clean', 'js', 'less', 'html', 'flags+favicon', 'humans+robots']);
 
 /**
  * default task:
