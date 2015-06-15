@@ -66,7 +66,13 @@ gulp.task('less', function () {
 gulp.task('html', function () {
   gulp.src('src/html/*.html')
     .pipe(g.plumber())
-    .pipe(g.if(isProduction, g.minifyHtml()))
+    .pipe(g.if(isProduction, g.htmlmin({
+      minifyCSS: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+      removeOptionalTags: true
+    })))
     .pipe(gulp.dest('public'))
     .pipe(g.connect.reload());
 });
