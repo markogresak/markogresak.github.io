@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var rimraf = require('rimraf');
+var mergeStream = require('merge-stream');
 /**
  * Load all gulp-* plugins.
  */
@@ -30,29 +31,29 @@ gulp.task('js', function () {
  * If running a connect server, reload client(s).
  */
 gulp.task('less', function () {
-  var importBase = 'src/less/bootstrap/';
-  gulp.src('src/less/main.less')
+  var libStream = gulp.src('src/css/*.css').pipe(g.minifyCss());
+  var mainStream = gulp.src('src/less/main.less')
     .pipe(g.plumber())
     .pipe(g.less({
-      paths: 'src/less/*.less',
-      imports: [importBase + 'mixins.less', importBase + 'variables.less']
+      paths: 'src/less/*.less'
+    }))
+    .pipe(g.autoprefixer('last 2 version'))
+    .pipe(g.if(isProduction, g.minifyCss()));
+
+  mergeStream(libStream, mainStream)
+    .pipe(g.concat('main.min.css'))
+    .pipe(gulp.dest('public/css'));
+
+  gulp.src('src/less/essential.less')
+    .pipe(g.plumber())
+    .pipe(g.less({
+      paths: 'src/less/*.less'
     }))
     .pipe(g.autoprefixer('last 2 version'))
     .pipe(g.if(isProduction, g.minifyCss()))
-    .pipe(g.concat('main.min.css'))
+    .pipe(g.concat('lib.css'))
     .pipe(gulp.dest('public/css'))
     .pipe(g.connect.reload());
-});
-
-/**
- * css task:
- * Compile css/ files (libs), always minify css concat into lib.css.
- */
-gulp.task('css', function () {
-  gulp.src('src/css/*.css')
-    .pipe(g.minifyCss())
-    .pipe(g.concat('lib.css'))
-    .pipe(gulp.dest('public/css'));
 });
 
 /**
