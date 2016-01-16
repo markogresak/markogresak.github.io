@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var addProjectCount = function (count) {
-    document.getElementById('project-count').innerText = '(' + count + ')';
+    document.getElementById('project-count').innerText = count;
   };
   document.addEventListener('DOMContentLoaded', function () {
     addProjectCount(0);
