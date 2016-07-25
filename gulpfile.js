@@ -54,7 +54,7 @@ gulp.task('less', function () {
  * If running a connect server, reload client(s).
  */
 gulp.task('html', function () {
-  gulp.src('src/html/*.html')
+  gulp.src('src/html/**/*.html')
     .pipe(g.plumber())
     .pipe(g.if(isProduction, g.htmlmin({
       minifyCSS: true,
@@ -128,7 +128,7 @@ gulp.task('serve', function () {
  */
 gulp.task('watch', function () {
   ['js', 'less', 'css', 'html'].forEach(function (t) {
-    gulp.watch('src/' + t + '/*.' + t, [t]);
+    gulp.watch('src/' + t + '/**/*.' + t, [t]);
   });
 });
 
