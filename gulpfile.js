@@ -43,6 +43,7 @@ gulp.task('less', function () {
     .pipe(g.if(isProduction, g.minifyCss()));
 
   mergeStream(libStream, mainStream)
+    .pipe(g.base64())
     .pipe(g.concat('lib.css'))
     .pipe(gulp.dest('public/css'))
     .pipe(g.connect.reload());
