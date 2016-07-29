@@ -5,6 +5,8 @@
 @twitter-color: #55acee;
 @mail-color: #428bca;
 @linkedin-color: #0077b5;
+@medium-color: #02b875;
+@stack-overflow-color: #f28033;
 
 .icon {
   font-size: 3em;
@@ -58,6 +60,22 @@
 
   &:hover {
     color: lighten(@linkedin-color, 10%);
+  }
+}
+
+.icon-medium {
+  color: @medium-color;
+
+  &:hover {
+    color: lighten(@medium-color, 10%);
+  }
+}
+
+.icon-stack-overflow {
+  color: @stack-overflow-color;
+
+  &:hover {
+    color: lighten(@stack-overflow-color, 10%);
   }
 }
 
