@@ -1,3 +1,5 @@
+@import "icomoon.less";
+
 @github-color: #4183c4;
 @twitter-color: #55acee;
 @mail-color: #428bca;
@@ -28,7 +30,7 @@
   }
 }
 
-.icon-mail {
+.icon-envelope {
   color: @mail-color;
   bottom: -1px;
 
@@ -43,4 +45,28 @@
   &:hover {
     color: lighten(@linkedin-color, 10%);
   }
+}
+
+.flag-icon {
+  position: relative;
+  display: inline-block;
+  width: 1.3333333333333333em;
+  line-height: 1em;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat
+}
+
+.flag-icon:before {
+  content: "\00a0";
+}
+
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.flag-icon-si {
+  background-image: url(../flags/si.svg);
 }
