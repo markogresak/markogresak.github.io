@@ -1,5 +1,6 @@
 @import "icomoon.less";
 
+@quora-color: #b92b27;
 @github-color: #4183c4;
 @twitter-color: #55acee;
 @mail-color: #428bca;
@@ -9,6 +10,19 @@
   font-size: 3em;
   display: inline;
   position: relative;
+}
+
+.icon-quora {
+  color: @quora-color;
+
+  &:hover {
+    color: lighten(@quora-color, 10%);
+  }
+
+  &:before {
+    content: "Q";
+    font-weight: bold;
+  }
 }
 
 .icon-github {
