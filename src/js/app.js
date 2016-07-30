@@ -1,10 +1,12 @@
 (function() {
   'use strict';
   var addProjectCount = function (count) {
-    document.getElementById('project-count').innerText = count;
+    if (count > 0) {
+      document.getElementById('c').innerText = count;
+      document.getElementById('cw').style.display = 'inline';
+    }
   };
   document.addEventListener('DOMContentLoaded', function () {
-    addProjectCount(0);
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.github.com/users/markogresak', true);
     request.onload = function () {
