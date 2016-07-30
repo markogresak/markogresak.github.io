@@ -110,7 +110,7 @@ gulp.task('get-profile-image', function () {
         progressive: true
       }))
       .use(g.rename('profile.jpg'))
-      .dest('public')
+      .dest('src/img')
       .run();
   });
 });
