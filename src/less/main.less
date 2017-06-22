@@ -1,4 +1,6 @@
-@img-size: 300px;
+@img-size-sm: 100px;
+@img-size-lg: 300px;
+@content-width: 300px;
 @footer-height: 50px;
 @text-color: #333;
 @link-color: #2d99ba;
@@ -26,7 +28,7 @@ a, a:visited {
 }
 
 .profile-image {
-  background: 0 0 e('/') @img-size @img-size url("../img/profile.jpg");
+  background: 0 0 e('/') @img-size-lg @img-size-lg url("../img/profile.jpg");
   margin: 0 auto;
   padding: 0;
   border-radius: 50%;
@@ -41,7 +43,7 @@ a, a:visited {
 }
 
 .content-center {
-  width: @img-size;
+  width: @content-width;
   margin: 0 auto;
 }
 
@@ -74,5 +76,11 @@ a, a:visited {
   .flag-icon {
     margin-left: 5px;
     bottom: 3px;
+  }
+}
+
+@media screen and (max-height: 920px) {
+  .profile-image {
+    background-size: @img-size-sm;
   }
 }
