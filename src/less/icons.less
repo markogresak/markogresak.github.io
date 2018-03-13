@@ -1,38 +1,32 @@
-@import "icomoon.less";
-
-@quora-color: #b92b27;
-@github-color: #4183c4;
+@quora-color: #AB382F;
+@github-color: #25292E;
 @twitter-color: #55acee;
 @mail-color: #428bca;
-@linkedin-color: #0077b5;
-@medium-color: #02b875;
-@stack-overflow-color: #f28033;
+@linkedin-color: #3176B0;
+@medium-color: #11100E;
+@stack-overflow-color: #E6853D;
 
 .icon {
   font-size: 3em;
   display: inline;
   position: relative;
+  transition: color 200ms;
+}
+
+.icon-lg {
+  font-size: 4em;
 }
 
 .icon-quora {
   color: @quora-color;
-  top: 6px;
-  // override icomoon font
-  font-family: "Georgia", serif !important;
 
   &:hover {
     color: lighten(@quora-color, 10%);
-  }
-
-  &:before {
-    content: "\0051";
-    font-weight: bold;
   }
 }
 
 .icon-medium {
   color: @medium-color;
-  top: 4px;
 
   &:hover {
     color: lighten(@medium-color, 10%);
@@ -49,7 +43,6 @@
 
 .icon-github {
   color: @github-color;
-  font-size: 4em;
 
   &:hover {
     color: lighten(@github-color, 10%);
@@ -58,7 +51,6 @@
 
 .icon-twitter {
   color: @twitter-color;
-  top: 2px;
 
   &:hover {
     color: lighten(@twitter-color, 10%);
@@ -67,7 +59,6 @@
 
 .icon-envelope {
   color: @mail-color;
-  bottom: 1px;
 
   &:hover {
     color: lighten(@mail-color, 10%);
@@ -85,7 +76,7 @@
 .flag-icon {
   position: relative;
   display: inline-block;
-  width: 1.3333333333333333em;
+  width: 1.3em;
   line-height: 1em;
   background-size: contain;
   background-position: 50%;
