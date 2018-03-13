@@ -28,21 +28,16 @@ gulp.task('js', function () {
 });
 
 /**
- * less task:
- * Compile main.less file, use autoprefixer, minify css if in production, concat into main.min.css.
+ * scss task:
+ * Compile main.scss file, use autoprefixer, minify css if in production, concat into lib.min.css.
  * If running a connect server, reload client(s).
  */
-gulp.task('less', function () {
-  var libStream = gulp.src('src/css/*.css').pipe(g.minifyCss());
-  var mainStream = gulp.src('src/less/main.less')
+gulp.task('scss', function () {
+  gulp.src('src/scss/main.scss')
     .pipe(g.plumber())
-    .pipe(g.less({
-      paths: 'src/less/*.less'
-    }))
+    .pipe(g.sass({outputStyle: isProduction ? 'compressed' : 'expanded'}).on('error', g.sass.logError))
     .pipe(g.autoprefixer('last 2 version'))
-    .pipe(g.if(isProduction, g.minifyCss()));
-
-  mergeStream(libStream, mainStream)
+    .pipe(g.if(isProduction, g.minifyCss()))
     .pipe(g.base64())
     .pipe(g.concat('lib.css'))
     .pipe(gulp.dest('public/css'))
@@ -125,10 +120,10 @@ gulp.task('serve', function () {
 
 /**
  * watch task:
- * Watch js, less and html folders, call file extension task on change.
+ * Watch js, scss and html folders, call corresponding task on change.
  */
 gulp.task('watch', function () {
-  ['js', 'less', 'css', 'html'].forEach(function (t) {
+  ['js', 'scss', 'css', 'html'].forEach(function (t) {
     gulp.watch('src/' + t + '/**/*.' + t, [t]);
   });
 });
@@ -151,7 +146,7 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'less', 'html', 'get-profile-image', 'flags+favicon', 'humans+robots']);
+gulp.task('build', ['clean', 'js', 'scss', 'html', 'get-profile-image', 'flags+favicon', 'humans+robots']);
 
 /**
  * default task:

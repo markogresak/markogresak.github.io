@@ -1,0 +1,170 @@
+@import "utils";
+
+$img-size-sm: px-to-rem(100);
+$img-size-lg: px-to-rem(300);
+$content-width: px-to-rem(300);
+$icons-width: px-to-rem(160);
+$footer-height: px-to-rem(50);
+$text-color: #333;
+$link-color: #2d99ba;
+
+$quora-color: #AB382F;
+$github-color: #25292E;
+$twitter-color: #55acee;
+$mail-color: #428bca;
+$linkedin-color: #3176B0;
+$medium-color: #11100E;
+$stack-overflow-color: #E6853D;
+
+* {
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  margin-top: px-to-rem(-30);
+  color: $text-color;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+a, a:visited {
+  color: $link-color;
+  text-decoration: none;
+}
+
+.profile-image {
+  background: 0 0 #{"/"} $img-size-lg $img-size-lg url("../img/profile.jpg");
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.main {
+  margin-bottom: $footer-height;
+}
+
+.about-me {
+  padding-top: px-to-rem(8);
+
+  li {
+    margin-top: px-to-rem(8);
+    padding: 0 px-to-rem(16);
+  }
+}
+
+.content-center {
+  width: $content-width;
+  margin: 0 auto;
+}
+
+.icons {
+  width: $icons-width;
+  display: flex;
+  justify-content: space-around;
+}
+
+.blog a {
+  text-decoration: underline;
+}
+
+.icon {
+  font-size: 3em;
+  display: inline;
+  position: relative;
+  transition: color 200ms;
+}
+
+.icon-lg {
+  font-size: 4em;
+}
+
+@mixin custom-icon($color) {
+  color: $color;
+
+  &:hover {
+    color: lighten($color, 10%);
+  }
+}
+
+
+.icon-quora {
+  @include custom-icon($quora-color);
+}
+
+.icon-medium {
+  @include custom-icon($medium-color);
+}
+
+.icon-stack-overflow {
+  @include custom-icon($stack-overflow-color);
+}
+
+.icon-github {
+  @include custom-icon($github-color);
+}
+
+.icon-twitter {
+  @include custom-icon($twitter-color);
+}
+
+.icon-envelope {
+  @include custom-icon($mail-color);
+}
+
+.icon-linkedin {
+  @include custom-icon($linkedin-color);
+}
+
+.flag-icon {
+  position: relative;
+  display: inline-block;
+  width: 1.3em;
+  line-height: 1em;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.flag-icon:before {
+  content: "\00a0";
+}
+
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.flag-icon-si {
+  background-image: url(../flags/si.svg);
+}
+
+.footer {
+  font-size: medium;
+  height: $footer-height;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: px-to-rem(10);
+  position: absolute;
+
+  p {
+    padding-top: px-to-rem(10);
+  }
+
+  .flag-icon {
+    margin-left: px-to-rem(5);
+    bottom: px-to-rem(3);
+  }
+}
+
+@media screen and (max-height: px-to-rem(920)) {
+  .profile-image {
+    background-size: $img-size-sm;
+  }
+}
