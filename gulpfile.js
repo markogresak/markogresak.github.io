@@ -15,14 +15,14 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 /**
  * js task:
- * Concatenate all js files into one app.min.js, use uglify if in production.
+ * Concatenate all js files into one main.min.js, use uglify if in production.
  * If running a connect server, reload client(s).
  */
 gulp.task('js', function () {
   gulp.src('src/js/*.js')
     .pipe(g.plumber())
     .pipe(g.if(isProduction, g.uglify()))
-    .pipe(g.concat('app.min.js'))
+    .pipe(g.concat('main.min.js'))
     .pipe(gulp.dest('public/js'))
     .pipe(g.connect.reload());
 });
