@@ -115,7 +115,7 @@ gulp.task('get-profile-image', function () {
  * Start a connect server, serve files from public and use livereload.
  */
 gulp.task('serve', function () {
-  g.connect.server({ root: 'public', livereload: true });
+  g.connect.server({ root: 'public', livereload: true, port: process.env.PORT || 8000 });
 });
 
 /**
