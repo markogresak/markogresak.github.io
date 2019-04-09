@@ -18,8 +18,9 @@ var isProduction = process.env.NODE_ENV === 'production';
  * Concatenate all js files into one main.min.js, use uglify if in production.
  * If running a connect server, reload client(s).
  */
-gulp.task('js', function () {
-  gulp.src('src/js/*.js')
+gulp.task('js', function() {
+  gulp
+    .src('src/js/*.js')
     .pipe(g.plumber())
     .pipe(g.if(isProduction, g.uglify()))
     .pipe(g.concat('main.min.js'))
@@ -32,10 +33,15 @@ gulp.task('js', function () {
  * Compile main.scss file, use autoprefixer, minify css if in production, concat into lib.min.css.
  * If running a connect server, reload client(s).
  */
-gulp.task('scss', function () {
-  gulp.src('src/scss/main.scss')
+gulp.task('scss', function() {
+  gulp
+    .src('src/scss/main.scss')
     .pipe(g.plumber())
-    .pipe(g.sass({outputStyle: isProduction ? 'compressed' : 'expanded'}).on('error', g.sass.logError))
+    .pipe(
+      g
+        .sass({ outputStyle: isProduction ? 'compressed' : 'expanded' })
+        .on('error', g.sass.logError),
+    )
     .pipe(g.autoprefixer('last 2 version'))
     .pipe(g.if(isProduction, g.minifyCss()))
     .pipe(g.base64())
@@ -49,16 +55,22 @@ gulp.task('scss', function () {
  * Copy html from src to public, minfy it if in production.
  * If running a connect server, reload client(s).
  */
-gulp.task('html', function () {
-  gulp.src('src/html/**/*.html')
+gulp.task('html', function() {
+  gulp
+    .src('src/html/**/*.html')
     .pipe(g.plumber())
-    .pipe(g.if(isProduction, g.htmlmin({
-      minifyCSS: true,
-      collapseWhitespace: true,
-      removeRedundantAttributes: true,
-      useShortDoctype: true,
-      removeOptionalTags: true
-    })))
+    .pipe(
+      g.if(
+        isProduction,
+        g.htmlmin({
+          minifyCSS: true,
+          collapseWhitespace: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          removeOptionalTags: true,
+        }),
+      ),
+    )
     .pipe(gulp.dest('public'))
     .pipe(g.connect.reload());
 });
@@ -68,8 +80,9 @@ gulp.task('html', function () {
  * Copy all flags in src/flags to public/flags.
  * Copy src/favicon.ico to public/favicon.ico.
  */
-gulp.task('flags+favicon', function () {
-  gulp.src('src/flags/*.svg')
+gulp.task('flags+favicon', function() {
+  gulp
+    .src('src/flags/*.svg')
     .pipe(g.svgmin())
     .pipe(gulp.dest('public/flags'));
   gulp.src('src/favicon.ico').pipe(gulp.dest('public'));
@@ -79,7 +92,7 @@ gulp.task('flags+favicon', function () {
  * humans+robots task:
  * Copy *.txt (humas.txt, robots.txt) files from src/html folder to public folder.
  */
-gulp.task('humans+robots', function () {
+gulp.task('humans+robots', function() {
   gulp.src('src/html/*.txt').pipe(gulp.dest('public'));
 });
 
@@ -87,43 +100,53 @@ gulp.task('humans+robots', function () {
  * get-profile-image task:
  * Get profile image from GitHub, use Imagemin to minify it and save it as public/profile.jpg.
  */
-gulp.task('get-profile-image', function () {
+gulp.task('get-profile-image', function() {
   // Make a request to image location.
-  request.get({
-    url: 'https://avatars.githubusercontent.com/u/6675751?size=300',
-    encoding: null // Null encoding means response body is type Buffer.
-  }, function (err, res, bodyBuffer) {
-    // Check for response errors.
-    if (err || res.statusCode >= 400) {
-      throw err || Error('Get profile image responded with status ' + res.statusCode);
-    }
-    // Use imagemin to minify reponse body, use max optimization level and store image as public/profile.jpg.
-    new Imagemin()
-      .src(bodyBuffer)
-      .use(Imagemin.jpegtran({
-        optimizationLevel: 7,
-        progressive: true
-      }))
-      .use(g.rename('profile.jpg'))
-      .dest('src/img')
-      .run();
-  });
+  request.get(
+    {
+      url: 'https://avatars.githubusercontent.com/u/6675751?size=300',
+      encoding: null, // Null encoding means response body is type Buffer.
+    },
+    function(err, res, bodyBuffer) {
+      // Check for response errors.
+      if (err || res.statusCode >= 400) {
+        throw err ||
+          Error('Get profile image responded with status ' + res.statusCode);
+      }
+      // Use imagemin to minify reponse body, use max optimization level and store image as public/profile.jpg.
+      new Imagemin()
+        .src(bodyBuffer)
+        .use(
+          Imagemin.jpegtran({
+            optimizationLevel: 7,
+            progressive: true,
+          }),
+        )
+        .use(g.rename('profile.jpg'))
+        .dest('src/img')
+        .run();
+    },
+  );
 });
 
 /**
  * serve task:
  * Start a connect server, serve files from public and use livereload.
  */
-gulp.task('serve', function () {
-  g.connect.server({ root: 'public', livereload: true, port: process.env.PORT || 8000 });
+gulp.task('serve', function() {
+  g.connect.server({
+    root: 'public',
+    livereload: true,
+    port: process.env.PORT || 8000,
+  });
 });
 
 /**
  * watch task:
  * Watch js, scss and html folders, call corresponding task on change.
  */
-gulp.task('watch', function () {
-  ['js', 'scss', 'css', 'html'].forEach(function (t) {
+gulp.task('watch', function() {
+  ['js', 'scss', 'css', 'html'].forEach(function(t) {
     gulp.watch('src/' + t + '/**/*.' + t, [t]);
   });
 });
@@ -132,12 +155,14 @@ gulp.task('watch', function () {
  * clean task:
  * User rimraf to clean js, css and index.html files in public folder.
  */
-gulp.task('clean', function () {
+gulp.task('clean', function() {
   ['js', 'css', 'index.html', 'humans.txt', 'robots.txt']
     // Prepend public to each of listed files/folders.
-    .map(function (f) { return 'public/' + f; })
+    .map(function(f) {
+      return 'public/' + f;
+    })
     // Synchronously remove each file / folder.
-    .forEach(function (path) {
+    .forEach(function(path) {
       rimraf.sync(path);
     });
 });
@@ -146,7 +171,15 @@ gulp.task('clean', function () {
  * build task:
  * Clean existing sources and copy or recompile the flies, including flags and favicon.
  */
-gulp.task('build', ['clean', 'js', 'scss', 'html', 'get-profile-image', 'flags+favicon', 'humans+robots']);
+gulp.task('build', [
+  'clean',
+  'js',
+  'scss',
+  'html',
+  'get-profile-image',
+  'flags+favicon',
+  'humans+robots',
+]);
 
 /**
  * default task:
