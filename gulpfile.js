@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
-const rimraf = require('rimraf');
 
 const downloadProfileImage = require('./util/download-profile-image');
+const rimrafArray = require('./util/rimraf-array');
 
 const g = gulpLoadPlugins();
 
@@ -150,19 +150,7 @@ gulp.task('watch', (done) => {
  * Use rimraf to clean the public folder.
  */
 gulp.task('clean', () =>
-  Promise.all(
-    publicCathsToClean.map(
-      (pathName) =>
-        new Promise((resolve, reject) => {
-          rimraf(`public/${pathName}`, (err) => {
-            if (err) {
-              return reject(err);
-            }
-            resolve();
-          });
-        }),
-    ),
-  ),
+  rimrafArray(publicCathsToClean.map((pathName) => `public/${pathName}`)),
 );
 
 /**
