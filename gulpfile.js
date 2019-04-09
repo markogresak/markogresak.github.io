@@ -1,11 +1,8 @@
-const fs = require('fs');
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const rimraf = require('rimraf');
-const imagemin = require('imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
-const request = require('request');
 
+const downloadProfileImage = require('./util/download-profile-image');
 
 const g = gulpLoadPlugins();
 
@@ -122,51 +119,7 @@ gulp.task('humans+robots', () =>
  * get-profile-image task:
  * Get profile image from GitHub, use imagemin to minify it and save it as public/profile.jpg.
  */
-gulp.task(
-  'get-profile-image',
-  () =>
-    new Promise((resolve, reject) => {
-      request.get(
-        {
-          url: profileImageConfig.url,
-          encoding: null, // Null encoding means response body is type Buffer.
-        },
-        (err, res, bodyBuffer) => {
-          // Check for response errors.
-          if (err || res.statusCode >= 400) {
-            return reject(
-              err ||
-                Error(
-                  'Get profile image responded with status ' + res.statusCode,
-                ),
-            );
-          }
-          imagemin
-            .buffer(bodyBuffer, {
-              plugins: [
-                imageminJpegtran({
-                  optimizationLevel: 7,
-                  progressive: true,
-                }),
-              ],
-            })
-            .then((imageBuffer) => {
-              fs.writeFile(
-                profileImageConfig.destPath,
-                imageBuffer,
-                { encoding: null },
-                (err) => {
-                  if (err) {
-                    return reject(err);
-                  }
-                  resolve();
-                },
-              );
-            });
-        },
-      );
-    }),
-);
+gulp.task('get-profile-image', () => downloadProfileImage(profileImageConfig));
 
 /**
  * serve task:
