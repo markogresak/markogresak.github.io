@@ -1,18 +1,15 @@
 const fs = require('fs');
 const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
 const rimraf = require('rimraf');
 const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 const request = require('request');
-/**
- * Load all gulp-* plugins.
- */
-const g = require('gulp-load-plugins')();
-/**
- * Check if in production environment.
- */
-const isProduction = process.env.NODE_ENV === 'production';
 
+
+const g = gulpLoadPlugins();
+
+const isProduction = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 8000;
 
 const publicCathsToClean = [
