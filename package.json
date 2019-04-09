@@ -31,7 +31,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.4",
     "imagemin": "^6.1.0",
     "imagemin-jpegtran": "^6.0.0",
     "request": "^2.88.0",
