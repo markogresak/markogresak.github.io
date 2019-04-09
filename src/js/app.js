@@ -29,11 +29,11 @@
     };
     request.send();
   };
-  var raf =
-    requestAnimationFrame ||
-    mozRequestAnimationFrame ||
-    webkitRequestAnimationFrame ||
-    msRequestAnimationFrame;
-  if (raf) raf(cb);
-  else window.addEventListener('load', cb);
+  if (
+    d.attachEvent ? d.readyState === 'complete' : d.readyState !== 'loading'
+  ) {
+    cb();
+  } else {
+    d.addEventListener('DOMContentLoaded', cb);
+  }
 })();
