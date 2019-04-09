@@ -131,10 +131,10 @@ a:visited {
   background-size: contain;
   background-position: 50%;
   background-repeat: no-repeat;
-}
 
-.flag-icon:before {
-  content: "\00a0";
+  &:before {
+    content: "\00a0";
+  }
 }
 
 .flag-icon-si {
