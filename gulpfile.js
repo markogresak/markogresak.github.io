@@ -1,24 +1,26 @@
 'use strict';
-var gulp = require('gulp');
-var rimraf = require('rimraf');
-var mergeStream = require('merge-stream');
-var Imagemin = require('imagemin');
-var request = require('request');
+const gulp = require('gulp');
+const rimraf = require('rimraf');
+const mergeStream = require('merge-stream');
+const Imagemin = require('imagemin');
+const request = require('request');
 /**
  * Load all gulp-* plugins.
  */
-var g = require('gulp-load-plugins')();
+const g = require('gulp-load-plugins')();
 /**
  * Check if in production environment.
  */
-var isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
+
+const port = process.env.PORT || 8000;
 
 /**
  * js task:
  * Concatenate all js files into one main.min.js, use uglify if in production.
  * If running a connect server, reload client(s).
  */
-gulp.task('js', function() {
+gulp.task('js', () => {
   gulp
     .src('src/js/*.js')
     .pipe(g.plumber())
@@ -33,7 +35,7 @@ gulp.task('js', function() {
  * Compile main.scss file, use autoprefixer, minify css if in production, concat into lib.min.css.
  * If running a connect server, reload client(s).
  */
-gulp.task('scss', function() {
+gulp.task('scss', () => {
   gulp
     .src('src/scss/main.scss')
     .pipe(g.plumber())
@@ -55,7 +57,7 @@ gulp.task('scss', function() {
  * Copy html from src to public, minfy it if in production.
  * If running a connect server, reload client(s).
  */
-gulp.task('html', function() {
+gulp.task('html', () => {
   gulp
     .src('src/html/**/*.html')
     .pipe(g.plumber())
@@ -80,7 +82,7 @@ gulp.task('html', function() {
  * Copy all flags in src/flags to public/flags.
  * Copy src/favicon.ico to public/favicon.ico.
  */
-gulp.task('flags+favicon', function() {
+gulp.task('flags+favicon', () => {
   gulp
     .src('src/flags/*.svg')
     .pipe(g.svgmin())
@@ -92,7 +94,7 @@ gulp.task('flags+favicon', function() {
  * humans+robots task:
  * Copy *.txt (humas.txt, robots.txt) files from src/html folder to public folder.
  */
-gulp.task('humans+robots', function() {
+gulp.task('humans+robots', () => {
   gulp.src('src/html/*.txt').pipe(gulp.dest('public'));
 });
 
@@ -100,14 +102,14 @@ gulp.task('humans+robots', function() {
  * get-profile-image task:
  * Get profile image from GitHub, use Imagemin to minify it and save it as public/profile.jpg.
  */
-gulp.task('get-profile-image', function() {
+gulp.task('get-profile-image', () => {
   // Make a request to image location.
   request.get(
     {
       url: 'https://avatars.githubusercontent.com/u/6675751?size=300',
       encoding: null, // Null encoding means response body is type Buffer.
     },
-    function(err, res, bodyBuffer) {
+    (err, res, bodyBuffer) => {
       // Check for response errors.
       if (err || res.statusCode >= 400) {
         throw err ||
@@ -133,11 +135,11 @@ gulp.task('get-profile-image', function() {
  * serve task:
  * Start a connect server, serve files from public and use livereload.
  */
-gulp.task('serve', function() {
+gulp.task('serve', () => {
   g.connect.server({
     root: 'public',
     livereload: true,
-    port: process.env.PORT || 8000,
+    port,
   });
 });
 
@@ -145,8 +147,10 @@ gulp.task('serve', function() {
  * watch task:
  * Watch js, scss and html folders, call corresponding task on change.
  */
-gulp.task('watch', function() {
-  ['js', 'scss', 'css', 'html'].forEach(function(t) {
+gulp.task('watch', () => {
+  const pathsToWatch = ['js', 'scss', 'css', 'html'];
+
+  pathsToWatch.forEach((t) => {
     gulp.watch('src/' + t + '/**/*.' + t, [t]);
   });
 });
@@ -155,14 +159,14 @@ gulp.task('watch', function() {
  * clean task:
  * User rimraf to clean js, css and index.html files in public folder.
  */
-gulp.task('clean', function() {
-  ['js', 'css', 'index.html', 'humans.txt', 'robots.txt']
+gulp.task('clean', () => {
+  const pathsToClean = ['js', 'css', 'index.html', 'humans.txt', 'robots.txt'];
+
+  pathsToClean
     // Prepend public to each of listed files/folders.
-    .map(function(f) {
-      return 'public/' + f;
-    })
+    .map((f) => `public/${f}`)
     // Synchronously remove each file / folder.
-    .forEach(function(path) {
+    .forEach((path) => {
       rimraf.sync(path);
     });
 });
