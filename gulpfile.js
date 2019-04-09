@@ -1,4 +1,3 @@
-'use strict';
 const fs = require('fs');
 const gulp = require('gulp');
 const rimraf = require('rimraf');
