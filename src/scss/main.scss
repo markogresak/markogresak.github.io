@@ -26,7 +26,8 @@ $stack-overflow-color: #e6853d;
 body {
   margin-top: px-to-rem(-30);
   color: $text-color;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
 html {
