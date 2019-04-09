@@ -2,7 +2,6 @@
 const fs = require('fs');
 const gulp = require('gulp');
 const rimraf = require('rimraf');
-const mergeStream = require('merge-stream');
 const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 const request = require('request');
