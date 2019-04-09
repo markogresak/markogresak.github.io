@@ -55,10 +55,6 @@ a:visited {
   transition: color 200ms;
 }
 
-.icon-lg {
-  font-size: 4em;
-}
-
 @mixin custom-icon($color) {
   color: $color;
 
@@ -81,6 +77,7 @@ a:visited {
 
 .icon-github {
   @include custom-icon($github-color);
+  font-size: 4em;
 }
 
 .icon-twitter {
