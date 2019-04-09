@@ -43,7 +43,7 @@ a:visited {
 }
 
 .icons {
-  width: $icons-width;
+  max-width: $icons-width;
   display: flex;
   justify-content: space-between;
 }
