@@ -328,10 +328,6 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.4.tgz#02378b4a6b6ce7a55e3add1edae41ad79f74646a"
-
 brace-expansion@^1.0.0, brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
