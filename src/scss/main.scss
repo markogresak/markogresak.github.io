@@ -1,23 +1,24 @@
 @import "utils";
 
-$img-size-sm: px-to-rem(100);
-$img-size-lg: px-to-rem(300);
+$img-size-sm: 100px;
+$img-size-lg: 300px;
 $content-width: px-to-rem(300);
 $icons-width: px-to-rem(160);
 $footer-height: px-to-rem(50);
 $text-color: #333;
 $link-color: #2d99ba;
 
-$quora-color: #AB382F;
-$github-color: #25292E;
+$quora-color: #ab382f;
+$github-color: #25292e;
 $twitter-color: #55acee;
 $mail-color: #428bca;
-$linkedin-color: #3176B0;
-$medium-color: #11100E;
-$stack-overflow-color: #E6853D;
+$linkedin-color: #3176b0;
+$medium-color: #11100e;
+$stack-overflow-color: #e6853d;
 
 * {
-  &:before, &:after {
+  &:before,
+  &:after {
     box-sizing: border-box;
   }
 }
@@ -25,7 +26,7 @@ $stack-overflow-color: #E6853D;
 body {
   margin-top: px-to-rem(-30);
   color: $text-color;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -33,7 +34,8 @@ html {
   position: relative;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: $link-color;
   text-decoration: none;
 }
@@ -92,7 +94,6 @@ a, a:visited {
     color: lighten($color, 10%);
   }
 }
-
 
 .icon-quora {
   @include custom-icon($quora-color);
