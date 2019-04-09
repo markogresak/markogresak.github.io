@@ -5,7 +5,6 @@ $img-size-lg: 300px;
 $content-width: px-to-rem(300);
 $icons-width: px-to-rem(160);
 $footer-height: px-to-rem(50);
-$text-color: #333;
 $link-color: #2d99ba;
 
 $quora-color: #ab382f;
@@ -18,7 +17,6 @@ $stack-overflow-color: #e6853d;
 
 body {
   margin-top: px-to-rem(-30);
-  color: $text-color;
 }
 
 html {
