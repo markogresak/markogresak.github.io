@@ -9,7 +9,7 @@ const g = gulpLoadPlugins();
 const isProduction = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 8000;
 
-const publicCathsToClean = [
+const publicPathsToClean = [
   'js',
   'css',
   'index.html',
@@ -150,7 +150,7 @@ gulp.task('watch', (done) => {
  * Use rimraf to clean the public folder.
  */
 gulp.task('clean', () =>
-  rimrafArray(publicCathsToClean.map((pathName) => `public/${pathName}`)),
+  rimrafArray(publicPathsToClean.map((pathName) => `public/${pathName}`)),
 );
 
 /**
