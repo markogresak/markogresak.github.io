@@ -37,7 +37,7 @@
         margin: 0;
       }
 
-      .profile-image {
+      .profile-image img {
         width: 300px;
         height: 300px;
       }
@@ -67,10 +67,9 @@
       }
 
       @media screen and (max-height: 920px) {
-        .profile-image {
+        .profile-image img {
           width: 100px;
           height: 100px;
-          background-size: 100px;
         }
 
         .name {
@@ -84,7 +83,12 @@
     <div class="main">
       <h1 class="name">Marko Grešak</h1>
 
-      <div class="profile-image"></div>
+      <div class="profile-image">
+        <img
+          src="https://avatars.githubusercontent.com/u/6675751?size=300"
+          alt="Profile image"
+        />
+      </div>
 
       <ul class="about-me">
         <li><em>Web Developer</em> who is striving to improve in all areas</li>

@@ -14,12 +14,11 @@ $medium-color: #11100e;
 $stack-overflow-color: #e6853d;
 
 .profile-image {
-  background-image: url("../img/profile.jpg");
-  background-size: $img-size-lg $img-size-lg;
-  background-position: 0 0;
   margin: 0 auto;
-  padding: 0;
-  border-radius: 50%;
+
+  img {
+    border-radius: 50%;
+  }
 }
 
 .main {
