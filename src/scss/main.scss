@@ -90,24 +90,6 @@ a:visited {
   @include custom-icon($linkedin-color);
 }
 
-.flag-icon {
-  position: relative;
-  display: inline-block;
-  width: 1.3em;
-  line-height: 1em;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-
-  &:before {
-    content: "\00a0";
-  }
-}
-
-.flag-icon-si {
-  background-image: url(../flags/si.svg);
-}
-
 .footer {
   height: $footer-height;
   width: 100%;
@@ -120,7 +102,8 @@ a:visited {
   }
 
   .flag-icon {
-    margin-left: px-to-rem(5);
-    bottom: px-to-rem(3);
+    font-size: px-to-rem(20);
+    position: relative;
+    top: px-to-rem(3);
   }
 }
