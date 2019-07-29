@@ -13,11 +13,6 @@ $linkedin-color: #3176b0;
 $medium-color: #11100e;
 $stack-overflow-color: #e6853d;
 
-a,
-a:visited {
-  text-decoration: none;
-}
-
 .profile-image {
   background-image: url("../img/profile.jpg");
   background-size: $img-size-lg $img-size-lg;
