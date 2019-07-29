@@ -101,3 +101,17 @@ $stack-overflow-color: #e6853d;
     top: px-to-rem(3);
   }
 }
+
+@media screen and (max-height: 920px) {
+  .about-me {
+    margin: 0;
+  }
+
+  .icons {
+    max-width: $icons-width * .8;
+  }
+
+  .icon {
+    font-size: px-to-rem(32);
+  }
+}
