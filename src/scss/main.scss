@@ -54,7 +54,7 @@ a:visited {
 
 .icon {
   font-size: px-to-rem(48);
-  transition: color 200ms;
+  transition: color 0.2s;
 }
 
 @mixin custom-icon($color) {
