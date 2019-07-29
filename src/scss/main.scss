@@ -4,7 +4,6 @@ $img-size-sm: 100px;
 $img-size-lg: 300px;
 $icons-width: px-to-rem(160);
 $footer-height: px-to-rem(50);
-$link-color: #2d99ba;
 
 $quora-color: #ab382f;
 $github-color: #25292e;
@@ -16,7 +15,6 @@ $stack-overflow-color: #e6853d;
 
 a,
 a:visited {
-  color: $link-color;
   text-decoration: none;
 }
 
