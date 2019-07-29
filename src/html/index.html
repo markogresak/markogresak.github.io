@@ -88,10 +88,14 @@
       <h1 class="name">Marko Grešak</h1>
 
       <div class="profile-image">
-        <img
-          src="https://avatars.githubusercontent.com/u/6675751?size=300"
-          alt="Profile image"
-        />
+        <picture>
+          <source srcset="https://avatars.githubusercontent.com/u/6675751?size=100, https://avatars.githubusercontent.com/u/6675751?size=200 2x" media="(max-height: 920px)">
+          <source srcset="https://avatars.githubusercontent.com/u/6675751?size=300, https://avatars.githubusercontent.com/u/6675751?size=600 2x" media="(min-height: 920px)">
+          <img
+            src="https://avatars.githubusercontent.com/u/6675751?size=300"
+            alt="Profile image"
+          />
+        </picture>
       </div>
 
       <ul class="about-me">
