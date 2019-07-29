@@ -91,16 +91,6 @@ gulp.task('html', () =>
 );
 
 /**
- * Copy all flags in src/flags to public/flags.
- */
-gulp.task('flags', () =>
-  gulp
-    .src('src/flags/*.svg')
-    .pipe(g.svgmin())
-    .pipe(gulp.dest('public/flags')),
-);
-
-/**
  * Copy src/favicon.ico to public/favicon.ico.
  */
 gulp.task('favicon', () =>
@@ -155,7 +145,7 @@ gulp.task('clean', () =>
 
 /**
  * build task:
- * Clean existing sources and copy or recompile the flies, including flags and favicon.
+ * Clean existing sources and copy or recompile the flies.
  */
 gulp.task(
   'build',
@@ -166,7 +156,6 @@ gulp.task(
       'scss',
       'html',
       'get-profile-image',
-      'flags',
       'favicon',
       'humans+robots',
     ),
