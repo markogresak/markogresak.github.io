@@ -18,7 +18,7 @@ const Name = styled.h1`
 
 const AboutMeList = styled.ul`
   list-style: none;
-  ${scale(0.25)};
+  ${scale(0.2)};
   margin: 0;
   margin-top: ${rhythm(1.5)};
 `
