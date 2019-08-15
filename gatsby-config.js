@@ -1,11 +1,24 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    author: `Marko Grešak`,
+    description: [
+      `Web Developer who is striving to improve in all areas`,
+      `Loving all JavaScript and React related things!`,
+      `Graduated Bachelor of Computer and Information Science at
+        <a
+          href="http://www.fri.uni-lj.si/en/"
+          title="The Faculty of Computer and Information Science of the University of Ljubljana"
+          class="link-fri"
+        >
+          FRI
+        </a>
+      `.replace(/\n/g, ``),
+    ],
+    siteUrl: `https://gresak.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `markogresak`,
+      github: `markogresak`,
     },
   },
   plugins: [
@@ -57,13 +70,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Marko Grešak`,
+        short_name: `gresak.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.ico`,
       },
     },
     `gatsby-plugin-offline`,

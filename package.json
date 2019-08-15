@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "markogresak.github.io",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "My Homepage",
+  "version": "1.0.0",
+  "author": "Marko Grešak <marko@gresak.io> (https://gresak.io)",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/markogresak/markogresak.github.io"
   },
   "dependencies": {
     "gatsby": "^2.13.63",
@@ -38,15 +38,17 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/markogresak/markogresak.github.io#readme",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog",
+    "homepage"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/markogresak/markogresak.github.io.git"
   },
   "scripts": {
     "build": "gatsby build",
