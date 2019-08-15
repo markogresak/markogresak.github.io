@@ -1,6 +1,8 @@
 import Typography from "typography"
 import GithubTheme from "typography-theme-github"
 
+import initIcons from "./icons"
+
 GithubTheme.bodyColor = "#333"
 
 const typography = new Typography(GithubTheme)
@@ -9,6 +11,8 @@ const typography = new Typography(GithubTheme)
 if (process.env.NODE_ENV !== `production`) {
   typography.injectStyles()
 }
+
+initIcons()
 
 export default typography
 export const rhythm = typography.rhythm
