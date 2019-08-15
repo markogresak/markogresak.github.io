@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Marko Grešak`,
@@ -88,5 +90,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
+        },
+        // Refetch once per day
+        refetchInterval: 24 * 60 * 60,
+      },
+    },
   ],
 }
