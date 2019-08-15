@@ -8,60 +8,73 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import styled from "@emotion/styled"
 
-import { rhythm } from "../utils/typography"
+import { rhythm, scale } from "../utils/typography"
+
+const Wrapper = styled.div`
+  text-align: center;
+  font-weight: 300;
+`
+
+const Name = styled.h1`
+  ${scale(1.6)};
+  margin-top: ${rhythm(1)};
+  border-bottom: none;
+`
+
+const AboutMeList = styled.ul`
+  list-style: none;
+  ${scale(0.25)};
+  margin: 0;
+  margin-top: ${rhythm(1.5)};
+`
+
+const AboutMeItem = styled.li`
+  margin-top: ${rhythm(0.5)};
+  margin-bottom: 0;
+`
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 300, height: 300, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       site {
         siteMetadata {
-          author
-          social {
-            twitter
-          }
+          title
+          description
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { title, description } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <Wrapper>
+      <Name>{title}</Name>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
+        alt="Profile image"
         style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
+          display: "block",
+          margin: "0 auto",
         }}
         imgStyle={{
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
-    </div>
+      <AboutMeList>
+        {description.map((item, i) => (
+          <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
+        ))}
+      </AboutMeList>
+    </Wrapper>
   )
 }
 
