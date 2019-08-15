@@ -28,9 +28,9 @@ const AboutMeItem = styled.li`
   margin-bottom: 0;
 `
 
-const Bio = () => {
+const AboutMe = () => {
   const data = useStaticQuery(graphql`
-    query BioQuery {
+    query AboutMeQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
           fixed(width: 300, height: 300, quality: 100) {
@@ -44,18 +44,10 @@ const Bio = () => {
           description
         }
       }
-      github {
-        user(login: "markogresak") {
-          repositories {
-            totalCount
-          }
-        }
-      }
     }
   `)
 
   const { title, description } = data.site.siteMetadata
-  const { totalCount: repositoriesCount } = data.github.user.repositories
 
   return (
     <Wrapper>
@@ -80,4 +72,4 @@ const Bio = () => {
   )
 }
 
-export default Bio
+export default AboutMe

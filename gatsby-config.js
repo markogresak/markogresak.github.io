@@ -19,9 +19,34 @@ module.exports = {
       `.replace(/\n/g, ``),
     ],
     siteUrl: `https://gresak.io/`,
-    social: {
-      twitter: `markogresak`,
-      github: `markogresak`,
+    links: {
+      title: "Links",
+      items: [
+        {
+          title: "Github",
+          href: "https://github.com/markogresak",
+          icon: "github",
+          color: "#25292e",
+        },
+        {
+          title: "Stack Overflow",
+          href: "http://stackoverflow.com/users/1276128/marko-gre%C5%A1ak",
+          icon: "stack-overflow",
+          color: "#e6853d",
+        },
+        {
+          title: "Twitter",
+          href: "https://twitter.com/markogresak",
+          icon: "twitter",
+          color: "#55acee",
+        },
+        {
+          title: "LinkedIn",
+          href: "http://linkedin.com/in/markogresak",
+          icon: "linkedin",
+          color: "#3176b0",
+        },
+      ],
     },
   },
   plugins: [

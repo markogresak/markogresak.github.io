@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import AboutMe from "../components/about-me"
+import Links from "../components/links"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -14,7 +15,8 @@ const BlogIndex = ({ data }) => {
     <>
       <SEO title={title} />
       <AboutMe />
-      <Layout title={heading}>
+      <Links />
+      <Layout title={heading} spacingBottom>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -53,6 +55,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        heading
       }
     }
     allMarkdownRemark(

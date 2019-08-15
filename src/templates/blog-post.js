@@ -1,19 +1,28 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-import Bio from "../components/bio"
+import AboutMe from "../components/about-me"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+const NavList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin-top: ${rhythm(1)};
+`
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} spacingBottom>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -45,20 +54,12 @@ class BlogPostTemplate extends React.Component {
             }}
           />
           <footer>
-            <Bio />
+            <AboutMe />
           </footer>
         </article>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+          <NavList>
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
@@ -73,7 +74,7 @@ class BlogPostTemplate extends React.Component {
                 </Link>
               )}
             </li>
-          </ul>
+          </NavList>
         </nav>
       </Layout>
     )
@@ -84,12 +85,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
