@@ -1,6 +1,8 @@
 import Typography from "typography"
 import GithubTheme from "typography-theme-github"
 
+GithubTheme.bodyColor = "#333"
+
 const typography = new Typography(GithubTheme)
 
 // Hot reload typography in development.
