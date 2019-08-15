@@ -12,6 +12,10 @@ const LinksList = styled.ul`
   margin-left: 0;
 `
 
+const LinkItem = styled.li`
+  margin-top: ${rhythm(0.5)};
+`
+
 const IconWrapper = styled.span`
   margin-right: ${rhythm(0.5)};
 `
@@ -49,7 +53,7 @@ const Links = () => {
     <Layout title={title}>
       <LinksList>
         {items.map(({ title, href, icon, color }) => (
-          <li key={title}>
+          <LinkItem key={title}>
             <IconWrapper>
               <FontAwesomeIcon icon={["fab", icon]} color={color} />
             </IconWrapper>
@@ -57,7 +61,7 @@ const Links = () => {
               {title}
               {title === "Github" && <> ({repositoriesCount} projects)</>}
             </a>
-          </li>
+          </LinkItem>
         ))}
       </LinksList>
     </Layout>
