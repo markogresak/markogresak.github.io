@@ -8,8 +8,11 @@
     "url": "https://github.com/markogresak/markogresak.github.io"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
     "gatsby": "^2.13.63",
     "gatsby-image": "^2.2.8",
+    "gatsby-plugin-emotion": "^4.1.2",
     "gatsby-plugin-feed": "^2.3.6",
     "gatsby-plugin-google-analytics": "^2.1.7",
     "gatsby-plugin-manifest": "^2.2.5",
@@ -33,7 +36,7 @@
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
