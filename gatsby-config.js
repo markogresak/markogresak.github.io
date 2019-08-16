@@ -5,18 +5,10 @@ module.exports = {
     title: `Marko Grešak`,
     heading: `My latest blog posts`,
     author: `Marko Grešak`,
-    description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things! Graduated Bachelor of Computer and Information Science at FRI.`,
+    description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things!`,
     fullDescription: [
       `<em>Web Developer</em> who is striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,
-      `Graduated Bachelor of Computer and Information Science at
-        <a
-          href="http://www.fri.uni-lj.si/en/"
-          title="The Faculty of Computer and Information Science of the University of Ljubljana"
-        >
-          FRI
-        </a>
-      `.replace(/\n/g, ``),
     ],
     siteUrl: `https://gresak.io/`,
     links: {
