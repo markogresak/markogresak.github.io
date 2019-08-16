@@ -5,7 +5,8 @@ module.exports = {
     title: `Marko Grešak`,
     heading: `My latest blog posts`,
     author: `Marko Grešak`,
-    description: [
+    description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things! Graduated Bachelor of Computer and Information Science at FRI.`,
+    fullDescription: [
       `<em>Web Developer</em> who is striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,
       `Graduated Bachelor of Computer and Information Science at

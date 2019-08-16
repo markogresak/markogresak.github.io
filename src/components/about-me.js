@@ -42,13 +42,13 @@ const AboutMe = () => {
       site {
         siteMetadata {
           title
-          description
+          fullDescription
         }
       }
     }
   `)
 
-  const { title, description } = data.site.siteMetadata
+  const { title, fullDescription } = data.site.siteMetadata
 
   return (
     <Wrapper>
@@ -65,7 +65,7 @@ const AboutMe = () => {
         }}
       />
       <AboutMeList>
-        {description.map((item, i) => (
+        {fullDescription.map((item, i) => (
           <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
         ))}
       </AboutMeList>
