@@ -34,53 +34,49 @@ const Date = styled.p`
   margin-bottom: ${rhythm(1)};
 `
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const { location, data, pageContext } = this.props
+const BlogPostTemplate = ({ location, data, pageContext }) => {
+  const post = data.markdownRemark
+  const { previous, next } = pageContext
 
-    const post = data.markdownRemark
-    const { previous, next } = pageContext
+  return (
+    <Page
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}
+    >
+      <Layout location={location}>
+        <Article>
+          <header>
+            <Title>{post.frontmatter.title}</Title>
+            <Date>{post.frontmatter.date}</Date>
+          </header>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <hr />
+          <footer>
+            <AboutMe />
+          </footer>
+        </Article>
 
-    return (
-      <Page
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      >
-        <Layout location={location}>
-          <Article>
-            <header>
-              <Title>{post.frontmatter.title}</Title>
-              <Date>{post.frontmatter.date}</Date>
-            </header>
-            <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <hr />
-            <footer>
-              <AboutMe />
-            </footer>
-          </Article>
-
-          <nav>
-            <NavList>
-              <li>
-                {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title} →
-                  </Link>
-                )}
-              </li>
-            </NavList>
-          </nav>
-        </Layout>
-      </Page>
-    )
-  }
+        <nav>
+          <NavList>
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </NavList>
+        </nav>
+      </Layout>
+    </Page>
+  )
 }
 
 export default BlogPostTemplate
