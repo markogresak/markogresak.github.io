@@ -8,6 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 const Wrapper = styled.div`
   text-align: center;
   font-weight: 300;
+  padding: 0 ${rhythm(0.5)};
 `
 
 const Name = styled.h1`
