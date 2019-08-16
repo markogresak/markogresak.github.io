@@ -8,7 +8,7 @@ Recently I republished a post about [TypeScript and React](https://medium.com/ou
 
 Do you like the React and Redux architecture for your apps? And do you prefer better autocomplete and more type safety provided by TypeScript, but do not like how TypeScript makes you work to tell it all the types?
 
-You might enjoy [elm](http://elm-lang.org/) language after you see what it has to offer.
+You might enjoy [Elm](http://elm-lang.org/) language after you see what it has to offer.
 
 Elm is a functional language, built to develop user interfaces and the output compiles to JavaScript. Since it's not building directly on top of JavaScript, it can go around most of the JavaScript quirks. It is strongly typed but has great type inference, so you do not have to specify types yourself.
 
