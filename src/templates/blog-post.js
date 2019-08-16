@@ -2,10 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
+import Page from "../components/page"
 import AboutMe from "../components/about-me"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import typography, { rhythm, scale } from "../utils/typography"
 
 const NavList = styled.ul`
   display: flex;
@@ -16,67 +16,74 @@ const NavList = styled.ul`
   margin-top: ${rhythm(1)};
 `
 
+const Article = styled.article`
+  ${scale(0.3)};
+  line-height: ${typography.options.baseLineHeight};
+`
+
+const Title = styled.h1`
+  margin-bottom: 0;
+  padding-bottom: ${rhythm(0.25)};
+  ${scale(1.1)};
+`
+
+const Date = styled.p`
+  ${scale(-1 / 5)};
+  display: block;
+  margin-top: ${rhythm(0.25)};
+  margin-bottom: ${rhythm(1)};
+`
+
+const LineBottom = styled.hr`
+  margin-top: ${rhythm(1)};
+  margin-bottom: ${rhythm(1.5)};
+`
+
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const { previous, next } = this.props.pageContext
+    const { location, data, pageContext } = this.props
+
+    const post = data.markdownRemark
+    const { previous, next } = pageContext
 
     return (
-      <Layout location={this.props.location} spacingBottom>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <article>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
-          <footer>
-            <AboutMe />
-          </footer>
-        </article>
+      <Page
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      >
+        <Layout location={location} spacingBottom>
+          <Article>
+            <header>
+              <Title>{post.frontmatter.title}</Title>
+              <Date>{post.frontmatter.date}</Date>
+            </header>
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <LineBottom />
+            <footer>
+              <AboutMe />
+            </footer>
+          </Article>
 
-        <nav>
-          <NavList>
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </NavList>
-        </nav>
-      </Layout>
+          <nav>
+            <NavList>
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="prev">
+                    ← {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title} →
+                  </Link>
+                )}
+              </li>
+            </NavList>
+          </nav>
+        </Layout>
+      </Page>
     )
   }
 }
