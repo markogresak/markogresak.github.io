@@ -12,7 +12,6 @@ module.exports = {
         <a
           href="http://www.fri.uni-lj.si/en/"
           title="The Faculty of Computer and Information Science of the University of Ljubljana"
-          class="link-fri"
         >
           FRI
         </a>
