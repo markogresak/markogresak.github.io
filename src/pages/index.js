@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Page from "../components/page"
-import AboutMe from "../components/about-me"
+import Page from "../components/Page"
+import AboutMe from "../components/AboutMe"
 import PostList from "../components/PostList"
 
 const BlogIndex = ({ data }) => {

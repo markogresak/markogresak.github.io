@@ -2,9 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
-import Page from "../components/page"
-import AboutMe from "../components/about-me"
-import Layout from "../components/layout"
+import Page from "../components/Page"
+import AboutMe from "../components/AboutMe"
+import Layout from "../components/Layout"
 import typography, { rhythm, scale } from "../utils/typography"
 
 const NavList = styled.ul`

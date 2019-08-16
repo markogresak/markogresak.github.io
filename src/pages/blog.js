@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Page from "../components/page"
+import Page from "../components/Page"
 import PostList from "../components/PostList"
 
 const BlogIndex = ({ data }) => {

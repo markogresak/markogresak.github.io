@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import Layout from "./layout"
+import Layout from "./Layout"
 import { rhythm, scale } from "../utils/typography"
 
 const Wrapper = styled.div`
