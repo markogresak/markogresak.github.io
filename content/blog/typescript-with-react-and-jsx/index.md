@@ -80,7 +80,7 @@ At the time of writing, version 1.6 beta is available on npm as a nightly build.
 
 **tl;dr**: `npm install typescript`
 
-####Changing file extensions
+### Changing file extensions
 
 I decided to change all `.js` files in my project to `.tsx`, even those who will probably never contain any JSX syntax. It's easier than changing it later.
 
