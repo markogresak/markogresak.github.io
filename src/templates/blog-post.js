@@ -34,11 +34,6 @@ const Date = styled.p`
   margin-bottom: ${rhythm(1)};
 `
 
-const LineBottom = styled.hr`
-  margin-top: ${rhythm(1)};
-  margin-bottom: ${rhythm(1.5)};
-`
-
 class BlogPostTemplate extends React.Component {
   render() {
     const { location, data, pageContext } = this.props
@@ -58,7 +53,7 @@ class BlogPostTemplate extends React.Component {
               <Date>{post.frontmatter.date}</Date>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <LineBottom />
+            <hr />
             <footer>
               <AboutMe />
             </footer>

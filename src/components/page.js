@@ -14,9 +14,11 @@ const globalStyles = css`
   hr {
     background: none;
     text-align: center;
+    margin: 0;
+    height: 3rem;
 
     &:before {
-      color: ${complementaryColor};
+      color: ${primaryColor};
       content: "...";
       letter-spacing: ${typography.options.baseFontSize};
       ${scale(1.5)};
