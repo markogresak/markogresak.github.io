@@ -1,8 +1,7 @@
 ---
-
 title: "Using Elm instead of React and TypeScript"
+description: ""
 date: "2016-10-18"
-
 ---
 
 Recently I republished a post about [TypeScript and React](https://medium.com/out-of-memory/typescript-with-react-and-jsx-2749eac50bfa#.dsm4a48sp) . It got me thinking about recent elm experience and how it could be the better choice.

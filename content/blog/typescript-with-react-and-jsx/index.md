@@ -1,5 +1,6 @@
 ---
-title: Typescript with React andJSX
+title: Typescript with React and JSX
+description: ""
 date: "2015-09-10"
 ---
 
