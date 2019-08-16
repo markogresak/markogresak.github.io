@@ -68,7 +68,7 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things! Graduated Bachelor of Computer and Information Science at FRI. `,
+  description: ``,
 }
 
 SEO.propTypes = {
