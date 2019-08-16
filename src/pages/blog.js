@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Page from "../components/page"
-import AboutMe from "../components/about-me"
 import PostList from "../components/PostList"
 
 const BlogIndex = ({ data }) => {
@@ -11,7 +10,6 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Page title={title} description={description}>
-      <AboutMe />
       <PostList title={heading} posts={posts}></PostList>
     </Page>
   )
@@ -28,10 +26,7 @@ export const pageQuery = graphql`
         heading
       }
     }
-    allMarkdownRemark(
-      limit: 3
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt

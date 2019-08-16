@@ -46,7 +46,7 @@ class BlogPostTemplate extends React.Component {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       >
-        <Layout location={location} spacingBottom>
+        <Layout location={location}>
           <Article>
             <header>
               <Title>{post.frontmatter.title}</Title>

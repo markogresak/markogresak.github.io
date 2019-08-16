@@ -8,35 +8,34 @@ const LayoutWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: ${rhythm(24)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)}
-    ${props => (props.spacingBottom ? rhythm(1) : 0)};
+  padding: ${rhythm(1.5)} ${rhythm(3 / 4)} 0;
 `
 
-const Layout = ({ title, children, spacingBottom }) => {
+const Title = styled.h2`
+  margin-top: 0;
+`
+
+const Layout = ({ title, children }) => {
   return (
-    <LayoutWrapper spacingBottom={spacingBottom}>
+    <LayoutWrapper>
       {title && (
         <header>
-          <h2 style={{ marginTop: 0 }}>
+          <Title>
             <Link
               style={{
                 textDecoration: `none`,
                 color: `inherit`,
               }}
-              to={`/`}
+              to={`/blog`}
             >
               {title}
             </Link>
-          </h2>
+          </Title>
         </header>
       )}
       {children}
     </LayoutWrapper>
   )
-}
-
-Layout.defaultProps = {
-  spacingBottom: false,
 }
 
 export default Layout
