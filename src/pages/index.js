@@ -1,19 +1,18 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import Page from "../components/page"
 import AboutMe from "../components/about-me"
 import Links from "../components/links"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data }) => {
-  const { title, heading } = data.site.siteMetadata
+  const { title, description, heading } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <>
-      <SEO title={title} />
+    <Page title={title} description={description}>
       <AboutMe />
       <Links />
       <Layout title={heading} spacingBottom>
@@ -44,7 +43,7 @@ const BlogIndex = ({ data }) => {
           )
         })}
       </Layout>
-    </>
+    </Page>
   )
 }
 
@@ -55,6 +54,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
         heading
       }
     }
