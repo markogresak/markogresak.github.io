@@ -107,6 +107,8 @@ find . -type f \( -iname '_.js' -or -iname '_.jsx' \) \
   -exec sh -c 'mv "$1" "${1%.js\*}.tsx"' \_ {} \;
 ```
 
+---
+
 If you wish to instead rename `.js` and `.jsx` to `.ts` and `.tsx` respectively, use the following script. The only thing changed in this script, compared to above, is the last part:
 
 - `` 'mv "\$1"`sed -re "s/\.js(x)?$/\.ts\1/g" <<< "$1"\`' ``: Command `sed` (stream editor) is used to replace matching regex `\.js(x)?$` (`.js` or `.jsx` at end of string) with `.ts(x)`, where the `x` of `.tsx` is added only if it existed in old extension.
