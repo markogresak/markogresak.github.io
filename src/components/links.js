@@ -38,7 +38,7 @@ const Links = () => {
       }
       github {
         user(login: "markogresak") {
-          repositories {
+          repositories(privacy: PUBLIC) {
             totalCount
           }
         }
