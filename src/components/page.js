@@ -1,28 +1,35 @@
 import React from "react"
 import { css, Global } from "@emotion/core"
 
+import typography, { scale } from "../utils/typography"
+import { primaryColor, complementaryColor } from "../utils/colors"
+
 import SEO from "./seo"
 
 const globalStyles = css`
   a {
-    color: "#3d00e0";
+    color: ${primaryColor};
   }
 
   hr {
-    background: "none";
+    background: none;
+    text-align: center;
 
     &:before {
+      color: ${complementaryColor};
       content: "...";
-      letter-spacing: "0.6em";
+      letter-spacing: ${typography.options.baseFontSize};
+      ${scale(1.5)};
+      line-height: 0;
     }
   }
-```
+`
 
 const Page = ({ children, title, description }) => {
   return (
     <>
-      <Global styles={globalStyles} />
       <SEO title={title} description={description} />
+      <Global styles={globalStyles} />
       {children}
     </>
   )
