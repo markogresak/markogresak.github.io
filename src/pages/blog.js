@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Page from "../components/Page"
 import PostList from "../components/PostList"
+import AboutMe from "../components/AboutMe"
 
 const BlogIndex = ({ data }) => {
   const { title, description, headingAllPosts } = data.site.siteMetadata
@@ -11,6 +12,10 @@ const BlogIndex = ({ data }) => {
   return (
     <Page title={title} description={description}>
       <PostList title={headingAllPosts} posts={posts}></PostList>
+      <hr />
+      <footer>
+        <AboutMe />
+      </footer>
     </Page>
   )
 }
