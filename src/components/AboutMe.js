@@ -43,6 +43,7 @@ const AboutMeItem = styled.li``
 
 const LinksList = styled.ul`
   list-style: none;
+  ${scale(0.1)};
   margin: 0;
   margin-top: ${rhythm(0.5)};
 `
