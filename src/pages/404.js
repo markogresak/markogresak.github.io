@@ -36,7 +36,7 @@ const LinkItem = styled.li`
 
   &:after {
     content: " | ";
-    color: #83a0a5;
+    color: rgba(51, 51, 51, 0.5);
   }
 
   &:last-child:after {
