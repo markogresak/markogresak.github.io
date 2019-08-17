@@ -23,6 +23,7 @@ const Article = styled.article`
 
 const Title = styled.h1`
   margin-bottom: 0;
+  margin-top: 0;
   padding-bottom: ${rhythm(0.25)};
   ${scale(1.1)};
 `
