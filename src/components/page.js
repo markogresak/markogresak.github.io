@@ -2,7 +2,7 @@ import React from "react"
 import { css, Global } from "@emotion/core"
 
 import typography, { scale } from "../utils/typography"
-import { primaryColor, complementaryColor } from "../utils/colors"
+import { primaryColor } from "../utils/colors"
 
 import SEO from "./Seo"
 
