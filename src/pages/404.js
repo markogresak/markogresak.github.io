@@ -58,7 +58,10 @@ class NotFoundPage extends React.Component {
             </Title>
             <p>
               I swear, I've checked everywhere, and it seems I have forgotten
-              where I put what you were looking for 😞
+              where I put what you were looking for{" "}
+              <span role="img" aria-label="disappointed face">
+                😞
+              </span>
             </p>
             <p>
               If you think there's a problem, please send me a mail me to get
