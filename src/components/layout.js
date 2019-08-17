@@ -15,21 +15,25 @@ const Title = styled.h2`
   margin-top: 0;
 `
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, children, linkTo }) => {
   return (
     <LayoutWrapper>
       {title && (
         <header>
           <Title>
-            <Link
-              style={{
-                textDecoration: `none`,
-                color: `inherit`,
-              }}
-              to={`/blog`}
-            >
-              {title}
-            </Link>
+            {linkTo ? (
+              <Link
+                style={{
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                to={linkTo}
+              >
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
           </Title>
         </header>
       )}
