@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Marko Grešak`,
     heading: `My latest blog posts`,
+    headingAllPosts: `My blog posts`,
     author: `Marko Grešak`,
     description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things!`,
     fullDescription: [
