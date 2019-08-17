@@ -8,7 +8,7 @@ module.exports = {
     author: `Marko Grešak`,
     description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things!`,
     fullDescription: [
-      `<em>Web Developer</em> who is striving to improve in all areas`,
+      `<em>Web Developer</em>, striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,
     ],
     siteUrl: `https://gresak.io/`,
