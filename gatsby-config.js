@@ -32,12 +32,6 @@ module.exports = {
           icon: "twitter",
           color: "#55acee",
         },
-        {
-          title: "LinkedIn",
-          href: "http://linkedin.com/in/markogresak",
-          icon: "linkedin",
-          color: "#3176b0",
-        },
       ],
     },
   },
