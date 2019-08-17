@@ -15,9 +15,9 @@ const Title = styled.h2`
   margin-top: 0;
 `
 
-const Layout = ({ title, children, linkTo }) => {
+const Layout = ({ title, children, linkTo, style }) => {
   return (
-    <LayoutWrapper>
+    <LayoutWrapper style={style}>
       {title && (
         <header>
           <Title>

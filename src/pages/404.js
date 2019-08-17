@@ -6,14 +6,24 @@ import Page from "../components/Page"
 import Logo from "../components/Logo"
 import Layout from "../components/Layout"
 
+import { rhythm } from "../utils/typography"
+
 const Container = styled.div`
   text-align: center;
+  max-width: ${rhythm(18)};
+  margin: 0 auto;
+  padding: 0 ${rhythm(1)};
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const Title = styled.h1`
   border: none;
   font-size: 50px;
   font-weight: 200;
+  margin-top: 0;
 `
 
 const Links = styled.ul`
@@ -41,7 +51,7 @@ class NotFoundPage extends React.Component {
 
     return (
       <Page title={title}>
-        <Layout>
+        <Layout style={{ padding: 0 }}>
           <Container>
             <Title>
               <Logo />
