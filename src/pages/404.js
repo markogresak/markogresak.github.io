@@ -57,10 +57,13 @@ class NotFoundPage extends React.Component {
               <Logo />
             </Title>
             <p>
-              I swear, I've checked everywhere and it seems I have forgotten
-              where I put what you were looking for.
+              I swear, I've checked everywhere, and it seems I have forgotten
+              where I put what you were looking for 😞
             </p>
-            <p>Mail me to get this problem fixed!</p>
+            <p>
+              If you think there's a problem, please send me a mail me to get
+              this problem fixed.
+            </p>
 
             <nav>
               <Links>
