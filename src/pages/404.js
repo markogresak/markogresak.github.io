@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 import Page from "../components/Page"
@@ -69,9 +69,15 @@ class NotFoundPage extends React.Component {
               <Links>
                 {links.map(({ title, href }) => (
                   <LinkItem key={title}>
-                    <a href={href} title={title}>
-                      {title}
-                    </a>
+                    {href.indexOf("/") === 0 ? (
+                      <Link to={href} title={title}>
+                        {title}
+                      </Link>
+                    ) : (
+                      <a href={href} title={title}>
+                        {title}
+                      </a>
+                    )}
                   </LinkItem>
                 ))}
               </Links>
