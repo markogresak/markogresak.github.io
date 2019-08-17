@@ -1,9 +1,10 @@
 import Typography from "typography"
 import GithubTheme from "typography-theme-github"
 
+import { textColor } from "./icons"
 import initIcons from "./icons"
 
-GithubTheme.bodyColor = "#333"
+GithubTheme.bodyColor = textColor
 
 const typography = new Typography(GithubTheme)
 
