@@ -35,6 +35,23 @@ module.exports = {
         },
       ],
     },
+    site_404: {
+      title: "Oops, Not Found | gresak.io",
+      links: [
+        {
+          title: "Home",
+          href: "/",
+        },
+        {
+          title: "Blog",
+          href: "/blog",
+        },
+        {
+          title: "Mail",
+          href: "mailto:marko@gresak.io?subject=Huston, we have a problem",
+        },
+      ],
+    },
   },
   plugins: [
     {

@@ -1,20 +1,71 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Page from "../components/Page"
+import Logo from "../components/Logo"
+import Layout from "../components/Layout"
+
+const Container = styled.div`
+  text-align: center;
+`
+
+const Title = styled.h1`
+  border: none;
+  font-size: 50px;
+  font-weight: 200;
+`
+
+const Links = styled.ul`
+  list-style: none;
+  margin-left: 0;
+`
+
+const LinkItem = styled.li`
+  display: inline;
+
+  &:after {
+    content: " | ";
+    color: #83a0a5;
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+`
 
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const { title, links } = data.site.siteMetadata.site_404
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="404: Not Found" />
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      </Layout>
+      <Page title={title}>
+        <Layout>
+          <Container>
+            <Title>
+              <Logo />
+            </Title>
+            <p>
+              I swear, I've checked everywhere and it seems I have forgotten
+              where I put what you were looking for.
+            </p>
+            <p>Mail me to get this problem fixed!</p>
+
+            <nav>
+              <Links>
+                {links.map(({ title, href }) => (
+                  <LinkItem key={title}>
+                    <a href={href} title={title}>
+                      {title}
+                    </a>
+                  </LinkItem>
+                ))}
+              </Links>
+            </nav>
+          </Container>
+        </Layout>
+      </Page>
     )
   }
 }
@@ -25,7 +76,13 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        site_404 {
+          title
+          links {
+            title
+            href
+          }
+        }
       }
     }
   }
