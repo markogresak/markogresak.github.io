@@ -14,6 +14,12 @@ const HeaderLogo = styled.h2`
   border-bottom: none;
 `
 
+const Footer = styled.footer`
+  border-top: 2px solid ${primaryColor};
+  margin-top: ${rhythm(1.5)};
+  padding-top: ${rhythm(1.5)};
+`
+
 const BlogPage = ({ title, description, children }) => {
   return (
     <Page title={title} description={description}>
@@ -34,13 +40,10 @@ BlogPage.Header = ({ children }) => (
 )
 
 BlogPage.Footer = ({ children }) => (
-  <>
-    <hr />
-    <footer>
-      <AboutMe />
-      {children}
-    </footer>
-  </>
+  <Footer>
+    <AboutMe />
+    {children}
+  </Footer>
 )
 
 export default BlogPage
