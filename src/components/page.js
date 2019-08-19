@@ -34,6 +34,14 @@ const globalStyles = css`
     }
   }
 
+  .gatsby-resp-image-link {
+    text-decoration: none;
+
+    &:after {
+      display: none;
+    }
+  }
+
   hr {
     background: none;
     text-align: center;
