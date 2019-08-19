@@ -42,9 +42,16 @@ const AboutMeItem = styled.li``
 
 const LinksList = styled.ul`
   list-style: none;
-  ${scale(0.1)};
   margin: 0;
   margin-top: ${rhythm(0.5)};
+`
+
+const LinksListItem = styled.li`
+  display: inline;
+
+  &:not(:last-child):after {
+    content: " | ";
+  }
 `
 
 const IconWrapper = styled.span`
@@ -114,7 +121,7 @@ const AboutMe = () => {
           </AboutMeList>
           <LinksList>
             {links.items.map(({ title, href, icon, color }) => (
-              <li key={title}>
+              <LinksListItem key={title}>
                 <IconWrapper>
                   <FontAwesomeIcon icon={["fab", icon]} color={color} />
                 </IconWrapper>
@@ -122,7 +129,7 @@ const AboutMe = () => {
                   {title}
                   {title === "Github" && <> ({repositoriesCount} projects)</>}
                 </a>
-              </li>
+              </LinksListItem>
             ))}
           </LinksList>
         </div>
