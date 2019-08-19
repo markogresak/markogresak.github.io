@@ -20,7 +20,6 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   flex: 0 0 150px;
   margin-right: ${rhythm(1)};
-  margin-top: ${rhythm(0.5)};
 
   @media (max-width: 560px) {
     margin: 0 0 ${rhythm(1)};
