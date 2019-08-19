@@ -5,7 +5,7 @@ import styled from "@emotion/styled"
 
 import { rhythm } from "../utils/typography"
 
-const getAnimationName = left => `arrow-pointing-${left ? "left" : "right"}`
+const getAnimationName = left => `arrow-${left ? "left" : "right"}`
 
 const arrowPointingKeyframes = left => css`
   @keyframes ${getAnimationName(left)} {
