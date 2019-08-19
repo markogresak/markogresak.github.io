@@ -8,7 +8,7 @@ const PostList = ({ title, posts }) => {
   return (
     <Layout title={title}>
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.frontmatter.title || <i>(Untitled)</i>
         return (
           <article key={node.fields.slug}>
             <header>
