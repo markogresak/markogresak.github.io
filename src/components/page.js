@@ -13,16 +13,15 @@ const globalStyles = css`
     text-decoration: none;
     transition: box-shadow 0.2s;
 
+    /* underlined in posts and on hover */
     &:hover,
     article & {
       text-decoration: none;
-      box-shadow: 0 1px 0 0;
+      box-shadow: 0 1px 0 0 currentColor;
     }
 
-    article & {
-      &:hover {
-        box-shadow: none;
-      }
+    article &:hover {
+      box-shadow: none;
     }
   }
 
