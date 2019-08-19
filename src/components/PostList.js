@@ -8,6 +8,7 @@ import ReadMore from "./ReadMore"
 
 const Title = styled.h3`
   margin-bottom: ${rhythm(0.25)};
+  font-weight: 400;
 `
 
 const PostList = ({ posts, readMoreText }) => {
