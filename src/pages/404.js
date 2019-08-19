@@ -47,7 +47,7 @@ const NotFoundPage = ({ data }) => {
           If you were expecting to find a blog post or if you think there's a
           problem, please{" "}
           <a
-            href={issuesUrl}
+            href={`${issuesUrl}/new`}
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
