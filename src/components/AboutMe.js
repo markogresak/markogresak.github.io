@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -90,7 +91,11 @@ const AboutMe = () => {
   const { totalCount: repositoriesCount } = data.github.user.repositories
 
   return (
-    <Layout>
+    <Layout
+      css={css`
+        padding-bottom: 0;
+      `}
+    >
       <Wrapper>
         <ImageWrapper>
           <Image
