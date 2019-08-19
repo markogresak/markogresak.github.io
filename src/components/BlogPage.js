@@ -7,10 +7,14 @@ import AboutMe from "../components/AboutMe"
 import Logo from "../components/Logo"
 
 import { rhythm } from "../utils/typography"
+import { primaryColor } from "../utils/colors"
+
+const Header = styled.header`
+  margin-bottom: ${rhythm(2)};
+`
 
 const HeaderLogo = styled.h2`
-  margin-top: 0;
-  margin-bottom: ${rhythm(2)};
+  margin: 0;
   border-bottom: none;
 `
 
@@ -29,14 +33,14 @@ const BlogPage = ({ title, description, children }) => {
 }
 
 BlogPage.Header = ({ children }) => (
-  <header>
+  <Header>
     <HeaderLogo>
       <Link to="/blog">
         <Logo />
       </Link>
     </HeaderLogo>
     {children}
-  </header>
+  </Header>
 )
 
 BlogPage.Footer = ({ children }) => (
