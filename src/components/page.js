@@ -17,8 +17,7 @@ const globalStyles = css`
       content: "";
       display: block;
       width: 100%;
-      margin-top: 0.1em;
-      height: 0.1em;
+      height: 2px;
       transition: transform 0.5s cubic-bezier(1, 0.01, 0.3, 1.5);
       transform: scaleX(0);
       background: ${primaryColor};
