@@ -9,10 +9,12 @@ import Layout from "./Layout"
 import LinksList from "./LinksList"
 import { rhythm, scale } from "../utils/typography"
 
+const mobileMediaQuery = `@media (max-width: 580px)`
+
 const Wrapper = styled.div`
   display: flex;
 
-  @media (max-width: 560px) {
+  ${mobileMediaQuery} {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -22,8 +24,25 @@ const ImageWrapper = styled.div`
   flex: 0 0 150px;
   margin-right: ${rhythm(1)};
 
-  @media (max-width: 560px) {
+  ${mobileMediaQuery} {
+    flex-basis: 100%;
+    text-align: center;
     margin: 0 0 ${rhythm(1)};
+  }
+`
+
+const LinksWrapper = styled.div`
+  ${scale(-0.2)}
+  margin-top: ${rhythm(0.5)};
+
+  ${mobileMediaQuery} {
+    li {
+      display: block;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 `
 
@@ -102,21 +121,25 @@ const AboutMe = () => {
               <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
             ))}
           </AboutMeList>
-          <LinksList links={links.items}>
-            {({ title, icon, iconColor }) => (
-              <>
-                <FontAwesomeIcon
-                  icon={["fab", icon]}
-                  color={iconColor}
-                  css={css`
-                    margin-right: ${rhythm(0.3)};
-                  `}
-                />
-                {title}
-                {title === "Github" && <> ({repositoriesCount} projects)</>}
-              </>
-            )}
-          </LinksList>
+          <LinksWrapper>
+            <LinksList links={links.items}>
+              {({ title, icon, iconColor }) => (
+                <>
+                  <FontAwesomeIcon
+                    icon={["fab", icon]}
+                    color={iconColor}
+                    css={css`
+                      margin-right: ${rhythm(0.25)};
+                    `}
+                    // force same width on all icons
+                    className="fa-w-16"
+                  />
+                  {title}
+                  {title === "Github" && <> ({repositoriesCount} projects)</>}
+                </>
+              )}
+            </LinksList>
+          </LinksWrapper>
         </div>
       </Wrapper>
     </Layout>
