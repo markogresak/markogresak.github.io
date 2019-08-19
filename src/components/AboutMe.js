@@ -9,7 +9,6 @@ import Layout from "./Layout"
 import { rhythm, scale } from "../utils/typography"
 
 const Wrapper = styled.div`
-  font-weight: 300;
   display: flex;
 
   @media (max-width: 560px) {
