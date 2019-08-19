@@ -6,7 +6,6 @@ import { primaryColor, textColor } from "../utils/colors"
 
 const Title = styled.span`
   ${scale(1)};
-  line-height: 1;
   font-weight: 600;
 `
 
