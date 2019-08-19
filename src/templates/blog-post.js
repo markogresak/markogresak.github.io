@@ -35,7 +35,7 @@ const Date = styled.p`
   margin-bottom: ${rhythm(1)};
 `
 
-const BlogPostTemplate = ({ location, data, pageContext }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next } = pageContext
 

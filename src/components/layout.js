@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import { rhythm } from "../utils/typography"
@@ -23,10 +24,10 @@ const Layout = ({ title, children, linkTo, className }) => {
           <Title>
             {linkTo ? (
               <Link
-                style={{
-                  textDecoration: `none`,
-                  color: `inherit`,
-                }}
+                css={css`
+                  text-decoration: none;
+                  color: inherit;
+                `}
                 to={linkTo}
               >
                 {title}
