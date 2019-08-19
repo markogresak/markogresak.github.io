@@ -1,10 +1,11 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 import Page from "../components/Page"
 import Logo from "../components/Logo"
 import Layout from "../components/Layout"
+import LinksList from "../components/LinksList"
 
 import { rhythm } from "../utils/typography"
 
@@ -26,24 +27,6 @@ const Title = styled.h1`
   margin-top: 0;
 `
 
-const Links = styled.ul`
-  list-style: none;
-  margin-left: 0;
-`
-
-const LinkItem = styled.li`
-  display: inline;
-
-  &:after {
-    content: " | ";
-    color: rgba(33, 33, 33, 0.5);
-  }
-
-  &:last-child:after {
-    display: none;
-  }
-`
-
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
@@ -61,21 +44,7 @@ class NotFoundPage extends React.Component {
             ))}
 
             <nav>
-              <Links>
-                {links.map(({ title, href }) => (
-                  <LinkItem key={title}>
-                    {href.indexOf("/") === 0 ? (
-                      <Link to={href} title={title}>
-                        {title}
-                      </Link>
-                    ) : (
-                      <a href={href} title={title}>
-                        {title}
-                      </a>
-                    )}
-                  </LinkItem>
-                ))}
-              </Links>
+              <LinksList links={links}>{({ title }) => title}</LinksList>
             </nav>
           </Container>
         </Layout>

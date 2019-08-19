@@ -6,6 +6,7 @@ import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Layout from "./Layout"
+import LinksList from "./LinksList"
 import { rhythm, scale } from "../utils/typography"
 
 const Wrapper = styled.div`
@@ -40,24 +41,6 @@ const AboutMeList = styled.ul`
 
 const AboutMeItem = styled.li``
 
-const LinksList = styled.ul`
-  list-style: none;
-  margin: 0;
-  margin-top: ${rhythm(0.5)};
-`
-
-const LinksListItem = styled.li`
-  display: inline;
-
-  &:not(:last-child):after {
-    content: " | ";
-  }
-`
-
-const IconWrapper = styled.span`
-  margin-right: ${rhythm(0.3)};
-`
-
 const AboutMe = () => {
   const data = useStaticQuery(graphql`
     query AboutMeQuery {
@@ -78,7 +61,7 @@ const AboutMe = () => {
               title
               href
               icon
-              color
+              iconColor
             }
           }
         }
@@ -119,18 +102,20 @@ const AboutMe = () => {
               <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
             ))}
           </AboutMeList>
-          <LinksList>
-            {links.items.map(({ title, href, icon, color }) => (
-              <LinksListItem key={title}>
-                <IconWrapper>
-                  <FontAwesomeIcon icon={["fab", icon]} color={color} />
-                </IconWrapper>
-                <a href={href} title={title}>
-                  {title}
-                  {title === "Github" && <> ({repositoriesCount} projects)</>}
-                </a>
-              </LinksListItem>
-            ))}
+          <LinksList links={links.items}>
+            {({ title, icon, iconColor }) => (
+              <>
+                <FontAwesomeIcon
+                  icon={["fab", icon]}
+                  color={iconColor}
+                  css={css`
+                    margin-right: ${rhythm(0.3)};
+                  `}
+                />
+                {title}
+                {title === "Github" && <> ({repositoriesCount} projects)</>}
+              </>
+            )}
           </LinksList>
         </div>
       </Wrapper>
