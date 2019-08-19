@@ -10,24 +10,18 @@ import SEO from "./Seo"
 const globalStyles = css`
   a {
     color: ${primaryColor};
-    display: inline-block;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
 
-    /* Custom link underline (Adapted from Emotion docs) */
-    &:after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      transition: transform 0.5s cubic-bezier(1, 0.01, 0.3, 1.5);
-      transform: scaleX(0);
-      background: ${primaryColor};
+    &:hover,
+    article & {
+      text-decoration: none;
+      box-shadow: 0 1px 0 0;
     }
 
-    &:hover {
-      text-decoration: none;
-
-      &:after {
-        transform: scaleX(1);
+    article & {
+      &:hover {
+        box-shadow: none;
       }
     }
   }
