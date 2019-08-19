@@ -41,10 +41,6 @@ module.exports = {
       title: "Oops, Not Found | gresak.io",
       links: [
         {
-          title: "Send a Mail",
-          href: "mailto:marko@gresak.io?subject=Huston, we have a problem",
-        },
-        {
           title: "Home",
           href: "/",
         },
