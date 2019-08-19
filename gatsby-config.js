@@ -13,6 +13,7 @@ module.exports = {
     ],
     readMoreText: "Read older posts",
     siteUrl: `https://gresak.io/`,
+    issuesUrl: `https://github.com/markogresak/markogresak.github.io/issues`,
     links: {
       title: "Links",
       items: [
@@ -38,12 +39,6 @@ module.exports = {
     },
     site_404: {
       title: "Oops, Not Found | gresak.io",
-      text: [
-        `I swear, I've checked everywhere, and it seems I have forgotten
-        where I put what you were looking for <span role="img" aria-label="disappointed face">😞</span>`,
-        `If you think there's a problem, please send me a mail me to get
-        this problem fixed.`,
-      ],
       links: [
         {
           title: "Send a Mail",

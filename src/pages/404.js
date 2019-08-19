@@ -27,7 +27,8 @@ const Title = styled.h1`
 `
 
 const NotFoundPage = ({ data }) => {
-  const { title, text, links } = data.site.siteMetadata.site_404
+  const { issuesUrl, site_404 } = data.site.siteMetadata
+  const { title, links } = site_404
 
   return (
     <Page title={title} css={{ padding: 0 }}>
@@ -35,9 +36,25 @@ const NotFoundPage = ({ data }) => {
         <Title>
           <Logo />
         </Title>
-        {text.map((paragraph, i) => (
-          <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
-        ))}
+        <p>
+          I swear, I've checked everywhere, and it seems I have forgotten where
+          I put what you were looking for{" "}
+          <span role="img" aria-label="disappointed face">
+            😞
+          </span>
+        </p>
+        <p>
+          If you were expecting to find a blog post or if you think there's a
+          problem, please{" "}
+          <a
+            href={issuesUrl}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            file an issue
+          </a>{" "}
+          to get this problem fixed.
+        </p>
 
         <nav>
           <LinksList links={links}>{({ title }) => title}</LinksList>
@@ -53,9 +70,9 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
+        issuesUrl
         site_404 {
           title
-          text
           links {
             title
             href
