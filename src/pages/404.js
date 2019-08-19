@@ -35,8 +35,8 @@ const NotFoundPage = ({ data }) => {
         <Title>
           <Logo />
         </Title>
-        {text.map(paragraph => (
-          <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+        {text.map((paragraph, i) => (
+          <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
         ))}
 
         <nav>
