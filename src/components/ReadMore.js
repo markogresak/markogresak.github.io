@@ -1,15 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
+
+import AnimatedArrow from "./AnimatedArrow"
 
 import { rhythm, scale } from "../utils/typography"
 import { primaryLightColor, primaryColor } from "../utils/colors"
-
-const Icon = styled.span`
-  margin-left: ${rhythm(0.25)};
-  display: inline-block;
-`
 
 const readMoreStyle = css`
   display: block;
@@ -22,30 +18,13 @@ const readMoreStyle = css`
 
   &:hover {
     color: ${primaryColor};
-
-    ${Icon} {
-      animation: arrow-pointing-right 0.5s 2;
-    }
-  }
-
-  @keyframes arrow-pointing-right {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(${rhythm(0.25)});
-    }
-    100% {
-      transform: translateX(0);
-    }
   }
 `
 
 const ReadMore = ({ children }) => {
   return (
     <Link css={readMoreStyle} to="/blog">
-      {children}
-      <Icon>→</Icon>
+      <AnimatedArrow right>{children}</AnimatedArrow>
     </Link>
   )
 }
