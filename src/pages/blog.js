@@ -1,28 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Page from "../components/Page"
+import BlogPage from "../components/BlogPage"
 import PostList from "../components/PostList"
-import AboutMe from "../components/AboutMe"
-import BlogHeader from "../components/BlogHeader"
 
-const BlogPage = ({ data }) => {
+const Blog = ({ data }) => {
   const { title, description } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Page title={title} description={description}>
-      <BlogHeader />
+    <BlogPage title={title} description={description}>
+      <BlogPage.Header />
       <PostList posts={posts} />
-      <hr />
-      <footer>
-        <AboutMe />
-      </footer>
-    </Page>
+      <BlogPage.Footer />
+    </BlogPage>
   )
 }
 
-export default BlogPage
+export default Blog
 
 export const pageQuery = graphql`
   query {

@@ -1,12 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-import Page from "../components/Page"
-import AboutMe from "../components/AboutMe"
+import BlogPage from "../components/BlogPage"
 import AnimatedArrow from "../components/AnimatedArrow"
-import BlogHeader from "../components/BlogHeader"
 
 import typography, { rhythm, scale } from "../utils/typography"
 
@@ -17,7 +14,7 @@ const Title = styled.h1`
   ${scale(1.1)};
 `
 
-const Date = styled.p`
+const Date = styled.time`
   ${scale(-1 / 5)};
   display: block;
   margin-top: ${rhythm(0.25)};
@@ -37,56 +34,56 @@ const NavList = styled.ul`
   margin-top: ${rhythm(1)};
 `
 
+const NavItem = styled.li`
+  ${({ right }) => right && `margin-left: auto;`}
+`
+
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next } = pageContext
 
   return (
-    <Page
+    <BlogPage
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     >
+      <BlogPage.Header />
+
       <Article>
-        <BlogHeader>
-          <Title>{post.frontmatter.title}</Title>
-          <Date>{post.frontmatter.date}</Date>
-        </BlogHeader>
+        <Title>{post.frontmatter.title}</Title>
+        <Date dateTime={post.frontmatter.date}>
+          {post.frontmatter.humanDate}
+        </Date>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-        <footer>
-          <AboutMe />
-        </footer>
       </Article>
 
-      <nav>
-        <NavList>
-          <li>
-            {previous && (
-              <AnimatedArrow left>
-                Previous post:{" "}
-                <Link to={previous.fields.slug} rel="prev">
-                  {previous.frontmatter.title}
-                </Link>
-              </AnimatedArrow>
-            )}
-          </li>
-          <li
-            css={css`
-              margin-left: auto;
-            `}
-          >
-            {next && (
-              <AnimatedArrow right>
-                Next post:{" "}
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title}
-                </Link>
-              </AnimatedArrow>
-            )}
-          </li>
-        </NavList>
-      </nav>
-    </Page>
+      <BlogPage.Footer>
+        <nav>
+          <NavList>
+            <NavItem>
+              {previous && (
+                <AnimatedArrow left>
+                  Previous post:{" "}
+                  <Link to={previous.fields.slug} rel="prev">
+                    {previous.frontmatter.title}
+                  </Link>
+                </AnimatedArrow>
+              )}
+            </NavItem>
+            <NavItem right>
+              {next && (
+                <AnimatedArrow right>
+                  Next post:{" "}
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title}
+                  </Link>
+                </AnimatedArrow>
+              )}
+            </NavItem>
+          </NavList>
+        </nav>
+      </BlogPage.Footer>
+    </BlogPage>
   )
 }
 
@@ -100,7 +97,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
+        humanDate: date(formatString: "MMMM DD, YYYY")
         description
       }
     }
