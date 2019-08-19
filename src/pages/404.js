@@ -36,7 +36,7 @@ const LinkItem = styled.li`
 
   &:after {
     content: " | ";
-    color: rgba(51, 51, 51, 0.5);
+    color: rgba(33, 33, 33, 0.5);
   }
 
   &:last-child:after {
@@ -51,7 +51,7 @@ class NotFoundPage extends React.Component {
 
     return (
       <Page title={title}>
-        <Layout style={{ padding: 0 }}>
+        <Layout css={{ padding: 0 }}>
           <Container>
             <Title>
               <Logo />
