@@ -4,7 +4,9 @@ import { Link } from "gatsby"
 import Layout from "./Layout"
 import { rhythm } from "../utils/typography"
 
-const PostList = ({ title, posts }) => {
+import ReadMore from "./ReadMore"
+
+const PostList = ({ title, posts, readMoreText }) => {
   return (
     <Layout title={title}>
       {posts.map(({ node }) => {
@@ -33,6 +35,7 @@ const PostList = ({ title, posts }) => {
           </article>
         )
       })}
+      {readMoreText && <ReadMore>{readMoreText}</ReadMore>}
     </Layout>
   )
 }

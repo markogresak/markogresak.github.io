@@ -6,13 +6,17 @@ import AboutMe from "../components/AboutMe"
 import PostList from "../components/PostList"
 
 const HomePage = ({ data }) => {
-  const { title, description, heading } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
+  const { title, description, heading, readMoreText } = data.site.siteMetadata
 
   return (
     <Page title={title} description={description}>
       <AboutMe />
-      <PostList title={heading} posts={posts}></PostList>
+      <PostList
+        title={heading}
+        posts={posts}
+        readMoreText={readMoreText}
+      />
     </Page>
   )
 }

@@ -11,6 +11,7 @@ module.exports = {
       `<em>Web Developer</em>, striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,
     ],
+    readMoreText: "Read older posts",
     siteUrl: `https://gresak.io/`,
     links: {
       title: "Links",
