@@ -6,8 +6,8 @@ import AboutMe from "../components/AboutMe"
 import PostList from "../components/PostList"
 
 const HomePage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges
   const { title, description, heading, readMoreText } = data.site.siteMetadata
+  const { edges: posts, totalCount } = data.allMarkdownRemark
 
   return (
     <Page title={title} description={description}>
@@ -15,7 +15,7 @@ const HomePage = ({ data }) => {
       <PostList
         title={heading}
         posts={posts}
-        readMoreText={readMoreText}
+        readMoreText={totalCount > posts.length ? readMoreText : undefined}
       />
     </Page>
   )
@@ -30,9 +30,14 @@ export const pageQuery = graphql`
         title
         description
         heading
+        readMoreText
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      totalCount
       edges {
         node {
           excerpt
