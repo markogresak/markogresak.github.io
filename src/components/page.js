@@ -19,8 +19,7 @@ const globalStyles = css`
       width: 100%;
       margin-top: 0.1em;
       height: 0.1em;
-      transition: transform 0.3s cubic-bezier(1, 0.035, 0.6, 1.175);
-      transition: transform 0.5s cubic-bezier(1, 0.005, 0.265, 1.55);
+      transition: transform 0.5s cubic-bezier(1, 0.01, 0.3, 1.5);
       transform: scaleX(0);
       background: ${primaryColor};
     }
