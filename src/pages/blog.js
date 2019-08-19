@@ -5,7 +5,7 @@ import Page from "../components/Page"
 import PostList from "../components/PostList"
 import AboutMe from "../components/AboutMe"
 
-const BlogIndex = ({ data }) => {
+const BlogPage = ({ data }) => {
   const { title, description, headingAllPosts } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
 
@@ -20,7 +20,7 @@ const BlogIndex = ({ data }) => {
   )
 }
 
-export default BlogIndex
+export default BlogPage
 
 export const pageQuery = graphql`
   query {
