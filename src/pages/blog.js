@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Page from "../components/Page"
 import PostList from "../components/PostList"
 import AboutMe from "../components/AboutMe"
+import Logo from "../components/Logo"
 
 const BlogPage = ({ data }) => {
   const { title, description, headingAllPosts } = data.site.siteMetadata
@@ -11,7 +12,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <Page title={title} description={description}>
-      <PostList title={headingAllPosts} posts={posts}></PostList>
+      <PostList posts={posts} title={<Logo />} />
       <hr />
       <footer>
         <AboutMe />

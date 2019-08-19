@@ -7,19 +7,14 @@ import Page from "../components/Page"
 import AboutMe from "../components/AboutMe"
 import Layout from "../components/Layout"
 import AnimatedArrow from "../components/AnimatedArrow"
+import Logo from "../components/Logo"
+
 import typography, { rhythm, scale } from "../utils/typography"
 
-const NavList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin-top: ${rhythm(1)};
-`
-
-const Article = styled.article`
-  ${scale(0.3)};
-  line-height: ${typography.options.baseLineHeight};
+const HeaderLogo = styled.h2`
+  margin-top: 0;
+  margin-bottom: ${rhythm(2)};
+  border-bottom: none;
 `
 
 const Title = styled.h1`
@@ -36,6 +31,19 @@ const Date = styled.p`
   margin-bottom: ${rhythm(1)};
 `
 
+const Article = styled.article`
+  ${scale(0.3)};
+  line-height: ${typography.options.baseLineHeight};
+`
+
+const NavList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-top: ${rhythm(1)};
+`
+
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next } = pageContext
@@ -48,6 +56,11 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       <Layout>
         <Article>
           <header>
+            <HeaderLogo>
+              <Link to="/blog">
+                <Logo />
+              </Link>
+            </HeaderLogo>
             <Title>{post.frontmatter.title}</Title>
             <Date>{post.frontmatter.date}</Date>
           </header>
