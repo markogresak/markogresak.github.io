@@ -26,28 +26,25 @@ const Title = styled.h1`
   margin-top: 0;
 `
 
-class NotFoundPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const { title, text, links } = data.site.siteMetadata.site_404
+const NotFoundPage = ({ data }) => {
+  const { title, text, links } = data.site.siteMetadata.site_404
 
-    return (
-      <Page title={title} css={{ padding: 0 }}>
-        <Container>
-          <Title>
-            <Logo />
-          </Title>
-          {text.map(paragraph => (
-            <p dangerouslySetInnerHTML={{ __html: paragraph }} />
-          ))}
+  return (
+    <Page title={title} css={{ padding: 0 }}>
+      <Container>
+        <Title>
+          <Logo />
+        </Title>
+        {text.map(paragraph => (
+          <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+        ))}
 
-          <nav>
-            <LinksList links={links}>{({ title }) => title}</LinksList>
-          </nav>
-        </Container>
-      </Page>
-    )
-  }
+        <nav>
+          <LinksList links={links}>{({ title }) => title}</LinksList>
+        </nav>
+      </Container>
+    </Page>
+  )
 }
 
 export default NotFoundPage
