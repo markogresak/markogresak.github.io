@@ -1,16 +1,17 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Page from "../components/Page"
 import AboutMe from "../components/AboutMe"
 import Layout from "../components/Layout"
+import AnimatedArrow from "../components/AnimatedArrow"
 import typography, { rhythm, scale } from "../utils/typography"
 
 const NavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
   padding: 0;
   margin-top: ${rhythm(1)};
@@ -61,16 +62,26 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           <NavList>
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
+                <AnimatedArrow left>
+                  Previous post:{" "}
+                  <Link to={previous.fields.slug} rel="prev">
+                    {previous.frontmatter.title}
+                  </Link>
+                </AnimatedArrow>
               )}
             </li>
-            <li>
+            <li
+              css={css`
+                margin-left: auto;
+              `}
+            >
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
+                <AnimatedArrow right>
+                  Next post:{" "}
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title}
+                  </Link>
+                </AnimatedArrow>
               )}
             </li>
           </NavList>
