@@ -58,7 +58,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value,
+      // Route posts to `/blog/:slug`
+      value: `/blog${value}`,
     })
   }
 }
