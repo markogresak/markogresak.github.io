@@ -44,7 +44,7 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     >
-      <Layout location={location}>
+      <Layout>
         <Article>
           <header>
             <Title>{post.frontmatter.title}</Title>
