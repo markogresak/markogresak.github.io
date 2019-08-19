@@ -10,7 +10,7 @@ const Title = styled.h3`
   margin-bottom: ${rhythm(0.25)};
 `
 
-const PostList = ({ title, posts, readMoreText }) => {
+const PostList = ({ posts, readMoreText }) => {
   return (
     <>
       {posts.map(({ node }) => {

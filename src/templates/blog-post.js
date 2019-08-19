@@ -6,15 +6,9 @@ import styled from "@emotion/styled"
 import Page from "../components/Page"
 import AboutMe from "../components/AboutMe"
 import AnimatedArrow from "../components/AnimatedArrow"
-import Logo from "../components/Logo"
+import BlogHeader from "../components/BlogHeader"
 
 import typography, { rhythm, scale } from "../utils/typography"
-
-const HeaderLogo = styled.h2`
-  margin-top: 0;
-  margin-bottom: ${rhythm(2)};
-  border-bottom: none;
-`
 
 const Title = styled.h1`
   margin-bottom: 0;
@@ -53,15 +47,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       description={post.frontmatter.description || post.excerpt}
     >
       <Article>
-        <header>
-          <HeaderLogo>
-            <Link to="/blog">
-              <Logo />
-            </Link>
-          </HeaderLogo>
+        <BlogHeader>
           <Title>{post.frontmatter.title}</Title>
           <Date>{post.frontmatter.date}</Date>
-        </header>
+        </BlogHeader>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         <footer>

@@ -4,15 +4,16 @@ import { graphql } from "gatsby"
 import Page from "../components/Page"
 import PostList from "../components/PostList"
 import AboutMe from "../components/AboutMe"
-import Logo from "../components/Logo"
+import BlogHeader from "../components/BlogHeader"
 
 const BlogPage = ({ data }) => {
-  const { title, description, headingAllPosts } = data.site.siteMetadata
+  const { title, description } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Page title={title} description={description}>
-      <PostList posts={posts} title={<Logo />} />
+      <BlogHeader />
+      <PostList posts={posts} />
       <hr />
       <footer>
         <AboutMe />
@@ -29,7 +30,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         description
-        headingAllPosts
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
