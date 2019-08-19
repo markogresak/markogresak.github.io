@@ -31,7 +31,7 @@ const NavList = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin-top: ${rhythm(1)};
+  margin: ${rhythm(1)} 0 0;
 `
 
 const NavItem = styled.li`
