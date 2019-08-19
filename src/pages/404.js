@@ -47,7 +47,7 @@ const LinkItem = styled.li`
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
-    const { title, links } = data.site.siteMetadata.site_404
+    const { title, text, links } = data.site.siteMetadata.site_404
 
     return (
       <Page title={title}>
@@ -56,17 +56,9 @@ class NotFoundPage extends React.Component {
             <Title>
               <Logo />
             </Title>
-            <p>
-              I swear, I've checked everywhere, and it seems I have forgotten
-              where I put what you were looking for{" "}
-              <span role="img" aria-label="disappointed face">
-                😞
-              </span>
-            </p>
-            <p>
-              If you think there's a problem, please send me a mail me to get
-              this problem fixed.
-            </p>
+            {text.map(paragraph => (
+              <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+            ))}
 
             <nav>
               <Links>
@@ -100,6 +92,7 @@ export const pageQuery = graphql`
       siteMetadata {
         site_404 {
           title
+          text
           links {
             title
             href
