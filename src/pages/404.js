@@ -4,7 +4,6 @@ import styled from "@emotion/styled"
 
 import Page from "../components/Page"
 import Logo from "../components/Logo"
-import Layout from "../components/Layout"
 import LinksList from "../components/LinksList"
 
 import { rhythm } from "../utils/typography"
@@ -33,21 +32,19 @@ class NotFoundPage extends React.Component {
     const { title, text, links } = data.site.siteMetadata.site_404
 
     return (
-      <Page title={title}>
-        <Layout css={{ padding: 0 }}>
-          <Container>
-            <Title>
-              <Logo />
-            </Title>
-            {text.map(paragraph => (
-              <p dangerouslySetInnerHTML={{ __html: paragraph }} />
-            ))}
+      <Page title={title} css={{ padding: 0 }}>
+        <Container>
+          <Title>
+            <Logo />
+          </Title>
+          {text.map(paragraph => (
+            <p dangerouslySetInnerHTML={{ __html: paragraph }} />
+          ))}
 
-            <nav>
-              <LinksList links={links}>{({ title }) => title}</LinksList>
-            </nav>
-          </Container>
-        </Layout>
+          <nav>
+            <LinksList links={links}>{({ title }) => title}</LinksList>
+          </nav>
+        </Container>
       </Page>
     )
   }

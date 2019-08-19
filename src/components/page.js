@@ -1,7 +1,8 @@
 import React from "react"
 import { css, Global } from "@emotion/core"
+import styled from "@emotion/styled"
 
-import typography, { scale } from "../utils/typography"
+import typography, { rhythm, scale } from "../utils/typography"
 import { primaryColor } from "../utils/colors"
 
 import SEO from "./Seo"
@@ -31,12 +32,19 @@ const globalStyles = css`
   }
 `
 
-const Page = ({ children, title, description }) => {
+const Layout = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(24)};
+  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+`
+
+const Page = ({ children, title, description, className }) => {
   return (
     <>
       <SEO title={title} description={description} />
       <Global styles={globalStyles} />
-      {children}
+      <Layout className={className}>{children}</Layout>
     </>
   )
 }

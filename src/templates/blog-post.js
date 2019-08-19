@@ -5,7 +5,6 @@ import styled from "@emotion/styled"
 
 import Page from "../components/Page"
 import AboutMe from "../components/AboutMe"
-import Layout from "../components/Layout"
 import AnimatedArrow from "../components/AnimatedArrow"
 import Logo from "../components/Logo"
 
@@ -53,53 +52,51 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     >
-      <Layout>
-        <Article>
-          <header>
-            <HeaderLogo>
-              <Link to="/blog">
-                <Logo />
-              </Link>
-            </HeaderLogo>
-            <Title>{post.frontmatter.title}</Title>
-            <Date>{post.frontmatter.date}</Date>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr />
-          <footer>
-            <AboutMe />
-          </footer>
-        </Article>
+      <Article>
+        <header>
+          <HeaderLogo>
+            <Link to="/blog">
+              <Logo />
+            </Link>
+          </HeaderLogo>
+          <Title>{post.frontmatter.title}</Title>
+          <Date>{post.frontmatter.date}</Date>
+        </header>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr />
+        <footer>
+          <AboutMe />
+        </footer>
+      </Article>
 
-        <nav>
-          <NavList>
-            <li>
-              {previous && (
-                <AnimatedArrow left>
-                  Previous post:{" "}
-                  <Link to={previous.fields.slug} rel="prev">
-                    {previous.frontmatter.title}
-                  </Link>
-                </AnimatedArrow>
-              )}
-            </li>
-            <li
-              css={css`
-                margin-left: auto;
-              `}
-            >
-              {next && (
-                <AnimatedArrow right>
-                  Next post:{" "}
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title}
-                  </Link>
-                </AnimatedArrow>
-              )}
-            </li>
-          </NavList>
-        </nav>
-      </Layout>
+      <nav>
+        <NavList>
+          <li>
+            {previous && (
+              <AnimatedArrow left>
+                Previous post:{" "}
+                <Link to={previous.fields.slug} rel="prev">
+                  {previous.frontmatter.title}
+                </Link>
+              </AnimatedArrow>
+            )}
+          </li>
+          <li
+            css={css`
+              margin-left: auto;
+            `}
+          >
+            {next && (
+              <AnimatedArrow right>
+                Next post:{" "}
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title}
+                </Link>
+              </AnimatedArrow>
+            )}
+          </li>
+        </NavList>
+      </nav>
     </Page>
   )
 }

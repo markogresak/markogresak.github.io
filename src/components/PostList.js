@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 
-import Layout from "./Layout"
 import { rhythm } from "../utils/typography"
 
 import ReadMore from "./ReadMore"
@@ -13,7 +12,7 @@ const Title = styled.h3`
 
 const PostList = ({ title, posts, readMoreText }) => {
   return (
-    <Layout title={title}>
+    <>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || <i>(Untitled)</i>
         return (
@@ -35,7 +34,7 @@ const PostList = ({ title, posts, readMoreText }) => {
         )
       })}
       {readMoreText && <ReadMore>{readMoreText}</ReadMore>}
-    </Layout>
+    </>
   )
 }
 

@@ -5,7 +5,6 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import Layout from "./Layout"
 import LinksList from "./LinksList"
 import { rhythm, scale } from "../utils/typography"
 
@@ -99,50 +98,44 @@ const AboutMe = () => {
   const { totalCount: repositoriesCount } = data.github.user.repositories
 
   return (
-    <Layout
-      css={css`
-        padding-bottom: 0;
-      `}
-    >
-      <Wrapper>
-        <ImageWrapper>
-          <Image
-            fixed={data.avatar.childImageSharp.fixed}
-            alt="Profile image"
-            imgStyle={{
-              borderRadius: `50%`,
-            }}
-          />
-        </ImageWrapper>
-        <div>
-          <Name>{title}</Name>
-          <AboutMeList>
-            {fullDescription.map((item, i) => (
-              <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
-            ))}
-          </AboutMeList>
-          <LinksWrapper>
-            <LinksList links={links.items}>
-              {({ title, icon, iconColor }) => (
-                <>
-                  <FontAwesomeIcon
-                    icon={["fab", icon]}
-                    color={iconColor}
-                    css={css`
-                      margin-right: ${rhythm(0.25)};
-                    `}
-                    // force same width on all icons
-                    className="fa-w-16"
-                  />
-                  {title}
-                  {title === "Github" && <> ({repositoriesCount} projects)</>}
-                </>
-              )}
-            </LinksList>
-          </LinksWrapper>
-        </div>
-      </Wrapper>
-    </Layout>
+    <Wrapper>
+      <ImageWrapper>
+        <Image
+          fixed={data.avatar.childImageSharp.fixed}
+          alt="Profile image"
+          imgStyle={{
+            borderRadius: `50%`,
+          }}
+        />
+      </ImageWrapper>
+      <div>
+        <Name>{title}</Name>
+        <AboutMeList>
+          {fullDescription.map((item, i) => (
+            <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
+          ))}
+        </AboutMeList>
+        <LinksWrapper>
+          <LinksList links={links.items}>
+            {({ title, icon, iconColor }) => (
+              <>
+                <FontAwesomeIcon
+                  icon={["fab", icon]}
+                  color={iconColor}
+                  css={css`
+                    margin-right: ${rhythm(0.25)};
+                  `}
+                  // force same width on all icons
+                  className="fa-w-16"
+                />
+                {title}
+                {title === "Github" && <> ({repositoriesCount} projects)</>}
+              </>
+            )}
+          </LinksList>
+        </LinksWrapper>
+      </div>
+    </Wrapper>
   )
 }
 
