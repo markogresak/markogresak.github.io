@@ -35,6 +35,8 @@ const LinksWrapper = styled.div`
   margin-top: ${rhythm(0.5)};
 
   ${mobileMediaQuery} {
+    ${scale(0)}
+
     li {
       display: block;
 
