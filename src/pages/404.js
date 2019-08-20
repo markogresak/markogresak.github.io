@@ -34,7 +34,7 @@ const NotFoundPage = ({ data }) => {
     <Page title={title} css={{ padding: 0 }}>
       <Container>
         <Title>
-          <Logo />
+          <Logo lettersAlwaysVisible />
         </Title>
         <p>
           I swear, I've checked everywhere, and it seems I have forgotten where

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
@@ -79,21 +80,25 @@ function round(n) {
   return Math.round(n * 1e4) / 1e4
 }
 
-const Logo = () => {
+const Logo = ({ lettersAlwaysVisible }) => {
   return (
     <Container>
       {letters.map(({ letter, color, visible, index, fixPosition }) => (
         <Letter
           key={index}
           color={color}
-          visible={visible}
-          css={fixPosition && fixedPositionStyle}
+          visible={lettersAlwaysVisible || visible}
+          css={!lettersAlwaysVisible && fixPosition && fixedPositionStyle}
         >
           {letter}
         </Letter>
       ))}
     </Container>
   )
+}
+
+Logo.propTypes = {
+  lettersAlwaysVisible: PropTypes.bool,
 }
 
 export default Logo
