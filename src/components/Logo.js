@@ -1,17 +1,17 @@
 import React from "react"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
+import { scale } from "../utils/typography"
 import { primaryColor, textColor } from "../utils/colors"
 
-const FONT_SIZE = 32
-const FONT_SIZE_SMALL = 12
 const LETTER_APPEAR_DELAY = 0.1
 
 const letters = [
   { letter: "O", color: primaryColor, visible: true },
   { letter: "u", color: primaryColor, visible: false },
   { letter: "t", color: primaryColor, visible: false },
-  { letter: "O", color: textColor, visible: true },
+  { letter: "O", color: textColor, visible: true, fixPosition: true },
   { letter: "f", color: textColor, visible: false },
   { letter: "M", color: primaryColor, visible: false },
   { letter: "e", color: primaryColor, visible: false },
@@ -27,24 +27,28 @@ const letters = [
 const getAnimatedLetters = () => letters.filter(({ visible }) => !visible)
 
 const Container = styled.span`
+  ${scale(1)};
+  line-height: 1;
   font-weight: 600;
 `
 
 const Letter = styled.span`
   color: ${({ color }) => color};
-  font-size: ${({ visible }) => (visible ? FONT_SIZE : FONT_SIZE_SMALL)}px;
-  transition: font-size ${round(LETTER_APPEAR_DELAY * 3)}s;
+  display: inline-block;
+  transform: scale(${({ visible }) => (visible ? 1 : 0)});
+  transition: transform ${round(LETTER_APPEAR_DELAY * 2)}s ease-out;
+  will-change: transform;
 
   ${getAnimatedLetters().map(
     ({ index }, i) => `
-      &:nth-of-type(${letters.length - index}) {
+      &:nth-last-of-type(${index}) {
         transition-delay: ${getDelay(i)}s;
       }
     `
   )};
 
   ${Container}:hover & {
-    font-size: ${FONT_SIZE}px;
+    transform: scale(1);
 
     ${getAnimatedLetters().map(
       ({ index }, i) => `
@@ -53,6 +57,16 @@ const Letter = styled.span`
         }
       `
     )};
+  }
+`
+
+const fixedPositionStyle = css`
+  transform: translateX(-1.7ch);
+  transition-delay: ${getDelay(letters.length - 2)}s !important;
+
+  ${Container}:hover & {
+    transform: translateX(0);
+    transition-delay: 0s !important;
   }
 `
 
@@ -68,8 +82,13 @@ function round(n) {
 const Logo = () => {
   return (
     <Container>
-      {letters.map(({ letter, color, visible, index }) => (
-        <Letter key={index} color={color} visible={visible}>
+      {letters.map(({ letter, color, visible, index, fixPosition }) => (
+        <Letter
+          key={index}
+          color={color}
+          visible={visible}
+          css={fixPosition && fixedPositionStyle}
+        >
           {letter}
         </Letter>
       ))}
