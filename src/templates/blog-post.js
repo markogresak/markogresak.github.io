@@ -36,6 +36,10 @@ const Article = styled.article`
   :not(pre) > code[class*="language-"] {
     white-space: normal;
   }
+
+  [class*="language-"] {
+    ${scale(0.1)};
+  }
 `
 
 const NavList = styled.ul`
