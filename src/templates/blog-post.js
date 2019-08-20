@@ -24,6 +24,14 @@ const Date = styled.time`
 const Article = styled.article`
   ${scale(0.3)};
   line-height: ${typography.options.baseLineHeight};
+
+  a {
+    box-shadow: 0 1px 0 0 currentColor;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 `
 
 const NavList = styled.ul`
