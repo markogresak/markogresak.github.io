@@ -43,7 +43,7 @@ const globalStyles = css`
 const Layout = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rhythm(24)};
+  max-width: ${rhythm(27)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
 `
 
