@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from '@emotion/styled'
 
 const Links = styled.ul`
   list-style: none;
@@ -11,7 +11,7 @@ const LinkItem = styled.li`
   display: inline;
 
   &:not(:last-child):after {
-    content: " | ";
+    content: ' | ';
     color: rgba(33, 33, 33, 0.5);
   }
 `
@@ -21,7 +21,7 @@ const LinksList = ({ links, children }) => {
     <Links>
       {links.map(({ title, href, ...linkProps }) => (
         <LinkItem key={title}>
-          {href.indexOf("/") === 0 ? (
+          {href.indexOf('/') === 0 ? (
             <Link to={href} title={title}>
               {children({
                 title,

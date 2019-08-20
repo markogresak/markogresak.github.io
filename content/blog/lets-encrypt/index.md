@@ -1,7 +1,7 @@
 ---
 title: Let's Encrypt!
-description: ""
-date: "2016-01-16"
+description: ''
+date: '2016-01-16'
 ---
 
 The [Let's Encrypt](https://github.com/letsencrypt/letsencrypt) project became available in public beta a while ago and it's finally a great solution for free SSL certificates. I was using cheap Comodo SSL certificates in the past and it is just about to run out for this page. While the renewal would cost me \$10 a year, and that's just for a single domain, the Let's Encrypt option seems like a great and cheap alternative to use.

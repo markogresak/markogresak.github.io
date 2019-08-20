@@ -1,4 +1,4 @@
-require("dotenv").config()
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -11,42 +11,42 @@ module.exports = {
       `<em>Web Developer</em>, striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,
     ],
-    readMoreText: "Read older posts",
+    readMoreText: 'Read older posts',
     siteUrl: `https://gresak.io/`,
     issuesUrl: `https://github.com/markogresak/markogresak.github.io/issues`,
     links: {
-      title: "Links",
+      title: 'Links',
       items: [
         {
-          title: "Github",
-          href: "https://github.com/markogresak",
-          icon: "github",
-          iconColor: "#25292e",
+          title: 'Github',
+          href: 'https://github.com/markogresak',
+          icon: 'github',
+          iconColor: '#25292e',
         },
         {
-          title: "Stack Overflow",
-          href: "http://stackoverflow.com/users/1276128/marko-gre%C5%A1ak",
-          icon: "stack-overflow",
-          iconColor: "#e6853d",
+          title: 'Stack Overflow',
+          href: 'http://stackoverflow.com/users/1276128/marko-gre%C5%A1ak',
+          icon: 'stack-overflow',
+          iconColor: '#e6853d',
         },
         {
-          title: "Twitter",
-          href: "https://twitter.com/markogresak",
-          icon: "twitter",
-          iconColor: "#55acee",
+          title: 'Twitter',
+          href: 'https://twitter.com/markogresak',
+          icon: 'twitter',
+          iconColor: '#55acee',
         },
       ],
     },
     site_404: {
-      title: "Oops, Not Found | gresak.io",
+      title: 'Oops, Not Found | gresak.io',
       links: [
         {
-          title: "Home",
-          href: "/",
+          title: 'Home',
+          href: '/',
         },
         {
-          title: "Blog",
-          href: "/blog",
+          title: 'Blog',
+          href: '/blog',
         },
       ],
     },
@@ -120,11 +120,11 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
         headers: {
           Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
         },

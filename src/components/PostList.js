@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from '@emotion/styled'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
-import ReadMore from "./ReadMore"
+import ReadMore from './ReadMore'
 
 const Title = styled.h3`
   margin-bottom: ${rhythm(0.25)};

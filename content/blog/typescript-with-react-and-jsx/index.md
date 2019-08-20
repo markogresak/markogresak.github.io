@@ -1,7 +1,7 @@
 ---
 title: Typescript with React and JSX
-description: ""
-date: "2015-09-10"
+description: ''
+date: '2015-09-10'
 ---
 
 ![](ts-and-react.jpg)
@@ -53,7 +53,7 @@ You can also get completions for most libraries and frameworks out there. You ac
 TypeScript and React could be used together from the beginning, but TypeScript didn’t support the JSX syntax until recent 1.6 version. This meant you had to use, for example
 
 ```js
-React.createElement("div", null, "Hello ", this.props.name)
+React.createElement('div', null, 'Hello ', this.props.name)
 ```
 
 instead of more familiar XML (or HTML, if you will) syntax
@@ -153,10 +153,10 @@ Your `webpack.config.js` should contain at least:
 ```js
 module.exports = {
   resolve: {
-    extensions: ["", ".js", ".ts", ".tsx"],
+    extensions: ['', '.js', '.ts', '.tsx'],
   },
   module: {
-    loaders: [{ test: /\.tsx?$/, loaders: "ts-loader" }],
+    loaders: [{ test: /\.tsx?$/, loaders: 'ts-loader' }],
   },
 }
 ```

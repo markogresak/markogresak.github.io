@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { graphql } from 'gatsby'
+import styled from '@emotion/styled'
 
-import Page from "../components/Page"
-import Logo from "../components/Logo"
-import LinksList from "../components/LinksList"
+import Page from '../components/Page'
+import Logo from '../components/Logo'
+import LinksList from '../components/LinksList'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
 const Container = styled.div`
   text-align: center;
@@ -38,21 +38,21 @@ const NotFoundPage = ({ data }) => {
         </Title>
         <p>
           I swear, I've checked everywhere, and it seems I have forgotten where
-          I put what you were looking for{" "}
+          I put what you were looking for{' '}
           <span role="img" aria-label="disappointed face">
             😞
           </span>
         </p>
         <p>
           If you were expecting to find a blog post or if you think there's a
-          problem, please{" "}
+          problem, please{' '}
           <a
             href={`${issuesUrl}/new`}
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
             file an issue
-          </a>{" "}
+          </a>{' '}
           to get this problem fixed.
         </p>
 

@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { css } from "@emotion/core"
-import styled from "@emotion/styled"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
-const getAnimationName = left => `arrow-${left ? "left" : "right"}`
+const getAnimationName = (left) => `arrow-${left ? 'left' : 'right'}`
 
-const arrowPointingKeyframes = left => css`
+const arrowPointingKeyframes = (left) => css`
   @keyframes ${getAnimationName(left)} {
     0% {
       transform: translateX(0);
@@ -42,7 +42,7 @@ const AnimatedArrow = ({ left, right, children, className }) => {
   }
   if (left && right) {
     throw new Error(
-      "AnimatedArrow: simultaneous 'left' and 'right' not supported"
+      "AnimatedArrow: simultaneous 'left' and 'right' not supported",
     )
   }
 

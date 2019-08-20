@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled from '@emotion/styled'
 
-import BlogPage from "../components/BlogPage"
-import AnimatedArrow from "../components/AnimatedArrow"
+import BlogPage from '../components/BlogPage'
+import AnimatedArrow from '../components/AnimatedArrow'
 
-import typography, { rhythm, scale } from "../utils/typography"
+import typography, { rhythm, scale } from '../utils/typography'
 
 const Title = styled.h1`
   margin-bottom: 0;
@@ -33,11 +33,11 @@ const Article = styled.article`
     }
   }
 
-  :not(pre) > code[class*="language-"] {
+  :not(pre) > code[class*='language-'] {
     white-space: normal;
   }
 
-  [class*="language-"] {
+  [class*='language-'] {
     ${scale(0.1)};
   }
 `
@@ -79,7 +79,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
             <NavItem>
               {previous && (
                 <AnimatedArrow left>
-                  Previous post:{" "}
+                  Previous post:{' '}
                   <Link to={previous.fields.slug} rel="prev">
                     {previous.frontmatter.title}
                   </Link>
@@ -89,7 +89,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
             <NavItem right>
               {next && (
                 <AnimatedArrow right>
-                  Next post:{" "}
+                  Next post:{' '}
                   <Link to={next.fields.slug} rel="next">
                     {next.frontmatter.title}
                   </Link>

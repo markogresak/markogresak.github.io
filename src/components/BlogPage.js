@@ -1,13 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from '@emotion/styled'
 
-import Page from "../components/Page"
-import AboutMe from "../components/AboutMe"
-import Logo from "../components/Logo"
+import Page from '../components/Page'
+import AboutMe from '../components/AboutMe'
+import Logo from '../components/Logo'
 
-import { rhythm } from "../utils/typography"
-import { primaryColor } from "../utils/colors"
+import { rhythm } from '../utils/typography'
+import { primaryColor } from '../utils/colors'
 
 const Header = styled.header`
   margin-bottom: ${rhythm(2)};
@@ -38,7 +38,7 @@ BlogPage.Header = ({ children }) => (
       <Link
         to="/blog"
         title="OutOfMemory"
-        css={{ boxShadow: "none !important" }}
+        css={{ boxShadow: 'none !important' }}
       >
         <Logo />
       </Link>

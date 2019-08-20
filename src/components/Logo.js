@@ -1,24 +1,24 @@
-import React from "react"
-import { css } from "@emotion/core"
-import styled from "@emotion/styled"
+import React from 'react'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-import { scale } from "../utils/typography"
-import { primaryColor, textColor } from "../utils/colors"
+import { scale } from '../utils/typography'
+import { primaryColor, textColor } from '../utils/colors'
 
 const LETTER_APPEAR_DELAY = 0.1
 
 const letters = [
-  { letter: "O", color: primaryColor, visible: true },
-  { letter: "u", color: primaryColor, visible: false },
-  { letter: "t", color: primaryColor, visible: false },
-  { letter: "O", color: textColor, visible: true, fixPosition: true },
-  { letter: "f", color: textColor, visible: false },
-  { letter: "M", color: primaryColor, visible: false },
-  { letter: "e", color: primaryColor, visible: false },
-  { letter: "m", color: primaryColor, visible: false },
-  { letter: "o", color: primaryColor, visible: false },
-  { letter: "r", color: primaryColor, visible: false },
-  { letter: "y", color: primaryColor, visible: false },
+  { letter: 'O', color: primaryColor, visible: true },
+  { letter: 'u', color: primaryColor, visible: false },
+  { letter: 't', color: primaryColor, visible: false },
+  { letter: 'O', color: textColor, visible: true, fixPosition: true },
+  { letter: 'f', color: textColor, visible: false },
+  { letter: 'M', color: primaryColor, visible: false },
+  { letter: 'e', color: primaryColor, visible: false },
+  { letter: 'm', color: primaryColor, visible: false },
+  { letter: 'o', color: primaryColor, visible: false },
+  { letter: 'r', color: primaryColor, visible: false },
+  { letter: 'y', color: primaryColor, visible: false },
 ].map((letter, i) => ({
   ...letter,
   index: i + 1,
@@ -44,7 +44,7 @@ const Letter = styled.span`
       &:nth-last-of-type(${index}) {
         transition-delay: ${getDelay(i)}s;
       }
-    `
+    `,
   )};
 
   ${Container}:hover & {
@@ -55,7 +55,7 @@ const Letter = styled.span`
         &:nth-of-type(${index}) {
           transition-delay: ${getDelay(i)}s;
         }
-      `
+      `,
     )};
   }
 `

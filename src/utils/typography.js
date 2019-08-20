@@ -1,8 +1,8 @@
-import Typography from "typography"
-import GithubTheme from "typography-theme-github"
+import Typography from 'typography'
+import GithubTheme from 'typography-theme-github'
 
-import { textColor } from "./colors"
-import initIcons from "./icons"
+import { textColor } from './colors'
+import initIcons from './icons'
 
 GithubTheme.bodyColor = textColor
 

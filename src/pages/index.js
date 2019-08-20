@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { graphql } from 'gatsby'
+import styled from '@emotion/styled'
 
-import Page from "../components/Page"
-import AboutMe from "../components/AboutMe"
-import PostList from "../components/PostList"
+import Page from '../components/Page'
+import AboutMe from '../components/AboutMe'
+import PostList from '../components/PostList'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
 const Title = styled.h2`
   margin-top: ${rhythm(1.5)};

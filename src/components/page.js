@@ -1,11 +1,11 @@
-import React from "react"
-import { css, Global } from "@emotion/core"
-import styled from "@emotion/styled"
+import React from 'react'
+import { css, Global } from '@emotion/core'
+import styled from '@emotion/styled'
 
-import typography, { rhythm, scale } from "../utils/typography"
-import { primaryColor } from "../utils/colors"
+import typography, { rhythm, scale } from '../utils/typography'
+import { primaryColor } from '../utils/colors'
 
-import SEO from "./Seo"
+import SEO from './Seo'
 
 const globalStyles = css`
   a {
@@ -32,7 +32,7 @@ const globalStyles = css`
 
     &:before {
       color: ${primaryColor};
-      content: "...";
+      content: '...';
       letter-spacing: ${typography.options.baseFontSize};
       ${scale(1.5)};
       line-height: 0;

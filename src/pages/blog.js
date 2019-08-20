@@ -1,8 +1,8 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import BlogPage from "../components/BlogPage"
-import PostList from "../components/PostList"
+import BlogPage from '../components/BlogPage'
+import PostList from '../components/PostList'
 
 const Blog = ({ data }) => {
   const { title, description } = data.site.siteMetadata

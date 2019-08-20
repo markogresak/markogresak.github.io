@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import { css } from "@emotion/core"
+import React from 'react'
+import { Link } from 'gatsby'
+import { css } from '@emotion/core'
 
-import AnimatedArrow from "./AnimatedArrow"
+import AnimatedArrow from './AnimatedArrow'
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm, scale } from '../utils/typography'
 
 const readMoreStyle = css`
   margin-top: ${rhythm(1)};

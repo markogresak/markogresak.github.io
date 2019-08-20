@@ -1,7 +1,7 @@
 ---
 title: Hello World
-description: ""
-date: "2015-08-16"
+description: ''
+date: '2015-08-16'
 ---
 
 I have finally said to myself, it’s enough and decided to set up my blog. After keeping my stories, thoughts and endeavours off the internet for 22 years, you now got the chance to go full NSA on me. Just kidding. Please, don’t.

@@ -1,11 +1,11 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import styled from "@emotion/styled"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
+import styled from '@emotion/styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import LinksList from "./LinksList"
-import { rhythm, scale } from "../utils/typography"
+import LinksList from './LinksList'
+import { rhythm, scale } from '../utils/typography'
 
 const mobileMediaQuery = `@media (max-width: 580px)`
 
@@ -121,14 +121,14 @@ const AboutMe = () => {
             {({ title, icon, iconColor }) => (
               <>
                 <FontAwesomeIcon
-                  icon={["fab", icon]}
+                  icon={['fab', icon]}
                   color={iconColor}
                   css={{ marginRight: rhythm(0.25) }}
                   // force same width on all icons
                   className="fa-w-16"
                 />
                 {title}
-                {title === "Github" && <> ({repositoriesCount} projects)</>}
+                {title === 'Github' && <> ({repositoriesCount} projects)</>}
               </>
             )}
           </LinksList>
