@@ -49,7 +49,7 @@ BlogPage.Header = ({ children }) => (
 
 BlogPage.Footer = ({ children }) => (
   <Footer>
-    <AboutMe />
+    <AboutMe linkToHome />
     {children}
   </Footer>
 )

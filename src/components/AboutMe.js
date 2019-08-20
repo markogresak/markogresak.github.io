@@ -1,11 +1,13 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import LinksList from './LinksList'
 import { rhythm, scale } from '../utils/typography'
+import { textColor } from '../utils/colors'
 
 const mobileMediaQuery = `@media (max-width: 580px)`
 
@@ -60,7 +62,20 @@ const AboutMeList = styled.ul`
 
 const AboutMeItem = styled.li``
 
-const AboutMe = () => {
+const HomepageLink = ({ linkToHome, children }) =>
+  linkToHome ? (
+    <Link
+      to="/"
+      title="To Home Page"
+      css={{ color: textColor, boxShadow: 'none !important' }}
+    >
+      {children}
+    </Link>
+  ) : (
+    children
+  )
+
+const AboutMe = ({ linkToHome }) => {
   const data = useStaticQuery(graphql`
     query AboutMeQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -101,16 +116,20 @@ const AboutMe = () => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt="Profile image"
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+        <HomepageLink linkToHome={linkToHome}>
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt="Profile image"
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+        </HomepageLink>
       </ImageWrapper>
       <div>
-        <Name>{title}</Name>
+        <Name>
+          <HomepageLink linkToHome={linkToHome}>{title}</HomepageLink>
+        </Name>
         <AboutMeList>
           {fullDescription.map((item, i) => (
             <AboutMeItem key={i} dangerouslySetInnerHTML={{ __html: item }} />
@@ -136,6 +155,10 @@ const AboutMe = () => {
       </div>
     </Wrapper>
   )
+}
+
+AboutMe.propTypes = {
+  linkToHome: PropTypes.bool,
 }
 
 export default AboutMe
