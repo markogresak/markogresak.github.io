@@ -34,7 +34,7 @@ const Container = styled.span`
 `
 
 const Letter = styled.span`
-  color: ${({ color }) => color};
+  color: ${({ letterColor }) => letterColor};
   display: inline-block;
   transform: scale(${({ visible }) => (visible ? 1 : 0)});
   transition: transform ${round(LETTER_APPEAR_DELAY * 2)}s ease-out;
@@ -91,7 +91,7 @@ const Logo = ({ lettersAlwaysVisible }) => {
       {letters.map(({ letter, color, visible, index, fixPosition }) => (
         <Letter
           key={index}
-          color={color}
+          letterColor={color}
           visible={lettersAlwaysVisible || visible}
           css={!lettersAlwaysVisible && fixPosition && fixedPositionStyle}
         >
