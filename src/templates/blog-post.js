@@ -32,6 +32,10 @@ const Article = styled.article`
       box-shadow: none;
     }
   }
+
+  :not(pre) > code[class*="language-"] {
+    white-space: normal;
+  }
 `
 
 const NavList = styled.ul`

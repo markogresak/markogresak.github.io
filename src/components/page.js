@@ -41,10 +41,6 @@ const globalStyles = css`
       line-height: 0;
     }
   }
-
-  :not(pre) > code[class*="language-"] {
-    white-space: normal;
-  }
 `
 
 const Layout = styled.div`
