@@ -13,11 +13,11 @@ const Title = styled.h2`
 `
 
 const HomePage = ({ data }) => {
-  const { title, description, heading, readMoreText } = data.site.siteMetadata
+  const { homepageTitle, description, heading, readMoreText } = data.site.siteMetadata
   const { edges: posts, totalCount } = data.allMarkdownRemark
 
   return (
-    <Page title={title} description={description}>
+    <Page title={homepageTitle} description={description}>
       <AboutMe />
       <Title>{heading}</Title>
       <PostList
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        homepageTitle
         description
         heading
         readMoreText

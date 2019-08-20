@@ -58,7 +58,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   return (
     <BlogPage
-      title={post.frontmatter.title}
+      title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
       description={post.frontmatter.description || post.excerpt}
     >
       <BlogPage.Header withLink />
@@ -105,6 +105,11 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

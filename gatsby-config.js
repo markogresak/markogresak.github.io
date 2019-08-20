@@ -2,11 +2,12 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Marko Grešak`,
-    heading: `My latest blog posts`,
-    headingAllPosts: `My blog posts`,
+    title: `OutOfMemory Blog`,
     author: `Marko Grešak`,
-    description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things!`,
+    homepageTitle: `Marko Grešak`,
+    blogTitle: `OutOfMemory Blog`,
+    description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things! Writer of OutOfMemory blog.`,
+    heading: `My latest blog posts`,
     fullDescription: [
       `<em>Web Developer</em>, striving to improve in all areas`,
       `Loving all JavaScript and React related things!`,

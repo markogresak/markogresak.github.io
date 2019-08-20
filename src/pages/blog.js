@@ -5,11 +5,11 @@ import BlogPage from '../components/BlogPage'
 import PostList from '../components/PostList'
 
 const Blog = ({ data }) => {
-  const { title, description } = data.site.siteMetadata
+  const { blogTitle, description } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <BlogPage title={title} description={description}>
+    <BlogPage title={blogTitle} description={description}>
       <BlogPage.Header />
       <PostList posts={posts} />
       <BlogPage.Footer />
@@ -23,7 +23,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        blogTitle
         description
       }
     }
