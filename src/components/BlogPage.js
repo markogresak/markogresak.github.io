@@ -35,7 +35,11 @@ const BlogPage = ({ title, description, children }) => {
 BlogPage.Header = ({ children }) => (
   <Header>
     <HeaderLogo>
-      <Link to="/blog">
+      <Link
+        to="/blog"
+        title="OutOfMemory"
+        css={{ boxShadow: "none !important" }}
+      >
         <Logo />
       </Link>
     </HeaderLogo>
