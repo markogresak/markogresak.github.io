@@ -148,7 +148,7 @@ const AboutMe = ({ linkToHome }) => {
                   color={iconColor}
                   css={{ marginRight: rhythm(0.25) }}
                   // force same width on all icons
-                  className="fa-w-16"
+                  style={{ width: '1em' }}
                 />
                 {title}
                 {title === 'Github' && <> ({repositoriesCount} projects)</>}
