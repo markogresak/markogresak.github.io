@@ -2,13 +2,17 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-import { rhythm } from '../utils/typography'
+import AnimatedArrow from './AnimatedArrow'
 
-import ReadMore from './ReadMore'
+import { rhythm } from '../utils/typography'
 
 const Title = styled.h3`
   margin-bottom: ${rhythm(0.25)};
   font-weight: 400;
+`
+
+const ReadMoreContainer = styled.div`
+  margin-top: ${rhythm(1)};
 `
 
 const PostList = ({ posts, readMoreText }) => {
@@ -34,7 +38,13 @@ const PostList = ({ posts, readMoreText }) => {
           </article>
         )
       })}
-      {readMoreText && <ReadMore>{readMoreText}</ReadMore>}
+      {readMoreText && (
+        <ReadMoreContainer>
+          <Link to="/blog">
+            <AnimatedArrow right>{readMoreText}</AnimatedArrow>
+          </Link>
+        </ReadMoreContainer>
+      )}
     </>
   )
 }
