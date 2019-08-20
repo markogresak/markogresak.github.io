@@ -32,16 +32,20 @@ const BlogPage = ({ title, description, children }) => {
   )
 }
 
-BlogPage.Header = ({ children }) => (
+BlogPage.Header = ({ children, withLink }) => (
   <Header>
     <HeaderLogo>
-      <Link
-        to="/blog"
-        title="OutOfMemory"
-        css={{ boxShadow: 'none !important' }}
-      >
-        <Logo />
-      </Link>
+      {withLink ? (
+        <Link
+          to="/blog"
+          title="OutOfMemory"
+          css={{ boxShadow: 'none !important' }}
+        >
+          <Logo />
+        </Link>
+      ) : (
+        <Logo lettersAlwaysVisible />
+      )}
     </HeaderLogo>
     {children}
   </Header>

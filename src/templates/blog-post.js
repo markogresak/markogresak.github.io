@@ -61,7 +61,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     >
-      <BlogPage.Header />
+      <BlogPage.Header withLink />
 
       <Article>
         <ArticleTitleContainer>
