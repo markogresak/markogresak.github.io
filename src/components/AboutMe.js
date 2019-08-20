@@ -13,10 +13,10 @@ const mobileMediaQuery = `@media (max-width: 580px)`
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
 
   ${mobileMediaQuery} {
     flex-wrap: wrap;
-    justify-content: center;
   }
 `
 
