@@ -38,7 +38,7 @@ module.exports = {
       ],
     },
     site_404: {
-      title: 'Oops, Not Found | gresak.io',
+      title: 'Oops, Not Found',
       links: [
         {
           title: 'Home',
