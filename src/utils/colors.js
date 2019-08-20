@@ -1,2 +1,2 @@
-export const primaryColor = '#3c00e0'
-export const textColor = '#212121'
+export const primaryColor = 'var(--primary-color)'
+export const textColor = 'var(--text-color)'

@@ -2,12 +2,54 @@ import React from 'react'
 import { css, Global } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import typography, { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography'
 import { primaryColor } from '../utils/colors'
 
 import SEO from './Seo'
 
 const globalStyles = css`
+  :root {
+    --background-color: #fff;
+    --primary-color: #3c00e0;
+    --text-color: rgba(0, 0, 0, 0.8);
+    --h1-h2-border-bottom-color: rgba(0, 0, 0, 0.07);
+    --h6-color: rgba(0, 0, 0, 0.53);
+    --blockquote-color: rgba(0, 0, 0, 0.53);
+    --blockquote-border-left-color: rgba(0, 0, 0, 0.53);
+    --icon-github-color: #25292e;
+  }
+
+  /* @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #333333;
+      --primary-color: #c3adff;
+      --text-color: rgba(255, 255, 255, 0.8);
+      --h1-h2-border-bottom-color: rgba(255, 255, 255, 0.17);
+      --h6-color: rgba(255, 255, 255, 0.53);
+      --blockquote-color: rgba(255, 255, 255, 0.53);
+      --blockquote-border-left-color: rgba(255, 255, 255, 0.53);
+      --icon-github-color: #fff;
+    }
+  } */
+
+  body {
+    background-color: var(--background-color);
+  }
+
+  h1,
+  h2 {
+    border-bottom: 1px solid var(--h1-h2-border-bottom-color);
+  }
+
+  h6 {
+    color: var(--h6-color);
+  }
+
+  blockquote {
+    color: var(--blockquote-color);
+    border-left: 4px solid var(--blockquote-border-left-color);
+  }
+
   a {
     color: ${primaryColor};
     text-decoration: none;
@@ -33,7 +75,7 @@ const globalStyles = css`
     &:before {
       color: ${primaryColor};
       content: '...';
-      letter-spacing: ${typography.options.baseFontSize};
+      letter-spacing: 1rem;
       ${scale(1.5)};
       line-height: 0;
     }

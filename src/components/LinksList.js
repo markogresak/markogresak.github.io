@@ -12,7 +12,7 @@ const LinkItem = styled.li`
 
   &:not(:last-child):after {
     content: ' | ';
-    color: rgba(33, 33, 33, 0.5);
+    opacity: 0.5;
   }
 `
 
