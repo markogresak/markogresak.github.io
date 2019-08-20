@@ -40,6 +40,11 @@ const Letter = styled.span`
   transition: transform ${round(LETTER_APPEAR_DELAY * 2)}s ease-out;
   will-change: transform;
 
+  &:first-of-type {
+    position: relative;
+    z-index: 2;
+  }
+
   ${getAnimatedLetters().map(
     ({ index }, i) => `
       &:nth-last-of-type(${index}) {
