@@ -62,12 +62,13 @@ const AboutMeList = styled.ul`
 
 const AboutMeItem = styled.li``
 
-const HomepageLink = ({ linkToHome, children }) =>
+const HomepageLink = ({ linkToHome, children, className }) =>
   linkToHome ? (
     <Link
       to="/"
       title="To Home Page"
-      css={{ color: textColor, boxShadow: 'none !important' }}
+      css={{ color: textColor }}
+      className={className}
     >
       {children}
     </Link>
@@ -116,7 +117,10 @@ const AboutMe = ({ linkToHome }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <HomepageLink linkToHome={linkToHome}>
+        <HomepageLink
+          linkToHome={linkToHome}
+          css={{ boxShadow: 'none !important' }}
+        >
           <Image
             fixed={data.avatar.childImageSharp.fixed}
             alt="Profile image"
