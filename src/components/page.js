@@ -20,11 +20,8 @@ const globalStyles = css`
   }
 
   .gatsby-resp-image-link {
-    text-decoration: none;
-
-    &:after {
-      display: none;
-    }
+    text-decoration: none !important;
+    box-shadow: none !important;
   }
 
   hr {
