@@ -4,21 +4,19 @@ import styled from '@emotion/styled'
 
 import BlogPage from '../components/BlogPage'
 import AnimatedArrow from '../components/AnimatedArrow'
+import PostDate from '../components/PostDate'
 
 import typography, { rhythm, scale } from '../utils/typography'
+
+const ArticleTitleContainer = styled.div`
+  margin-bottom: ${rhythm(1)};
+`
 
 const Title = styled.h1`
   margin-bottom: 0;
   margin-top: 0;
   padding-bottom: ${rhythm(0.25)};
   ${scale(1.1)};
-`
-
-const Date = styled.time`
-  ${scale(-1 / 5)};
-  display: block;
-  margin-top: ${rhythm(0.25)};
-  margin-bottom: ${rhythm(1)};
 `
 
 const Article = styled.article`
@@ -66,10 +64,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       <BlogPage.Header />
 
       <Article>
-        <Title>{post.frontmatter.title}</Title>
-        <Date dateTime={post.frontmatter.date}>
-          {post.frontmatter.humanDate}
-        </Date>
+        <ArticleTitleContainer>
+          <Title>{post.frontmatter.title}</Title>
+          <PostDate post={post} />
+        </ArticleTitleContainer>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
 
