@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import LinksList from './LinksList'
+
 import { rhythm, scale } from '../utils/typography'
 import { textColor } from '../utils/colors'
 

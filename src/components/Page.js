@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { rhythm, scale } from '../utils/typography'
 import { primaryColor } from '../utils/colors'
 
-import SEO from './Seo'
+import SEO from './SEO'
 
 const globalStyles = css`
   :root {

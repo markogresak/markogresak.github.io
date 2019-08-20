@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-import Page from '../components/Page'
-import AboutMe from '../components/AboutMe'
-import Logo from '../components/Logo'
+import Page from './Page'
+import AboutMe from './AboutMe'
+import Logo from './Logo'
 
 import { rhythm } from '../utils/typography'
 import { primaryColor } from '../utils/colors'
