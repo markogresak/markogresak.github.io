@@ -89,7 +89,7 @@ const AboutMe = ({ linkToHome }) => {
       }
       site {
         siteMetadata {
-          title
+          author
           fullDescription
           links {
             title
@@ -112,7 +112,7 @@ const AboutMe = ({ linkToHome }) => {
     }
   `)
 
-  const { title, fullDescription, links } = data.site.siteMetadata
+  const { author, fullDescription, links } = data.site.siteMetadata
   const { totalCount: repositoriesCount } = data.github.user.repositories
 
   return (
@@ -133,7 +133,7 @@ const AboutMe = ({ linkToHome }) => {
       </ImageWrapper>
       <div>
         <Name>
-          <HomepageLink linkToHome={linkToHome}>{title}</HomepageLink>
+          <HomepageLink linkToHome={linkToHome}>{author}</HomepageLink>
         </Name>
         <AboutMeList>
           {fullDescription.map((item, i) => (
