@@ -19,21 +19,21 @@ const globalStyles = css`
   }
 
   body {
-    background-color: var(--background-color);
+    background-color: var(--bg);
   }
 
   h1,
   h2 {
-    border-bottom: 1px solid var(--title-border-bottom-color);
+    border-bottom: 1px solid var(--title-line);
   }
 
   h6 {
-    color: var(--h6-color);
+    color: var(--fg--h6);
   }
 
   blockquote {
-    color: var(--blockquote-color);
-    border-left: 4px solid var(--blockquote-border-left-color);
+    color: var(--fg--quote);
+    border-left: 4px solid var(--quote-line);
   }
 
   a {

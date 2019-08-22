@@ -22,7 +22,7 @@ module.exports = {
           title: `Github`,
           href: `https://github.com/markogresak`,
           icon: `github`,
-          iconColor: `var(--icon-github-color)`,
+          iconColor: `var(--gh)`,
         },
         {
           title: `Stack Overflow`,
