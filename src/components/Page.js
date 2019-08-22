@@ -3,25 +3,20 @@ import { css, Global } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { rhythm, scale } from '../utils/typography'
-import { lightModeStyle, primaryColor } from '../utils/colors'
+import { lightStyle, darkStyle, primaryColor } from '../utils/colors'
 
 import SEO from './SEO'
 
 const globalStyles = css`
+  ${lightStyle};
 
-  /* @media (prefers-color-scheme: dark) {
-    :root {
-      --background-color: #333333;
-      --primary-color: #c3adff;
-      --text-color: rgba(255, 255, 255, 0.8);
-      --h1-h2-border-bottom-color: rgba(255, 255, 255, 0.17);
-      --h6-color: rgba(255, 255, 255, 0.53);
-      --blockquote-color: rgba(255, 255, 255, 0.53);
-      --blockquote-border-left-color: rgba(255, 255, 255, 0.53);
-      --icon-github-color: #fff;
-    }
-  } */
-  ${lightModeStyle};
+  .dark {
+    ${darkStyle};
+  }
+
+  .light {
+    ${lightStyle};
+  }
 
   body {
     background-color: var(--background-color);
