@@ -21,6 +21,7 @@ const globalStyles = css`
 
   body {
     background-color: var(--bg);
+    transition: background-color 0.3s, color 0.3s;
   }
 
   h1,
@@ -40,7 +41,7 @@ const globalStyles = css`
   a {
     color: ${primaryColor};
     text-decoration: none;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, color 0.3s;
 
     &:hover {
       text-decoration: none;
