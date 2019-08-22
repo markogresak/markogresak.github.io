@@ -82,7 +82,7 @@ const AboutMe = ({ linkToHome }) => {
     query AboutMeQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 150, height: 150, quality: 80) {
+          fixed(width: 150, height: 150, quality: 80, jpegProgressive: true) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
