@@ -83,7 +83,7 @@ const AboutMe = ({ linkToHome }) => {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
           fixed(width: 150, height: 150, quality: 80) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
