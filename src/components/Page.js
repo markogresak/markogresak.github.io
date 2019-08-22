@@ -3,21 +3,11 @@ import { css, Global } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { rhythm, scale } from '../utils/typography'
-import { primaryColor } from '../utils/colors'
+import { lightModeStyle, primaryColor } from '../utils/colors'
 
 import SEO from './SEO'
 
 const globalStyles = css`
-  :root {
-    --background-color: #fff;
-    --primary-color: #3c00e0;
-    --text-color: rgba(0, 0, 0, 0.8);
-    --h1-h2-border-bottom-color: rgba(0, 0, 0, 0.07);
-    --h6-color: rgba(0, 0, 0, 0.53);
-    --blockquote-color: rgba(0, 0, 0, 0.53);
-    --blockquote-border-left-color: rgba(0, 0, 0, 0.53);
-    --icon-github-color: #25292e;
-  }
 
   /* @media (prefers-color-scheme: dark) {
     :root {
@@ -31,6 +21,7 @@ const globalStyles = css`
       --icon-github-color: #fff;
     }
   } */
+  ${lightModeStyle};
 
   body {
     background-color: var(--background-color);
@@ -38,7 +29,7 @@ const globalStyles = css`
 
   h1,
   h2 {
-    border-bottom: 1px solid var(--h1-h2-border-bottom-color);
+    border-bottom: 1px solid var(--title-border-bottom-color);
   }
 
   h6 {
