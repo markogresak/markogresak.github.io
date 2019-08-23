@@ -2,7 +2,6 @@ import 'react-toggle/style.css'
 
 import React, { useState, useCallback, useEffect } from 'react'
 import Toggle from 'react-toggle'
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -40,12 +39,6 @@ const Label = styled.label`
     border-color: ${textColor};
     background-color: ${bgColor};
   }
-`
-
-const toggleStyle = css``
-
-const iconStyle = css`
-  height: 100%;
 `
 
 function createMediaQuery() {
@@ -97,19 +90,16 @@ const ColorModeToggle = () => {
           checked: (
             <FontAwesomeIcon
               icon="sun"
-              css={iconStyle}
-              style={{ width: '0.9em' }}
+              style={{ height: '100%', width: '0.9em' }}
             />
           ),
           unchecked: (
             <FontAwesomeIcon
               icon="moon"
-              css={iconStyle}
-              style={{ width: '0.8em' }}
+              style={{ height: '100%', width: '0.8em' }}
             />
           ),
         }}
-        css={toggleStyle}
       />
     </Label>
   )
