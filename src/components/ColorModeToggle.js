@@ -49,7 +49,10 @@ const iconStyle = css`
 `
 
 function createMediaQuery() {
-  if (window && window.matchMedia) {
+  if (
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function'
+  ) {
     return window.matchMedia('(prefers-color-scheme: dark)')
   }
   // Return a mock MediaQueryList
