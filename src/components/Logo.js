@@ -25,8 +25,6 @@ const letters = [
   index: i + 1,
 }))
 
-const getAnimatedLetters = () => letters.filter(({ visible }) => !visible)
-
 const Container = styled.span`
   ${scale(1)};
   line-height: 1;
@@ -37,7 +35,7 @@ const Letter = styled.span`
   color: ${({ letterColor }) => letterColor};
   display: inline-block;
   transform: scale(${({ visible }) => (visible ? 1 : 0)});
-  transition: transform ${round(LETTER_APPEAR_DELAY * 2)}s ease-out;
+  transition: transform ${LETTER_APPEAR_DELAY * 2}s ease-out;
   will-change: transform;
 
   &:first-of-type {
@@ -45,30 +43,24 @@ const Letter = styled.span`
     z-index: 2;
   }
 
-  ${getAnimatedLetters().map(
-    ({ index }, i) => `
-      &:nth-last-of-type(${index}) {
-        transition-delay: ${getDelay(i)}s;
-      }
-    `,
-  )};
-
   ${Container}:hover & {
     transform: scale(1);
 
-    ${getAnimatedLetters().map(
-      ({ index }, i) => `
+    ${letters
+      .filter(({ visible }) => !visible)
+      .map(
+        ({ index }, i) => `
         &:nth-of-type(${index}) {
           transition-delay: ${getDelay(i)}s;
         }
       `,
-    )};
+      )};
   }
 `
 
 const fixedPositionStyle = css`
   transform: translateX(-1.7ch);
-  transition-delay: ${getDelay(letters.length - 2)}s !important;
+  transition-delay: ${LETTER_APPEAR_DELAY}s !important;
 
   ${Container}:hover & {
     transform: translateX(0);
@@ -77,12 +69,8 @@ const fixedPositionStyle = css`
 `
 
 function getDelay(i) {
-  return i === 0 ? 0 : round(Math.log(i ** 3) * LETTER_APPEAR_DELAY)
-}
-
-function round(n) {
   // using `round(x*1e4)/1e4` to round to 4 decimal places
-  return Math.round(n * 1e4) / 1e4
+  return i && Math.round(Math.log(i ** 3) * LETTER_APPEAR_DELAY * 1e4) / 1e4
 }
 
 const Logo = ({ lettersAlwaysVisible }) => {
