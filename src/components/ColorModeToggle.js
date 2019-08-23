@@ -1,6 +1,6 @@
 import 'react-toggle/style.css'
 
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useMemo } from 'react'
 import Toggle from 'react-toggle'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +14,12 @@ import {
   textLightColor,
   textDarkColor,
 } from '../utils/colors'
+import {
+  setHtmlClassName,
+  setColorScheme,
+  getInitialState,
+  getMediaQuery,
+} from '../utils/colorScheme'
 
 const Label = styled.label`
   position: absolute;
@@ -41,43 +47,34 @@ const Label = styled.label`
   }
 `
 
-function createMediaQuery() {
-  if (
-    typeof window !== 'undefined' &&
-    typeof window.matchMedia === 'function'
-  ) {
-    return window.matchMedia('(prefers-color-scheme: dark)')
-  }
-  // Return a mock MediaQueryList
-  return {
-    matches: false,
-    addListener: () => {},
-    removeListener: () => {},
-  }
-}
-
 const ColorModeToggle = () => {
-  const prefersDarkModeMediaQuery = createMediaQuery()
-  const [checked, setChecked] = useState(prefersDarkModeMediaQuery.matches)
+  const [checked, setChecked] = useState(getInitialState())
+  const mediaQuery = useMemo(getMediaQuery, [])
 
-  const handleMediaQueryChange = useCallback((event) => {
-    setChecked(event.matches)
-  })
+  const handleStateChange = useCallback(
+    (nextChecked) => {
+      setChecked(nextChecked)
+      setColorScheme(nextChecked)
+    },
+    [setColorScheme],
+  )
 
-  const handleCheckedChange = useCallback((event) => {
-    setChecked(event.target.checked)
-  })
+  const handleMediaQueryChange = useCallback(
+    (event) => handleStateChange(event.matches),
+    [handleStateChange],
+  )
+  const handleCheckedChange = useCallback(
+    (event) => handleStateChange(event.target.value),
+    [handleStateChange],
+  )
 
   useEffect(() => {
-    prefersDarkModeMediaQuery.addListener(handleMediaQueryChange)
-
-    return () =>
-      prefersDarkModeMediaQuery.removeListener(handleMediaQueryChange)
-  })
+    mediaQuery.addListener(handleMediaQueryChange)
+    return () => mediaQuery.removeListener(handleMediaQueryChange)
+  }, [mediaQuery])
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', checked)
-    document.documentElement.classList.toggle('light', !checked)
+    setHtmlClassName(checked)
   }, [checked])
 
   return (
