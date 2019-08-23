@@ -48,11 +48,20 @@ const iconStyle = css`
   height: 100%;
 `
 
-const ColorModeToggle = () => {
-  const prefersDarkModeMediaQuery = window.matchMedia(
-    '(prefers-color-scheme: dark)',
-  )
+function createMediaQuery() {
+  if (window && window.matchMedia) {
+    return window.matchMedia('(prefers-color-scheme: dark)')
+  }
+  // Return a mock MediaQueryList
+  return {
+    matches: false,
+    addListener: () => {},
+    removeListener: () => {},
+  }
+}
 
+const ColorModeToggle = () => {
+  const prefersDarkModeMediaQuery = createMediaQuery()
   const [checked, setChecked] = useState(prefersDarkModeMediaQuery.matches)
 
   const handleMediaQueryChange = useCallback((event) => {
