@@ -3,8 +3,6 @@ const KEY = 'theme'
 export const LIGHT = 'light'
 export const DARK = 'dark'
 
-const getClassName = (isDarkMode) => (isDarkMode ? DARK : LIGHT)
-
 export const getColorScheme = () =>
   typeof window !== 'undefined' &&
   window.localStorage &&
@@ -13,7 +11,7 @@ export const getColorScheme = () =>
 export const setColorScheme = (isDarkMode) =>
   typeof window !== 'undefined' &&
   window.localStorage &&
-  window.localStorage.setItem(KEY, getClassName(isDarkMode))
+  window.localStorage.setItem(KEY, isDarkMode ? DARK : LIGHT)
 
 export function getMediaQuery() {
   if (
@@ -22,18 +20,8 @@ export function getMediaQuery() {
   ) {
     return window.matchMedia('(prefers-color-scheme: dark)')
   }
-  // Return a mock MediaQueryList
-  return {
-    matches: false,
-    addListener: () => {},
-    removeListener: () => {},
-  }
 }
 
 export const setHtmlClassName = (isDarkMode) => {
-  document.documentElement.classList.toggle(LIGHT, !isDarkMode)
   document.documentElement.classList.toggle(DARK, isDarkMode)
 }
-
-export const getInitialState = () =>
-  getColorScheme() ? getColorScheme() === DARK : getMediaQuery().matches

@@ -6,7 +6,7 @@ import { rhythm, scale } from '../utils/typography'
 import { lightStyle, darkStyle, primaryColor } from '../utils/colors'
 
 import SEO from './SEO'
-import ColorModeToggle from './ColorModeToggle'
+import ColorMode from './ColorMode'
 
 const globalStyles = css`
   ${lightStyle};
@@ -82,7 +82,7 @@ const Page = ({ children, title, description, className }) => {
     <>
       <SEO title={title} description={description} />
       <Global styles={globalStyles} />
-      <ColorModeToggle />
+      <ColorMode />
       <Layout className={className}>{children}</Layout>
     </>
   )
