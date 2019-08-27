@@ -37,6 +37,7 @@ const ColorModeToggle = ({ checked, onChange }) => (
       checked={checked}
       onChange={onChange}
       aria-label={`Switch to ${checked ? 'light' : 'dark'} mode`}
+      aria-checked={checked}
       uncheckedIcon={
         <IconWrapper>
           <FontAwesomeIcon icon="moon" />
