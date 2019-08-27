@@ -16,13 +16,10 @@ const getInitialIsDarkMode = (mediaQuery) => {
 const ColorModeContainer = ({ mediaQuery }) => {
   const [isDarkMode, setIsDarkMode] = useState(getInitialIsDarkMode(mediaQuery))
 
-  const handleStateChange = useCallback(
-    (nextIsDarkMode) => {
-      setIsDarkMode(nextIsDarkMode)
-      setColorScheme(nextIsDarkMode)
-    },
-    [setColorScheme],
-  )
+  const handleStateChange = useCallback((nextIsDarkMode) => {
+    setIsDarkMode(nextIsDarkMode)
+    setColorScheme(nextIsDarkMode)
+  }, [])
 
   const handleMediaQueryChange = useCallback(
     (event) => handleStateChange(event.matches),
@@ -32,7 +29,7 @@ const ColorModeContainer = ({ mediaQuery }) => {
   useEffect(() => {
     mediaQuery.addListener(handleMediaQueryChange)
     return () => mediaQuery.removeListener(handleMediaQueryChange)
-  }, [mediaQuery])
+  }, [mediaQuery, handleMediaQueryChange])
 
   useEffect(() => {
     setHtmlClassName(isDarkMode)
