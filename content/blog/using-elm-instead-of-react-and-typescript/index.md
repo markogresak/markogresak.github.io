@@ -4,7 +4,7 @@ description: ''
 date: '2016-10-18'
 ---
 
-Recently I republished a post about [TypeScript and React](https://medium.com/out-of-memory/typescript-with-react-and-jsx-2749eac50bfa#.dsm4a48sp) . It got me thinking about recent elm experience and how it could be the better choice.
+Recently I republished a post about [TypeScript and React](/blog/typescript-with-react-and-jsx) . It got me thinking about recent elm experience and how it could be the better choice.
 
 Do you like the React and Redux architecture for your apps? And do you prefer better autocomplete and more type safety provided by TypeScript, but do not like how TypeScript makes you work to tell it all the types?
 
