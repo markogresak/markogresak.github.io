@@ -1,0 +1,79 @@
+---
+title: 'React with TypeScript in 2019'
+description: 'An update after almost 4 years of using React with TypeScript.'
+date: '2019-09-01'
+---
+
+My journey started almost four years ago in September 2015. That's when I first started exploring the upcoming support of JSX syntax in TypeScript, and I have [written a post about it](/blog/typescript-with-react-and-jsx).
+
+Since then, the post remained mostly unmaintained. I’ve added a few edits to nudge people in the right direction.
+
+Of course, a lot has changed in this time. Both TypeScript and React grew more mature and received significant improvements. Both React and the TypeScript team are still doing an excellent job of providing a pleasant development experience.
+
+### How it used to be "in the old days" 📟
+
+When I was starting in late 2015, I couldn’t find a satisfying boilerplate project, so I've [started one from scratch](https://github.com/markogresak/typescript-react-jsx-example).
+
+There was also no useful tools to convert JSX files to TypeScript's TSX. At that time, I've created a [rudimentary `js-to-tsx` script](https://github.com/markogresak/js-to-tsx) to rename files. It required lots of manual work, but at least the compiler caught the errors and helped you along the way.
+
+Also, the `@types/*` didn't exist back then. The DefinitelyTyped project was a thing even back then, but managing the types required an external CLI tool called `tsd`. So being efficient with TypeScript required learning another tool, and adding additional project setup.
+
+---
+
+### Creating a new project 🎉
+
+These days, I see no need for a boilerplate project like the one mentioned before. When starting a new React + TypeScript project, I get the job done with [`create-react-app`](https://facebook.github.io/create-react-app/) using the [`--typescript` flag](https://facebook.github.io/create-react-app/docs/adding-typescript). Everything comes configured out-of-the-box so you can get to work right away.
+
+_Tip: Running `npx create-react-app --typescript` works without having to install create-react-app. The `npx` command useful if you rarely use a CLI tool and don’t want to pollute your system._
+
+### Adding TypeScript to an existing JavaScript codebase 🔧
+
+Earlier this year, I was leading the introduction of TypeScript to our existing medium-sized (~100k LOC) React project. The process was much smoother compared to my experience from 2015 when the TypeScript team just announced the support for JSX. And at that time, I was only using it for personal projects; I would not be comfortable using it on any production project.
+
+#### The type declaration (`.d.ts`) way
+
+The easy way to do it is to keep the source code as-is and add `MyComponent.d.ts` type declaration file next to your `MyComponent.jsx` file.
+
+But I don't like this approach. I see this as a comment describing the code. It's easy to edit the source code and forget to update the type declaration file. The TypeScript code does not know that something changed, so the compiler will not warn you about it, and you'll get a runtime error. I prefer converting the code to TypeScript and let it speak for itself.
+
+#### Converting JavaScript React to TypeScript
+
+A more robust, but also more time-consuming approach is to convert `MyComponent.jsx` to TypeScript as `MyComponent.tsx`. This way, you don't have to worry about keeping the declaration files in sync with code, the code _is_ the declaration file.
+
+Caveat: some code is complex and makes the conversion to proper types time-consuming. In addition to that, the API rarely changes. These conditions are a good argument not to convert the code and make use of `d.ts` file.
+
+For the files you decide to convert, you can speed up the process and make it a bit less painful by using [`react-js-to-ts`](https://github.com/lyft/react-javascript-to-typescript-transform). You can use it as
+
+```sh
+npx react-js-to-ts MyComponent.jsx
+```
+
+It reads the React source code, and it knows what different `PropTypes` mean in the TypeScript world. It automatically generates a `type` declaration for `props` and `state`. It outputs the converted component at `MyComponent.tsx` and removes the `MyComponent.jsx` file.
+
+It's a good idea to use version control, or to at least back up the `.jsx` files before you start the process, just in case.
+
+The tool is not perfect, and it can mess up on non-trivial `propTypes` usages, but it's much more useful than my `js-to-tsx` script. There's also a [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=mohsen1.react-javascript-to-typescript-transform-vscode#overview) to run it directly from your editor.
+
+### Typings for dependencies
+
+For new and existing projects alike, external libraries and components are bound to come into play. To get the full power of TypeScript, it makes sense to have typings for used dependencies.
+
+Some projects ship with typings out of the box. The compiler, and in extension your editor plugin, will pick these up automatically. For projects which do not include it, there's the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) project, which provides typings for a lot of `npm` projects and makes these typings available on `npm` under `@types/[project]`. Adding these typings, for example, for `react`, is as easy as
+
+```sh
+npm i -D @types/react
+# or with yarn
+yarn add -D @types/react
+```
+
+TypeScript knows where to look for these types, so you don't have to configure anything.
+
+Something to keep in mind is if you're not using the latest version of a dependency, make sure to use the corresponding version of typings.
+
+### tl;dr
+
+TypeScript and React came a long way since in 2015 when TypeScript introduced support for JSX. It's now easier to get started with a new project and to convert an existing project.
+
+To start a new project, use [`npx create-react-app --typescript`](<(https://facebook.github.io/create-react-app/docs/adding-typescript)>).
+
+When converting an existing project, [`react-js-to-ts`](https://github.com/lyft/react-javascript-to-typescript-transform) can be useful. Or you can add `.d.ts` files to the existing JSX components.
