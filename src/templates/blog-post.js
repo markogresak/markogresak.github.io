@@ -38,7 +38,9 @@ const Article = styled.article`
     }
   }
 
-  :not(pre) > code[class*='language-'] {
+  /* Inline code blocks */
+  /* Important: must include *:not part, otherwise emotion assumes &:not */
+  *:not(pre) > code[class*='language-'] {
     white-space: normal;
   }
 
