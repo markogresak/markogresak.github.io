@@ -4,6 +4,8 @@ description: ''
 date: '2015-09-10'
 ---
 
+**This is an old post. [Read the updated version for 2019](/blog/react-with-type-script-in-2019).**
+
 ![](ts-and-react.jpg)
 
 TypeScript introduced 1.6 beta on their [blog](http://blogs.msdn.com/b/typescript/archive/2015/09/02/announcing-typescript-1-6-beta-react-jsx-better-error-checking-and-more.aspx) in early September 2015, announcing they're adding JSX support. I decided to convert my project. Here is what I've learned.
