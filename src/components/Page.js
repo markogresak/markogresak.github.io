@@ -21,7 +21,8 @@ const globalStyles = css`
 
   body {
     background-color: var(--bg);
-    transition: background-color 0.3s, color 0.3s;
+    /* TODO: fix transition flash on theme change */
+    /* transition: background-color 0.3s, color 0.3s; */
   }
 
   h1,
