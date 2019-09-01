@@ -32,6 +32,10 @@ const Article = styled.article`
     &:hover {
       box-shadow: none;
     }
+
+    :not(pre) > code[class*='language-'] {
+      padding-bottom: 0;
+    }
   }
 
   :not(pre) > code[class*='language-'] {
