@@ -9,7 +9,7 @@ import AnimatedArrow from '../components/AnimatedArrow'
 import PostDate from '../components/PostDate'
 
 import typography, { rhythm, scale } from '../utils/typography'
-import { bgDarkColor } from '../utils/colors'
+import { bgDarkColor, primaryLightColor } from '../utils/colors'
 
 const ArticleTitleContainer = styled.div`
   margin-bottom: ${rhythm(1)};
@@ -33,8 +33,10 @@ const Article = styled.article`
       box-shadow: none;
     }
 
+    /* Inline code wrapped in a link */
     :not(pre) > code[class*='language-'] {
       padding-bottom: 0;
+      color: ${primaryLightColor};
     }
   }
 

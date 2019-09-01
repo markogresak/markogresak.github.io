@@ -1,6 +1,8 @@
 import { css } from '@emotion/core'
 
 export const primaryColor = 'var(--primary)'
+export const primaryLightColor = 'var(--primary-light)'
+export const primaryDarkColor = 'var(--primary-dark)'
 export const textColor = 'var(--fg)'
 export const textLightColor = 'var(--fg-light)'
 export const textDarkColor = 'var(--fg-dark)'
@@ -16,7 +18,9 @@ export const lightStyle = css`
     --fg-light: rgba(0, 0, 0, 0.8);
     --fg-dark: rgba(255, 255, 255, 0.8);
     --fg: ${textLightColor};
-    --primary: #3c00e0;
+    --primary-light: #3c00e0;
+    --primary-dark: #c3adff;
+    --primary: ${primaryLightColor};
     --title-line: rgba(0, 0, 0, 0.07);
     --fg--h6: rgba(0, 0, 0, 0.53);
     --fg--quote: rgba(0, 0, 0, 0.53);
@@ -29,7 +33,7 @@ export const darkStyle = css`
   :root {
     --bg: ${bgDarkColor};
     --fg: ${textDarkColor};
-    --primary: #c3adff;
+    --primary: ${primaryDarkColor};
     --title-line: rgba(255, 255, 255, 0.17);
     --fg--h6: rgba(255, 255, 255, 0.53);
     --fg--quote: rgba(255, 255, 255, 0.53);
