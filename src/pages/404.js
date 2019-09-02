@@ -46,7 +46,7 @@ const NotFoundPage = ({ data }) => {
         </p>
         <p>
           If you were expecting to find a blog post or if you think there's a
-          problem, please <Link href={issuesUrl}>file an issue</Link> to get
+          problem, please <Link href={newIssueUrl}>file an issue</Link> to get
           this problem fixed.
         </p>
 
