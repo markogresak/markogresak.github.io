@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import Link from './Link'
@@ -33,6 +34,19 @@ const LinksList = ({ links, children }) => {
       ))}
     </Links>
   )
+}
+
+LinksList.propTypes = {
+  links: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+    inCurrentTab: PropTypes.bool,
+    title: PropTypes.string,
+  }).isRequired,
+  children: PropTypes.func.isRequired,
+}
+
+LinksList.defaultProps = {
+  children: ({ title }) => title,
 }
 
 export default LinksList

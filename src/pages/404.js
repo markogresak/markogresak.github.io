@@ -51,7 +51,7 @@ const NotFoundPage = ({ data }) => {
         </p>
 
         <nav>
-          <LinksList links={links}>{({ title }) => title}</LinksList>
+          <LinksList links={links} />
         </nav>
       </Container>
     </Page>
