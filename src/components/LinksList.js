@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+
+import Link from './Link'
 
 const Links = styled.ul`
   list-style: none;
@@ -19,25 +20,15 @@ const LinkItem = styled.li`
 const LinksList = ({ links, children }) => {
   return (
     <Links>
-      {links.map(({ title, href, ...linkProps }) => (
+      {links.map(({ title, href, inCurrentTab, ...linkProps }) => (
         <LinkItem key={title}>
-          {href.indexOf('/') === 0 ? (
-            <Link to={href} title={title}>
-              {children({
-                title,
-                href,
-                ...linkProps,
-              })}
-            </Link>
-          ) : (
-            <a href={href} title={title}>
-              {children({
-                title,
-                href,
-                ...linkProps,
-              })}
-            </a>
-          )}
+          <Link href={href} title={title} inCurrentTab={inCurrentTab}>
+            {children({
+              title,
+              href,
+              ...linkProps,
+            })}
+          </Link>
         </LinkItem>
       ))}
     </Links>
