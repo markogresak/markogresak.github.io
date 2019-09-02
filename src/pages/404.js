@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import Page from '../components/Page'
 import Logo from '../components/Logo'
 import LinksList from '../components/LinksList'
+import Link from '../components/Link'
 
 import { rhythm } from '../utils/typography'
 
@@ -45,14 +46,7 @@ const NotFoundPage = ({ data }) => {
         </p>
         <p>
           If you were expecting to find a blog post or if you think there's a
-          problem, please{' '}
-          <a
-            href={`${issuesUrl}/new`}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            file an issue
-          </a>{' '}
+          problem, please <Link href={`${issuesUrl}/new`}>file an issue</Link>{' '}
           to get this problem fixed.
         </p>
 
