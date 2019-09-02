@@ -14,7 +14,7 @@ module.exports = {
     ],
     readMoreText: `Read older posts`,
     siteUrl: `https://gresak.io/`,
-    issuesUrl: `https://github.com/markogresak/markogresak.github.io/issues`,
+    newIssueUrl: `https://github.com/markogresak/markogresak.github.io/issues/new`,
     links: {
       title: `Links`,
       items: [

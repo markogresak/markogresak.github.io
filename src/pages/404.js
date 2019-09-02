@@ -28,7 +28,7 @@ const Title = styled.h1`
 `
 
 const NotFoundPage = ({ data }) => {
-  const { issuesUrl, site_404 } = data.site.siteMetadata
+  const { newIssueUrl, site_404 } = data.site.siteMetadata
   const { title, links } = site_404
 
   return (
@@ -46,8 +46,8 @@ const NotFoundPage = ({ data }) => {
         </p>
         <p>
           If you were expecting to find a blog post or if you think there's a
-          problem, please <Link href={`${issuesUrl}/new`}>file an issue</Link>{' '}
-          to get this problem fixed.
+          problem, please <Link href={issuesUrl}>file an issue</Link> to get
+          this problem fixed.
         </p>
 
         <nav>
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        issuesUrl
+        newIssueUrl
         site_404 {
           title
           links {
