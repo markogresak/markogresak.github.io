@@ -7,6 +7,7 @@ import styled from '@emotion/styled'
 import BlogPage from '../components/BlogPage'
 import AnimatedArrow from '../components/AnimatedArrow'
 import PostDate from '../components/PostDate'
+import LinksList from '../components/LinksList'
 
 import typography, { rhythm, scale } from '../utils/typography'
 import { bgDarkColor, primaryLightColor } from '../utils/colors'
@@ -52,6 +53,10 @@ const Article = styled.article`
   }
 `
 
+const ArticleFooter = styled.div`
+  margin-top: ${rhythm(1.5)};
+`
+
 const NavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -66,11 +71,25 @@ const NavItem = styled.li`
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const { previous, next } = pageContext
+  const { previous, next, slug } = pageContext
+  const { title, newIssueUrl, discussUrl } = data.site.siteMetadata
+
+  const links = [
+    {
+      href: `${discussUrl}${slug.substring(1)}`,
+      title: 'Discuss',
+    },
+    {
+      href: `${newIssueUrl}?title=${encodeURIComponent(
+        `A problem with post ${post.frontmatter.title}`,
+      )}`,
+      title: 'Tell me about an issue',
+    },
+  ]
 
   return (
     <BlogPage
-      title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
+      title={`${post.frontmatter.title} | ${title}`}
       description={post.frontmatter.description || post.excerpt}
     >
       <BlogPage.Header withLink />
@@ -81,6 +100,9 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           <PostDate post={post} />
         </ArticleTitleContainer>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <ArticleFooter>
+          <LinksList links={links} />
+        </ArticleFooter>
       </Article>
 
       <BlogPage.Footer>
@@ -120,6 +142,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        newIssueUrl
+        discussUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

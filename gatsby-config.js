@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const siteUrl = `https://gresak.io/`
+
 module.exports = {
   siteMetadata: {
     title: `OutOfMemory Blog`,
@@ -13,8 +15,11 @@ module.exports = {
       `Loving all JavaScript and React related things!`,
     ],
     readMoreText: `Read older posts`,
-    siteUrl: `https://gresak.io/`,
+    siteUrl,
     newIssueUrl: `https://github.com/markogresak/markogresak.github.io/issues/new`,
+    discussUrl: `https://mobile.twitter.com/search?q=${encodeURIComponent(
+      siteUrl,
+    )}`,
     links: {
       title: `Links`,
       items: [
