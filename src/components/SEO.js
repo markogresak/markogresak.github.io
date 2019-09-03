@@ -9,7 +9,6 @@ function SEO({ description, lang, meta, title }) {
       query {
         site {
           siteMetadata {
-            title
             description
             author
           }
