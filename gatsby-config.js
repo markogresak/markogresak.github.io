@@ -167,9 +167,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Marko Grešak`,
-        short_name: `gresak.io`,
-        start_url: `/`,
+        name: blogTitle,
+        short_name: blogTitle,
+        start_url: `/blog/`,
         background_color: `#ffffff`,
         theme_color: `#3c00e0`,
         display: `minimal-ui`,
