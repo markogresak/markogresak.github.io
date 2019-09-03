@@ -1,13 +1,16 @@
 require('dotenv').config()
 
+const blogTitle = `OutOfMemory Blog`
 const siteUrl = `https://gresak.io/`
+const blogUrl = `${siteUrl}blog/`
+const rssUrl = `/blog/rss.xml`
 
 module.exports = {
   siteMetadata: {
-    title: `OutOfMemory Blog`,
+    title: blogTitle,
     author: `Marko Grešak`,
     homepageTitle: `Marko Grešak`,
-    blogTitle: `OutOfMemory Blog`,
+    blogTitle,
     description: `Marko Grešak. Web developer who is striving to improve in all areas. Loving all JavaScript and React related things! Writer of OutOfMemory blog.`,
     heading: `My latest blog posts`,
     fullDescription: [
@@ -20,6 +23,8 @@ module.exports = {
     discussUrl: `https://mobile.twitter.com/search?q=${encodeURIComponent(
       siteUrl,
     )}`,
+    blogUrl,
+    rssUrl,
     links: {
       title: `Links`,
       items: [
@@ -98,7 +103,67 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: blogUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.description || edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [
+                  {
+                    // replace relative urls with absolute
+                    'content:encoded': edge.node.html.replace(
+                      /href="\/blog\//g,
+                      blogUrl,
+                    ),
+                  },
+                ],
+              })),
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        description
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: rssUrl,
+            title: blogTitle,
+            match: '^/blog/',
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
