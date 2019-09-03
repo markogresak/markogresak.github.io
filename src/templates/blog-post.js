@@ -72,7 +72,7 @@ const NavItem = styled.li`
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next, slug } = pageContext
-  const { title, newIssueUrl, discussUrl } = data.site.siteMetadata
+  const { blogTitle, rssUrl, newIssueUrl, discussUrl } = data.site.siteMetadata
 
   const links = [
     {
@@ -89,7 +89,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   return (
     <BlogPage
-      title={`${post.frontmatter.title} | ${title}`}
+      title={`${post.frontmatter.title} | ${blogTitle}`}
       description={post.frontmatter.description || post.excerpt}
     >
       <BlogPage.Header withLink />
@@ -141,7 +141,7 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
+        blogTitle
         newIssueUrl
         discussUrl
       }
