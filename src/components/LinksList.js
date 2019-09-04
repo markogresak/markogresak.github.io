@@ -4,6 +4,12 @@ import styled from '@emotion/styled'
 
 import Link from './Link'
 
+const LinksContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`
+
 const Links = styled.ul`
   list-style: none;
   margin-left: 0;
@@ -18,21 +24,31 @@ const LinkItem = styled.li`
   }
 `
 
+const LinkItems = ({ links, children }) => (
+  <Links>
+    {links.map((link) => (
+      <LinkItem key={link.title}>
+        <Link
+          href={link.href}
+          title={link.title}
+          inCurrentTab={link.inCurrentTab}
+        >
+          {children(link)}
+        </Link>
+      </LinkItem>
+    ))}
+  </Links>
+)
+
 const LinksList = ({ links, children }) => {
+  const linksLeft = links.filter((link) => !link.right)
+  const linksRight = links.filter((link) => link.right)
+
   return (
-    <Links>
-      {links.map(({ title, href, inCurrentTab, ...linkProps }) => (
-        <LinkItem key={title}>
-          <Link href={href} title={title} inCurrentTab={inCurrentTab}>
-            {children({
-              title,
-              href,
-              ...linkProps,
-            })}
-          </Link>
-        </LinkItem>
-      ))}
-    </Links>
+    <LinksContainer>
+      <LinkItems links={linksLeft}>{children}</LinkItems>
+      <LinkItems links={linksRight}>{children}</LinkItems>
+    </LinksContainer>
   )
 }
 
@@ -41,6 +57,7 @@ LinksList.propTypes = {
     PropTypes.shape({
       href: PropTypes.string.isRequired,
       inCurrentTab: PropTypes.bool,
+      right: PropTypes.bool,
       title: PropTypes.string,
     }).isRequired,
   ).isRequired,

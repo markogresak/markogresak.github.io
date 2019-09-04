@@ -7,13 +7,18 @@ const newTabProps = {
   rel: 'nofollow noopener noreferrer',
 }
 
-const Link = ({ children, href, inCurrentTab, title }) =>
+const Link = ({ children, href, inCurrentTab, title, className }) =>
   href.indexOf('/') === 0 ? (
-    <GatsbyLink to={href} title={title}>
+    <GatsbyLink to={href} title={title} className={className}>
       {children}
     </GatsbyLink>
   ) : (
-    <a href={href} title={title} {...(inCurrentTab ? {} : newTabProps)}>
+    <a
+      href={href}
+      title={title}
+      className={className}
+      {...(inCurrentTab ? {} : newTabProps)}
+    >
       {children}
     </a>
   )
@@ -23,6 +28,7 @@ Link.propTypes = {
   href: PropTypes.string.isRequired,
   inCurrentTab: PropTypes.bool,
   title: PropTypes.string,
+  className: PropTypes.string,
 }
 
 export default Link
