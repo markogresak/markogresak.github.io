@@ -139,7 +139,7 @@ module.exports = {
                     // replace relative urls with absolute
                     'content:encoded': edge.node.html.replace(
                       /href="\/blog\//g,
-                      blogUrl,
+                      `href="${blogUrl}`,
                     ),
                   },
                 ],
