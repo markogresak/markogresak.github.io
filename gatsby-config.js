@@ -3,7 +3,7 @@ require('dotenv').config()
 const blogTitle = `OutOfMemory Blog`
 const siteUrl = `https://gresak.io/`
 const blogUrl = `${siteUrl}blog/`
-const rssUrl = `/blog/rss.xml`
+const rssUrl = `${blogUrl}rss.xml`
 
 module.exports = {
   siteMetadata: {
@@ -48,6 +48,7 @@ module.exports = {
         },
         {
           title: `RSS`,
+          // Using absolute url because FE Link doesn't work
           href: rssUrl,
           icon: `fas rss`,
           iconColor: `#ed9f4f`,
@@ -163,7 +164,8 @@ module.exports = {
                 }
               }
             `,
-            output: rssUrl,
+            // Expects relative (public) path
+            output: `/${rssUrl.replace(siteUrl, '')}`,
             title: blogTitle,
             match: '^/blog/',
           },
