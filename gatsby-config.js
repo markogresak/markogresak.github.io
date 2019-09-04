@@ -24,7 +24,12 @@ module.exports = {
       siteUrl,
     )}`,
     blogUrl,
-    rssUrl,
+    rssLink: {
+      title: `RSS`,
+      href: rssUrl,
+      icon: 'fas rss',
+      iconColor: '#ed9f4f',
+    },
     links: {
       title: `Links`,
       items: [
@@ -45,13 +50,6 @@ module.exports = {
           href: `https://twitter.com/markogresak`,
           icon: `fab twitter`,
           iconColor: `#55acee`,
-        },
-        {
-          title: `RSS`,
-          // Using absolute url because FE Link doesn't work
-          href: rssUrl,
-          icon: `fas rss`,
-          iconColor: `#ed9f4f`,
         },
       ],
     },

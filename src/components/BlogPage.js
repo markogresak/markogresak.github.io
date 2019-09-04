@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -50,11 +51,30 @@ const Header = ({ children, withLink }) => (
 )
 
 const Footer = ({ children, links = [] }) => {
+  const data = useStaticQuery(graphql`
+    query BlogPageFooterQuery {
+      site {
+        siteMetadata {
+          rssLink {
+            title
+            href
+            icon
+            iconColor
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <FooterContainer>
       <LinksList
         links={[
           ...links,
+          {
+            ...data.site.siteMetadata.rssLink,
+            right: true,
+          },
         ]}
       >
         {({ title, icon, iconColor }) => (
