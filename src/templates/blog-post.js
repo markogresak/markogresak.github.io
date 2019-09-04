@@ -7,7 +7,6 @@ import styled from '@emotion/styled'
 import BlogPage from '../components/BlogPage'
 import AnimatedArrow from '../components/AnimatedArrow'
 import PostDate from '../components/PostDate'
-import LinksList from '../components/LinksList'
 
 import typography, { rhythm, scale } from '../utils/typography'
 import { bgDarkColor, primaryLightColor } from '../utils/colors'
@@ -53,10 +52,6 @@ const Article = styled.article`
   }
 `
 
-const ArticleFooter = styled.div`
-  margin-top: ${rhythm(1.5)};
-`
-
 const NavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -100,12 +95,9 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           <PostDate post={post} />
         </ArticleTitleContainer>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <ArticleFooter>
-          <LinksList links={links} />
-        </ArticleFooter>
       </Article>
 
-      <BlogPage.Footer>
+      <BlogPage.Footer links={links}>
         <nav>
           <NavList>
             <NavItem>
