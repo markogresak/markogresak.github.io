@@ -145,7 +145,7 @@ const AboutMe = ({ linkToHome }) => {
             {({ title, icon, iconColor }) => (
               <>
                 <FontAwesomeIcon
-                  icon={['fab', icon]}
+                  icon={icon.split(' ')}
                   color={iconColor}
                   css={{ marginRight: rhythm(0.25) }}
                   // force same width on all icons
