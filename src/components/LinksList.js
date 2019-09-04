@@ -24,23 +24,30 @@ const LinkItem = styled.li`
   }
 `
 
-const LinkItems = ({ links, children }) => (
-  <Links>
-    {links.map((link) => (
-      <LinkItem key={link.title}>
-        <Link
-          href={link.href}
-          title={link.title}
-          inCurrentTab={link.inCurrentTab}
-        >
-          {children(link)}
+const LinkItems = ({ links, className }) => (
+  <Links className={className}>
+    {links.map(({ title, href, inCurrentTab, icon, iconColor }) => (
+      <LinkItem key={title}>
+        <Link href={href} title={title} inCurrentTab={inCurrentTab}>
+          <>
+            {icon && (
+              <FontAwesomeIcon
+                icon={icon.split(' ')}
+                color={iconColor}
+                css={{ marginRight: rhythm(0.25) }}
+                // force same width on all icons
+                style={{ width: '1em' }}
+              />
+            )}
+            {title}
+          </>
         </Link>
       </LinkItem>
     ))}
   </Links>
 )
 
-const LinksList = ({ links, children }) => {
+const LinksList = ({ links }) => {
   const linksLeft = links.filter((link) => !link.right)
   const linksRight = links.filter((link) => link.right)
 
@@ -61,11 +68,6 @@ LinksList.propTypes = {
       title: PropTypes.string,
     }).isRequired,
   ).isRequired,
-  children: PropTypes.func.isRequired,
-}
-
-LinksList.defaultProps = {
-  children: ({ title }) => title,
 }
 
 export default LinksList

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import LinksList from './LinksList'
 
@@ -141,21 +140,15 @@ const AboutMe = ({ linkToHome }) => {
           ))}
         </AboutMeList>
         <LinksWrapper>
-          <LinksList links={links.items}>
-            {({ title, icon, iconColor }) => (
-              <>
-                <FontAwesomeIcon
-                  icon={icon.split(' ')}
-                  color={iconColor}
-                  css={{ marginRight: rhythm(0.25) }}
-                  // force same width on all icons
-                  style={{ width: '1em' }}
-                />
-                {title}
-                {title === 'Github' && <> ({repositoriesCount} projects)</>}
-              </>
-            )}
-          </LinksList>
+          <LinksList
+            links={links.items.map(({ title, ...link }) => ({
+              ...link,
+              title:
+                title === 'Github'
+                  ? `${title} (${repositoriesCount} projects)`
+                  : title,
+            }))}
+          />
         </LinksWrapper>
       </div>
     </Wrapper>

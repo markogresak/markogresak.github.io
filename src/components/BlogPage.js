@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Page from './Page'
 import AboutMe from './AboutMe'
@@ -76,22 +75,7 @@ const Footer = ({ children, links = [] }) => {
             right: true,
           },
         ]}
-      >
-        {({ title, icon, iconColor }) => (
-          <>
-            {icon && (
-              <FontAwesomeIcon
-                icon={icon.split(' ')}
-                color={iconColor}
-                css={{ marginRight: rhythm(0.25) }}
-                // force same width on all icons
-                style={{ width: '1em' }}
-              />
-            )}
-            {title}
-          </>
-        )}
-      </LinksList>
+      />
       <FooterMain>
         <AboutMe linkToHome />
         {children}
