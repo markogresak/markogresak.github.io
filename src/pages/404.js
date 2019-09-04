@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import Page from '../components/Page'
@@ -56,7 +57,12 @@ const NotFoundPage = ({ data }) => {
         </p>
 
         <nav>
-          <LinksList links={links} />
+          <LinksList
+            links={links}
+            css={css`
+              justify-content: center;
+            `}
+          />
         </nav>
       </Container>
     </Page>

@@ -1,18 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { rhythm } from '../utils/typography'
 
 import Link from './Link'
 
 const LinksContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 `
 
 const Links = styled.ul`
   list-style: none;
-  margin-left: 0;
+  margin-left: ${({ right }) => (right ? 'auto' : 0)};
 `
 
 const LinkItem = styled.li`
@@ -24,8 +27,8 @@ const LinkItem = styled.li`
   }
 `
 
-const LinkItems = ({ links, className }) => (
-  <Links className={className}>
+const LinkItems = ({ links, right }) => (
+  <Links right={right}>
     {links.map(({ title, href, inCurrentTab, icon, iconColor }) => (
       <LinkItem key={title}>
         <Link href={href} title={title} inCurrentTab={inCurrentTab}>
@@ -47,14 +50,14 @@ const LinkItems = ({ links, className }) => (
   </Links>
 )
 
-const LinksList = ({ links }) => {
+const LinksList = ({ links, className }) => {
   const linksLeft = links.filter((link) => !link.right)
   const linksRight = links.filter((link) => link.right)
 
   return (
-    <LinksContainer>
-      <LinkItems links={linksLeft}>{children}</LinkItems>
-      <LinkItems links={linksRight}>{children}</LinkItems>
+    <LinksContainer className={className}>
+      {linksLeft.length > 0 && <LinkItems links={linksLeft} />}
+      {linksRight.length > 0 && <LinkItems links={linksRight} right />}
     </LinksContainer>
   )
 }
