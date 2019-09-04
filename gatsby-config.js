@@ -46,6 +46,10 @@ module.exports = {
           icon: `twitter`,
           iconColor: `#55acee`,
         },
+        {
+          title: `RSS`,
+          href: rssUrl,
+        },
       ],
     },
     site_404: {
