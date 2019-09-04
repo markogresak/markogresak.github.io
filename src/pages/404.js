@@ -34,9 +34,11 @@ const NotFoundPage = ({ data }) => {
   return (
     <Page title={title} css={{ padding: 0 }}>
       <Container>
-        <Title>
-          <Logo lettersAlwaysVisible />
-        </Title>
+        <Link href="/blog" title="Blog" css={{ boxShadow: 'none !important' }}>
+          <Title>
+            <Logo lettersAlwaysVisible />
+          </Title>
+        </Link>
         <p>
           I swear, I've checked everywhere, and it seems I have forgotten where
           I put what you were looking for{' '}
