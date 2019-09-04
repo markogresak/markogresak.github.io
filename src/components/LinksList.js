@@ -37,11 +37,13 @@ const LinksList = ({ links, children }) => {
 }
 
 LinksList.propTypes = {
-  links: PropTypes.shape({
-    href: PropTypes.string.isRequired,
-    inCurrentTab: PropTypes.bool,
-    title: PropTypes.string,
-  }).isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      inCurrentTab: PropTypes.bool,
+      title: PropTypes.string,
+    }).isRequired,
+  ).isRequired,
   children: PropTypes.func.isRequired,
 }
 
