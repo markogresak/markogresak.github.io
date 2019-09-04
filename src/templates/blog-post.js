@@ -72,7 +72,7 @@ const NavItem = styled.li`
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next, slug } = pageContext
-  const { blogTitle, rssUrl, newIssueUrl, discussUrl } = data.site.siteMetadata
+  const { blogTitle, newIssueUrl, discussUrl } = data.site.siteMetadata
 
   const links = [
     {
