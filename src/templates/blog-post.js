@@ -1,4 +1,5 @@
-import 'prismjs/themes/prism-solarizedlight.css'
+// import 'prismjs/themes/prism-solarizedlight.css'
+import 'prism-themes/themes/prism-a11y-dark.css'
 
 import React from 'react'
 import { Link, graphql } from 'gatsby'
@@ -10,7 +11,7 @@ import PostDate from '../components/PostDate'
 import SubscribeForm from '../components/SubscribeForm'
 
 import typography, { rhythm, scale } from '../utils/typography'
-import { bgDarkColor, primaryLightColor } from '../utils/colors'
+import { bgDarkColor, primaryDarkColor } from '../utils/colors'
 
 const ArticleTitleContainer = styled.div`
   margin-bottom: ${rhythm(1)};
@@ -37,19 +38,12 @@ const Article = styled.article`
     /* Inline code wrapped in a link */
     :not(pre) > code[class*='language-'] {
       padding-bottom: 0;
-      color: ${primaryLightColor};
+      color: ${primaryDarkColor};
     }
-  }
-
-  /* Inline code blocks */
-  /* Important: must include *:not part, otherwise emotion assumes &:not */
-  *:not(pre) > code[class*='language-'] {
-    white-space: normal;
   }
 
   [class*='language-'] {
     ${scale(0.1)};
-    color: ${bgDarkColor};
   }
 `
 
