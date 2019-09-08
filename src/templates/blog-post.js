@@ -1,4 +1,3 @@
-// import 'prismjs/themes/prism-solarizedlight.css'
 import 'prism-themes/themes/prism-a11y-dark.css'
 
 import React from 'react'
@@ -37,8 +36,13 @@ const Article = styled.article`
 
     /* Inline code wrapped in a link */
     :not(pre) > code[class*='language-'] {
-      padding-bottom: 0;
       color: ${primaryDarkColor};
+      transition: color 0.2s;
+
+      &:hover {
+        /* Default color of a11y-dark theme */
+        color: #f8f8f2;
+      }
     }
   }
 
