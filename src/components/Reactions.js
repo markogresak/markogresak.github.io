@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 
 import { rhythm } from '../utils/typography'
+import { textLightColor } from '../utils/colors'
 
 const REACTIONS_CONTAINER_ID = 'reactions'
 
@@ -9,6 +10,7 @@ const ReactionsContainer = styled.div`
   display: ${({ isLoaded }) => (isLoaded ? 'flex' : 'none')};
   justify-content: center;
   margin-top: ${rhythm(1)};
+  color: ${textLightColor};
 `
 
 const Reactions = () => {
