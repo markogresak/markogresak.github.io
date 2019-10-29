@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 
 import { rhythm } from '../utils/typography'
-import { textLightColor } from '../utils/colors'
 
 const REACTIONS_CONTAINER_ID = 'reactions'
 
