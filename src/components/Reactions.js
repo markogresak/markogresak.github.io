@@ -10,7 +10,6 @@ const ReactionsContainer = styled.div`
   display: ${({ isLoaded }) => (isLoaded ? 'flex' : 'none')};
   justify-content: center;
   margin-top: ${rhythm(1)};
-  color: ${textLightColor};
 `
 
 const Reactions = () => {
