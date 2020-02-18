@@ -13,7 +13,12 @@ const Title = styled.h2`
 `
 
 const HomePage = ({ data }) => {
-  const { homepageTitle, description, heading, readMoreText } = data.site.siteMetadata
+  const {
+    homepageTitle,
+    description,
+    heading,
+    readMoreText,
+  } = data.site.siteMetadata
   const { edges: posts, totalCount } = data.allMarkdownRemark
 
   return (
