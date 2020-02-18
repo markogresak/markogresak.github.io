@@ -18,7 +18,10 @@ const Reactions = () => {
     const script = document.createElement('script')
     script.src = 'https://d30el1c1kbdu9w.cloudfront.net/embed.js'
     script.addEventListener('load', () => {
-      window.Reactions(document.getElementById(REACTIONS_CONTAINER_ID))
+      window.Reactions({
+        site: '06f94754-9bfd-4b41-a49e-53a1ef97a537',
+        container: document.getElementById(REACTIONS_CONTAINER_ID),
+      })
       setIsLoaded(true)
     })
     document.body.appendChild(script)
