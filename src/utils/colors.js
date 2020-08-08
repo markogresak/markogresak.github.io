@@ -10,18 +10,14 @@ export const rootStyle = css`
   :root {
     --bg-dark: #333;
     --bg-light: #fff;
-    --fg-light: rgba(0, 0, 0, 0.8);
-    --fg-dark: rgba(255, 255, 255, 0.8);
-    --primary-light: #3c00e0;
-    --primary-dark: #c3adff;
   }
 `
 
 export const lightStyle = css`
   :root {
     --bg: ${bgLightColor};
-    --fg: var(--fg-light);
-    --primary: var(--primary-light);
+    --fg: rgba(0, 0, 0, 0.8);
+    --primary: #3c00e0;
 
     --title-line: rgba(0, 0, 0, 0.07);
     --fg--h6: rgba(0, 0, 0, 0.53);
@@ -35,8 +31,8 @@ export const lightStyle = css`
 export const darkStyle = css`
   :root {
     --bg: ${bgDarkColor};
-    --fg: var(--fg-dark);
-    --primary: var(--primary-dark);
+    --fg: rgba(255, 255, 255, 0.8);
+    --primary: #c3adff;
 
     --title-line: rgba(255, 255, 255, 0.17);
     --fg--h6: rgba(255, 255, 255, 0.53);
