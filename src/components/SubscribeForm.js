@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import useIsInViewport from 'use-is-in-viewport'
 
 import { rhythm } from '../utils/typography'
 import { primaryColor, bgColor, textColor } from '../utils/colors'
+import useSubscribeFormMarkup from '../utils/useSubscribeFormMarkup'
 
 const FromContainer = styled.div`
   margin-top: ${rhythm(1)};
@@ -42,15 +43,13 @@ const FromContainer = styled.div`
 
 const SubscribeForm = () => {
   const [isInViewport, containerRef] = useIsInViewport()
-  const [html, setHtml] = useState('')
+  const [html, fetchHtml] = useSubscribeFormMarkup()
 
   useEffect(() => {
     if (isInViewport && !html) {
-      import('../utils/subscribeFormMarkup').then((module) => {
-        setHtml(module.default)
-      })
+      fetchHtml()
     }
-  }, [isInViewport, html])
+  }, [fetchHtml, html, isInViewport])
 
   return (
     <div ref={containerRef}>
