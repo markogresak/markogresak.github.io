@@ -28,6 +28,7 @@ export const lightStyle = css`
     --fg--quote: rgba(0, 0, 0, 0.53);
     --quote-line: rgba(0, 0, 0, 0.53);
     --gh: #25292e;
+    --code-block: #faf8f5;
   }
 `
 
@@ -42,5 +43,6 @@ export const darkStyle = css`
     --fg--quote: rgba(255, 255, 255, 0.53);
     --quote-line: rgba(255, 255, 255, 0.53);
     --gh: #fff;
+    --code-block: #2b2b2b;
   }
 `

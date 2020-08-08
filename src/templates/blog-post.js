@@ -27,6 +27,12 @@ const Article = styled.article`
   ${scale(0.3)};
   line-height: ${typography.options.baseLineHeight};
 
+  [class*='language-'] {
+    ${scale(0.1)};
+    background: var(--code-block);
+    color: var(--fg);
+  }
+
   a {
     box-shadow: 0 1px 0 0 currentColor;
 
@@ -36,7 +42,7 @@ const Article = styled.article`
 
     /* Inline code wrapped in a link */
     :not(pre) > code[class*='language-'] {
-      color: var(--primary-dark);
+      color: var(--primary);
       transition: color 0.2s;
 
       &:hover {
@@ -44,10 +50,6 @@ const Article = styled.article`
         color: #f8f8f2;
       }
     }
-  }
-
-  [class*='language-'] {
-    ${scale(0.1)};
   }
 `
 
