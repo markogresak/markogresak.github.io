@@ -43,6 +43,8 @@ const Article = styled.article`
     :not(pre) > code[class*='language-'] {
       color: var(--primary);
       transition: color 0.2s;
+      /* Remove bottom padding (set by prism-*) to show the link underline */
+      padding-bottom: 0;
 
       &:hover {
         color: var(--primary);
