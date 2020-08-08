@@ -45,8 +45,7 @@ const Article = styled.article`
       transition: color 0.2s;
 
       &:hover {
-        /* Default color of a11y-dark theme */
-        color: #f8f8f2;
+        color: var(--primary);
       }
     }
   }
