@@ -43,7 +43,8 @@
     "react-switch": "^5.0.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19"
+    "typography-theme-github": "^0.16.19",
+    "use-is-in-viewport": "^1.0.9"
   },
   "devDependencies": {
     "inquirer": "^7.0.0",

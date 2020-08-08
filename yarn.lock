@@ -10363,6 +10363,11 @@ object.values@^1.1.0, object.values@^1.1.1:
     function-bind "^1.1.1"
     has "^1.0.3"
 
+observe-element-in-viewport@0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/observe-element-in-viewport/-/observe-element-in-viewport-0.0.15.tgz#06284e84da80bd43c348ac3d957ba6b99fb2bbd0"
+  integrity sha512-BaJGtCHp8XXxe8zFOnsbv93f4SRLb0W5P3okGJkLLKC9IM9aXvpKF4C8lFxivcS5eROlNkhOCnUOSk4tUnJnKQ==
+
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
@@ -14646,6 +14651,13 @@ use-callback-ref@^1.2.1, use-callback-ref@^1.2.3:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.4.tgz#d86d1577bfd0b955b6e04aaf5971025f406bea3c"
   integrity sha512-rXpsyvOnqdScyied4Uglsp14qzag1JIemLeTWGKbwpotWht57hbP78aNT+Q4wdFKQfQibbUX4fb6Qb4y11aVOQ==
+
+use-is-in-viewport@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/use-is-in-viewport/-/use-is-in-viewport-1.0.9.tgz#bbc1f2f39ece752c7af0ddcd17b251ba5b4587e2"
+  integrity sha512-Dgi0z/X9eTk3ziI+b28mZVoYtCtyoUFQ+9VBq6fR5EdjqmmsSlbr8ysXAwmEl89OUNBQwVGLGdI9nqwiu3168g==
+  dependencies:
+    observe-element-in-viewport "0.0.15"
 
 use-sidecar@^1.0.1:
   version "1.0.3"
