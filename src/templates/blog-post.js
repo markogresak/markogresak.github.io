@@ -11,7 +11,6 @@ import SubscribeForm from '../components/SubscribeForm'
 import Reactions from '../components/Reactions'
 
 import typography, { rhythm, scale } from '../utils/typography'
-import { primaryDarkColor } from '../utils/colors'
 
 const ArticleTitleContainer = styled.div`
   margin-bottom: ${rhythm(1)};
@@ -37,7 +36,7 @@ const Article = styled.article`
 
     /* Inline code wrapped in a link */
     :not(pre) > code[class*='language-'] {
-      color: ${primaryDarkColor};
+      color: var(--primary-dark);
       transition: color 0.2s;
 
       &:hover {

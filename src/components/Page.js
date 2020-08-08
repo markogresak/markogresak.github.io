@@ -3,12 +3,14 @@ import { css, Global } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { rhythm, scale } from '../utils/typography'
-import { lightStyle, darkStyle, primaryColor } from '../utils/colors'
+import { rootStyle, lightStyle, darkStyle, primaryColor } from '../utils/colors'
 
 import SEO from './SEO'
 import ColorMode from './ColorMode'
 
 const globalStyles = css`
+  ${rootStyle};
+
   ${lightStyle};
 
   .dark {
