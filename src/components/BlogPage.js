@@ -21,7 +21,7 @@ const HeaderLogo = styled.h2`
 `
 
 const FooterContainer = styled.footer`
-  margin-top: ${rhythm(2)};
+  margin-top: ${rhythm(1)};
 `
 
 const FooterMain = styled.div`
