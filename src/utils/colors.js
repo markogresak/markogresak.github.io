@@ -24,6 +24,7 @@ export const lightStyle = css`
     --fg--quote: rgba(0, 0, 0, 0.53);
     --quote-line: rgba(0, 0, 0, 0.53);
     --gh: #25292e;
+    /* From duotone-light */
     --code-block: #faf8f5;
   }
 `
