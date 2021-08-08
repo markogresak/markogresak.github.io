@@ -1,0 +1,6 @@
+.InlineLink:not(:last-child):after {
+  @apply text-lg;
+  line-height: 1;
+  content: ' | ';
+  opacity: 0.3;
+}

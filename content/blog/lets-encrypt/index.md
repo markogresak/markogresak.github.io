@@ -1,6 +1,6 @@
 ---
 title: Let's Encrypt!
-description: ''
+description: The Let's Encrypt project became available in public beta a while ago and it’s finally a great solution for free SSL certificates.
 date: '2016-01-16'
 ---
 

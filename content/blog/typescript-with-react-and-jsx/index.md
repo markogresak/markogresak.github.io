@@ -1,12 +1,12 @@
 ---
 title: Typescript with React and JSX
-description: ''
+description: TypeScript introduced 1.6 beta on their blog in early September 2015, announcing they're adding JSX support. I decided to convert my project. Here is what I've learned.
 date: '2015-09-10'
 ---
 
 **This is an old post. [Read the updated version for 2019](/blog/react-with-type-script-in-2019).**
 
-![](ts-and-react.jpg)
+![](/ts-and-react.jpg)
 
 TypeScript introduced 1.6 beta on their [blog](http://blogs.msdn.com/b/typescript/archive/2015/09/02/announcing-typescript-1-6-beta-react-jsx-better-error-checking-and-more.aspx) in early September 2015, announcing they're adding JSX support. I decided to convert my project. Here is what I've learned.
 
@@ -22,7 +22,7 @@ _Disclaimer: This post was originally written in early September 2015, when Type
 
 - Only in new.tsx file extension.
 - The compiler has JSX transformer.
-- _Note_: Type casting <Type> variable changes to (variable as Type).
+- _Note_: Type casting `<Type>` variable changes to (variable as Type).
 
 #### Making the switch:
 
@@ -55,7 +55,7 @@ You can also get completions for most libraries and frameworks out there. You ac
 TypeScript and React could be used together from the beginning, but TypeScript didn’t support the JSX syntax until recent 1.6 version. This meant you had to use, for example
 
 ```js
-React.createElement('div', null, 'Hello ', this.props.name)
+React.createElement('div', null, 'Hello ', this.props.name);
 ```
 
 instead of more familiar XML (or HTML, if you will) syntax
@@ -160,7 +160,7 @@ module.exports = {
   module: {
     loaders: [{ test: /\.tsx?$/, loaders: 'ts-loader' }],
   },
-}
+};
 ```
 
 I use this extensions template for my projects, and I've included `.js` to match imports of npm modules, which are still in plain JavaScript. This configuration is straightforward and probably needs at least an entry point script. Explaining how the whole Webpack works would take a whole post and you can already find very good resources on learning Webpack.
