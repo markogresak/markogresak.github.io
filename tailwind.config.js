@@ -1,7 +1,7 @@
 const typography = require('@tailwindcss/typography');
 
 module.exports = {
-  mode: 'jit',
+  // mode: 'jit',
   purge: {
     content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
     options: {
