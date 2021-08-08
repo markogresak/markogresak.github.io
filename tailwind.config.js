@@ -3,10 +3,10 @@ const typography = require('@tailwindcss/typography');
 module.exports = {
   mode: 'jit',
   purge: {
-    content: [
-      './pages/**/*.{js,ts,jsx,tsx}',
-      './components/**/*.{js,ts,jsx,tsx}',
-    ],
+    content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+    options: {
+      safelist: ['prose', 'nightwind', 'dark'],
+    },
   },
   darkMode: 'class',
   theme: {
