@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark img {
+  filter: brightness(0.8) contrast(1.2);
+}
