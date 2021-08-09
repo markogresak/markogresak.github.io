@@ -1,4 +1,5 @@
 const typography = require('@tailwindcss/typography');
+const mdx = require('@mdx-js/mdx');
 
 module.exports = {
   // mode: 'jit',
