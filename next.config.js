@@ -8,9 +8,9 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
-  // experimental: {
-  //   optimizeCss: true,
-  // },
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 module.exports = withTM(nextConfig);
