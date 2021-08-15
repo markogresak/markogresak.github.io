@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import nightwind from 'nightwind/helper';
 import React, { PropsWithChildren, ReactNode, useEffect } from 'react';
+import { nightwindInit } from '../lib/nightwindHelper';
 import AboutMe from './AboutMe';
 import ColorMode from './ColorMode';
 import { Logo } from './Logo';
@@ -51,7 +51,7 @@ export default function Layout({
           content="Learn how to build a personal website using Next.js"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
+        <script dangerouslySetInnerHTML={{ __html: nightwindInit() }} />
       </Head>
       <header>
         {home ? (
