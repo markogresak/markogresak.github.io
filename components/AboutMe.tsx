@@ -42,9 +42,11 @@ const AboutMe = ({ className, name, href }: Props) => (
         <InlineLink href="https://github.com/markogresak">
           <GithubIcon className="h-3 mr-1.5" /> Github
         </InlineLink>
+        <span className="text-lg leading-none select-none opacity-30"> | </span>
         <InlineLink href="https://stackoverflow.com/users/1276128/marko-gre%C5%A1ak">
           <StackOverflowIcon className="h-3 mr-1.5" /> Stack Overflow
         </InlineLink>
+        <span className="text-lg leading-none select-none opacity-30"> | </span>
         <InlineLink href="https://twitter.com/markogresak">
           <TwitterIcon className="h-3 mr-1.5" /> Twitter
         </InlineLink>
