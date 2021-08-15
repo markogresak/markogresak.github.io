@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import React, { PropsWithChildren, ReactNode, useEffect } from 'react';
-import { nightwindInit } from '../lib/nightwindHelper';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import AboutMe from './AboutMe';
 import ColorMode from './ColorMode';
 import { Logo } from './Logo';
@@ -10,31 +9,23 @@ import { MaybeLink } from './MaybeLink';
 export const name = 'Marko Grešak';
 
 interface Props {
-  bodyClassName?: string;
   className?: string;
   home?: boolean;
-  title?: string;
+  title: string;
+  description: string;
   footer?: ReactNode;
   logoHref?: string;
 }
 
 export default function Layout({
-  bodyClassName = 'bg-gray-50',
   children,
   className,
   home,
   title,
+  description,
   footer,
   logoHref,
 }: PropsWithChildren<Props>) {
-  useEffect(() => {
-    if (typeof bodyClassName === 'string') {
-      const classes = bodyClassName.split(/\s+/);
-      document.body.classList.add(...classes);
-      return () => document.body.classList.remove(...classes);
-    }
-  }, [bodyClassName]);
-
   return (
     <div
       className={classNames(
@@ -45,13 +36,8 @@ export default function Layout({
       <Head>
         <title>{title}</title>
         <meta name="og:title" content={title} />
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content={description} />
         <meta name="twitter:card" content="summary_large_image" />
-        <script dangerouslySetInnerHTML={{ __html: nightwindInit() }} />
       </Head>
       <header>
         {home ? (

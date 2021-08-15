@@ -13,7 +13,7 @@ interface Props {
 
 export default function Home({ posts }: Props) {
   return (
-    <Layout home title={NAME}>
+    <Layout home title={NAME} description={`${NAME} | Web Developer`}>
       <section>
         <h2 className="text-2xl font-semibold border-b border-gray-300">
           My latest blog posts

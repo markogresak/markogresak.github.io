@@ -21,6 +21,7 @@ export default function Post({ post }: Props) {
   return (
     <Layout
       title={`${post.title} | ${BLOG_NAME}`}
+      description={post.description}
       logoHref="/blog"
       footer={<Footer />}
     >
