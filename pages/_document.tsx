@@ -18,7 +18,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" href="/favicon.png" />
           <script dangerouslySetInnerHTML={{ __html: nightwindInit() }} />
         </Head>
         <body className="bg-gray-50">
