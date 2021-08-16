@@ -1,4 +1,3 @@
-import parseISO from 'date-fns/parseISO';
 import { PostData } from '../../types';
 import { getPostIds } from './getPostIds';
 import { readPost } from './readPost';
@@ -17,6 +16,6 @@ export async function getPostsList({ limit }: Parameters = {}): Promise<
 
 function sortPostsByDate(posts: PostData[]): PostData[] {
   return posts.sort(
-    (a, b) => parseISO(b.date).getTime() - parseISO(a.date).getTime(),
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 }

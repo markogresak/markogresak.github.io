@@ -1,8 +1,15 @@
 import type { MDXProviderComponentsProp } from '@mdx-js/react';
 import Image from 'next/image';
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 
-const Img = ({ src, alt, width, height }) => (
+interface ImgProps {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+const Img = ({ src, alt, width, height }: ImgProps) => (
   <Image
     src={src}
     alt={alt}
@@ -12,13 +19,17 @@ const Img = ({ src, alt, width, height }) => (
   />
 );
 
-const Paragraph = ({ children }) => {
+interface ParagraphProps {
+  children: ReactNode;
+}
+
+const Paragraph = ({ children }: ParagraphProps) => {
   // Workaround to avoid p > div > img structure (React throws an error).
   const imgChild = Children.toArray(children).find(
     (child) => isValidElement(child) && child.props.mdxType === 'img',
   );
   if (isValidElement(imgChild)) {
-    return mdxComponents.img(imgChild.props);
+    return <Img {...imgChild.props} />;
   }
 
   return <p>{children}</p>;
