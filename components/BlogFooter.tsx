@@ -1,4 +1,3 @@
-import React from 'react';
 import { NAME } from '../lib/constants';
 import AboutMe from './AboutMe';
 

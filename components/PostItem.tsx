@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 import { PostData } from '../types';
 import PostDate from './PostDate';
 

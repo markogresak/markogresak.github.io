@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { PropsWithChildren, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { NAME } from '../lib/constants';
 import AboutMe from './AboutMe';
 import { Logo } from './Logo';
@@ -10,6 +10,7 @@ import { MaybeLink } from './MaybeLink';
 const ColorMode = dynamic(() => import('./ColorMode'), { ssr: false });
 
 interface Props {
+  children: ReactNode;
   className?: string;
   description: string;
   footer?: ReactNode;
@@ -32,7 +33,7 @@ export default function Layout({
   mainClassName,
   maxWidthStyle = 'max-w-2xl',
   title,
-}: PropsWithChildren<Props>) {
+}: Props) {
   return (
     <div
       className={classNames(

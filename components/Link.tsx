@@ -1,9 +1,12 @@
 import NextLink from 'next/link';
-import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
+import { ReactNode } from 'react';
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps {
+  children: ReactNode;
   href: string;
+  className?: string;
   inCurrentTab?: boolean;
+  title?: string;
 }
 
 const newTabProps = {
@@ -13,22 +16,22 @@ const newTabProps = {
 
 export const Link = ({
   children,
+  className,
   href,
   inCurrentTab,
-  ...props
-}: PropsWithChildren<LinkProps>) => {
+}: LinkProps) => {
   const isInternalLink = href.indexOf('/') === 0;
 
   if (isInternalLink) {
     return (
       <NextLink href={href}>
-        <a {...props}>{children}</a>
+        <a className={className}>{children}</a>
       </NextLink>
     );
   }
 
   return (
-    <a href={href} {...props} {...(!inCurrentTab && newTabProps)}>
+    <a href={href} className={className} {...(!inCurrentTab && newTabProps)}>
       {children}
     </a>
   );

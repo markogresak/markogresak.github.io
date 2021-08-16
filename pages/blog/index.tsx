@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import React from 'react';
 import { Footer } from '../../components/BlogFooter';
 import Layout from '../../components/Layout';
 import PostItem from '../../components/PostItem';

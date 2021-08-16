@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import React from 'react';
 import { GithubIcon, StackOverflowIcon, TwitterIcon } from './AboutMeIcons';
 import { Link } from './Link';
 import { MaybeLink } from './MaybeLink';
