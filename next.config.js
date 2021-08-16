@@ -11,7 +11,15 @@ const nextConfig = {
   // For next.js v11.1.0 and critters v0.0.10, css optimization breaks
   // nightwind dark mode style.
   experimental: {
-    optimizeCss: true,
+    optimizeCss: {
+      preload: 'default',
+      reduceInlineStyles: true,
+      fonts: true,
+      inlineFonts: true,
+      pruneSource: true,
+      mergeStylesheets: true,
+      compress: true,
+    },
   },
 };
 
