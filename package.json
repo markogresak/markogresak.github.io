@@ -10,7 +10,6 @@
     "copy-images": "node ./scripts/copy-images"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.3",
     "@loadable/component": "^5.15.0",
     "@tailwindcss/typography": "^0.4.1",
     "@types/node": "^16.6.1",
