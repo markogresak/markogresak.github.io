@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import React, { PropsWithChildren, ReactNode } from 'react';
 import { NAME } from '../lib/constants';
 import AboutMe from './AboutMe';
-import ColorMode from './ColorMode';
 import { Logo } from './Logo';
 import { MaybeLink } from './MaybeLink';
+
+const ColorMode = dynamic(() => import('./ColorMode'), { ssr: false });
 
 interface Props {
   className?: string;

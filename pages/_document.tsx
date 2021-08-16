@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
-import { nightwindInit } from '../lib/nightwindHelper';
+import { nightwindInitCode } from '../lib/nightwindInitCode';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -38,7 +38,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="theme-color" content="#f9fafb" />
 
-          <script dangerouslySetInnerHTML={{ __html: nightwindInit() }} />
+          <script dangerouslySetInnerHTML={{ __html: nightwindInitCode }} />
         </Head>
         <body className="bg-gray-50">
           <Main />
