@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import React from 'react';
 import { GithubIcon, StackOverflowIcon, TwitterIcon } from './AboutMeIcons';
-import InlineLink from './InlineLink';
+import { Link } from './Link';
 import { MaybeLink } from './MaybeLink';
 
 interface Props {
@@ -39,17 +39,40 @@ const AboutMe = ({ className, name, href }: Props) => (
       <p>Loving all JavaScript and React related things!</p>
 
       <ul className="mt-4 sm:mt-2">
-        <InlineLink href="https://github.com/markogresak">
-          <GithubIcon className="h-3 mr-1.5" /> Github
-        </InlineLink>
-        <span className="text-lg leading-none select-none opacity-30"> | </span>
-        <InlineLink href="https://stackoverflow.com/users/1276128/marko-gre%C5%A1ak">
-          <StackOverflowIcon className="h-3 mr-1.5" /> Stack Overflow
-        </InlineLink>
-        <span className="text-lg leading-none select-none opacity-30"> | </span>
-        <InlineLink href="https://twitter.com/markogresak">
-          <TwitterIcon className="h-3 mr-1.5" /> Twitter
-        </InlineLink>
+        <li className="inline text-sm leading-none">
+          <Link
+            href="https://github.com/markogresak"
+            className="inline-flex hover:underline"
+          >
+            <GithubIcon className="h-3 mr-1.5" /> Github
+          </Link>
+        </li>
+
+        <li className="inline text-lg leading-none select-none opacity-30 mx-1.5">
+          |
+        </li>
+
+        <li className="inline text-sm leading-none">
+          <Link
+            href="https://stackoverflow.com/users/1276128/marko-gre%C5%A1ak"
+            className="inline-flex hover:underline"
+          >
+            <StackOverflowIcon className="h-3 mr-1.5" /> Stack Overflow
+          </Link>
+        </li>
+
+        <li className="inline text-lg leading-none select-none opacity-30 mx-1.5">
+          |
+        </li>
+
+        <li className="inline text-sm leading-none">
+          <Link
+            href="https://twitter.com/markogresak"
+            className="inline-flex hover:underline"
+          >
+            <TwitterIcon className="h-3 mr-1.5" /> Twitter
+          </Link>
+        </li>
       </ul>
     </div>
   </div>
