@@ -6,7 +6,7 @@ import { BLOG_NAME, NEW_ISSUE_URL } from '../lib/constants';
 export default function NotFound() {
   return (
     <Layout
-      className="h-screen max-w-sm"
+      className="h-screen"
       maxWidthStyle="max-w-sm"
       mainClassName="h-full"
       title={`Not found | ${BLOG_NAME}`}

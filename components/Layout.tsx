@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { ReactNode } from 'react';
@@ -36,11 +35,9 @@ export default function Layout({
 }: Props) {
   return (
     <div
-      className={classNames(
-        'mx-auto px-6 lg:px-8 pt-8 lg:pt-10 pb-12 lg:pb-14 text-gray-700',
-        maxWidthStyle,
-        className,
-      )}
+      className={`mx-auto px-6 lg:px-8 pt-8 lg:pt-10 pb-12 lg:pb-14 text-gray-700 ${maxWidthStyle}${
+        className ? ` ${className}` : ''
+      }`}
     >
       <Head>
         <title>{title}</title>
