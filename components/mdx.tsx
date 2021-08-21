@@ -1,4 +1,3 @@
-import type { MDXProviderComponentsProp } from '@mdx-js/react';
 import Image from 'next/image';
 import { Children, isValidElement, ReactNode } from 'react';
 
@@ -35,7 +34,7 @@ const Paragraph = ({ children }: ParagraphProps) => {
   return <p>{children}</p>;
 };
 
-export const mdxComponents: MDXProviderComponentsProp = {
+export const mdxComponents: Record<string, ReactNode> = {
   img: Img,
   p: Paragraph,
 };

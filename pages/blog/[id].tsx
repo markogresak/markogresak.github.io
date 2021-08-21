@@ -30,7 +30,7 @@ export default function Post({ post }: Props) {
         </h1>
         <PostDate dateTime={post.date} />
         <section className="mt-4 prose prose-lg prose-purple">
-          <MDXRemote {...post.body} components={mdxComponents as any} />
+          <MDXRemote {...post.body} components={mdxComponents} />
         </section>
       </article>
     </Layout>
