@@ -1,3 +1,7 @@
 {
-  "extends": "next"
+  "extends": ["next", "eslint:recommended"],
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-curly-brace-presence": ["error", "never"]
+  }
 }
