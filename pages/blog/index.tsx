@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { Footer } from '../../components/BlogFooter';
 import Layout from '../../components/Layout';
 import PostItem from '../../components/PostItem';
-import { BLOG_NAME, NAME } from '../../lib/constants';
+import { BLOG_NAME } from '../../lib/constants';
 import { getPostsList } from '../../lib/posts';
 import { PostData } from '../../types';
 
