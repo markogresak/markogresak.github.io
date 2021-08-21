@@ -3,7 +3,7 @@ import AboutMe from './AboutMe';
 
 export const Footer = () => {
   return (
-    <div className="border-t-2 border-blue-700 dark:border-purple-400 pt-10 mt-10">
+    <div className="border-t-2 border-blue-700 dark:border-purple-400 pt-10 mt-10 print:hidden">
       <AboutMe name={NAME} href="/" />
     </div>
   );
