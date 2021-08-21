@@ -1,22 +1,15 @@
-import classNames from 'classnames';
 import Image from 'next/image';
 import { GithubIcon, StackOverflowIcon, TwitterIcon } from './AboutMeIcons';
 import { Link } from './Link';
 import { MaybeLink } from './MaybeLink';
 
 interface Props {
-  className?: string;
   name: string;
   href?: string;
 }
 
-const AboutMe = ({ className, name, href }: Props) => (
-  <div
-    className={classNames(
-      'flex items-center justify-center flex-wrap',
-      className,
-    )}
-  >
+const AboutMe = ({ name, href }: Props) => (
+  <div className="flex items-center justify-center flex-wrap">
     <MaybeLink href={href}>
       <Image
         priority
