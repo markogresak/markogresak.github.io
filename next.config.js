@@ -8,8 +8,6 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
-  // For next.js v11.1.0 and critters v0.0.10, css optimization breaks
-  // nightwind dark mode style.
   experimental: {
     optimizeCss: {
       preload: 'default',
