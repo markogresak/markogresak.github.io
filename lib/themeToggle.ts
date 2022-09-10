@@ -1,10 +1,12 @@
 // Adapted from node_modules/nightwind/helper.js
 
 type Theme = 'light' | 'dark';
+const classDark: Theme = 'dark';
+const classLight: Theme = 'light';
 
 export const getIsDarkMode = (): boolean => {
   try {
-    return document.documentElement.classList.contains('dark');
+    return document.documentElement.classList.contains(classDark);
   } catch {
     return false;
   }
@@ -12,19 +14,20 @@ export const getIsDarkMode = (): boolean => {
 
 export const getStoredTheme = (): Theme | undefined => {
   const theme = window.localStorage.getItem('tm');
-  return theme === 'light' || theme === 'dark' ? theme : undefined;
+  return theme === classLight || theme === classDark ? theme : undefined;
 };
 
 const beforeTransition = () => {
   const doc = document.documentElement;
   const cl = doc.classList;
+  const className = 'ttt'; // theme toggle transition
   const onTransitionDone = () => {
-    cl.remove('nightwind');
+    cl.remove(className);
     doc.removeEventListener('transitionend', onTransitionDone);
   };
   doc.addEventListener('transitionend', onTransitionDone);
-  if (!cl.contains('nightwind')) {
-    cl.add('nightwind');
+  if (!cl.contains(className)) {
+    cl.add(className);
   }
 };
 
@@ -33,17 +36,17 @@ const beforeTransition = () => {
  * @param isDarkMode Current `isDarkMode` state, function reverts the value.
  * @returns Next `isDarkMode` state.
  */
-export const nightwindToggle = (
+export const themeToggle = (
   isDarkMode: boolean,
   persist?: boolean,
 ): boolean => {
   // Next value should be the opposite
-  const nextTheme: Theme = isDarkMode ? 'light' : 'dark';
-  const nextIsDarkMode = nextTheme === 'dark';
+  const nextTheme: Theme = isDarkMode ? classLight : classDark;
+  const nextIsDarkMode = nextTheme === classDark;
   beforeTransition();
 
   const cl = document.documentElement.classList;
-  nextIsDarkMode ? cl.add('dark') : cl.remove('dark');
+  nextIsDarkMode ? cl.add(classDark) : cl.remove(classDark);
   if (persist) {
     window.localStorage.setItem('tm', nextTheme);
   }

@@ -1,9 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import {
-  getIsDarkMode,
-  getStoredTheme,
-  nightwindToggle,
-} from '../lib/nightwindToggle';
+import { getIsDarkMode, getStoredTheme, themeToggle } from '../lib/themeToggle';
 
 const mql = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -13,7 +9,7 @@ const ColorMode = () => {
 
   const handleToggle = useCallback(
     (currentIsDarkMode: boolean, persist: boolean = true) => {
-      setIsDarkMode(nightwindToggle(currentIsDarkMode, persist));
+      setIsDarkMode(themeToggle(currentIsDarkMode, persist));
     },
     [],
   );

@@ -17,7 +17,7 @@ const AboutMe = ({ name, href }: Props) => (
         height={144}
         width={144}
         alt={name}
-        className="rounded-full flex-shrink-0"
+        className="rounded-full shrink-0"
       />
     </MaybeLink>
     <div className="mt-3 sm:mt-0 sm:ml-6">

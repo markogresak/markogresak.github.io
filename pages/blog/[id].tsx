@@ -25,11 +25,11 @@ export default function Post({ post }: Props) {
       footer={<Footer />}
     >
       <article>
-        <h1 className="text-4xl font-bold border-b-2 border-gray-300 mb-1 pb-1">
+        <h1 className="text-4xl font-bold border-b-2 border-gray-300 dark:border-gray-600 mb-1 pb-1">
           {post.title}
         </h1>
         <PostDate dateTime={post.date} />
-        <section className="mt-4 prose prose-lg prose-purple">
+        <section className="mt-4 prose dark:prose-invert prose-lg prose-purple">
           <MDXRemote {...post.body} components={mdxComponents} />
         </section>
       </article>

@@ -11,27 +11,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
-    "@types/mdx-js__react": "^1.5.4",
-    "@types/node": "^16.7.1",
-    "@types/react": "^17.0.19",
-    "autoprefixer": "^10.3.2",
-    "critters": "^0.0.10",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.0",
-    "glob": "^7.1.7",
+    "@tailwindcss/typography": "^0.5.7",
+    "@types/mdx-js__react": "^1.5.5",
+    "@types/node": "^18.7.16",
+    "@types/react": "^18.0.19",
+    "autoprefixer": "^10.4.8",
+    "critters": "^0.0.16",
+    "eslint": "^8.23.0",
+    "eslint-config-next": "^12.3.0",
+    "glob": "^8.0.3",
     "gray-matter": "^4.0.3",
-    "image-size": "^1.0.0",
-    "next": "^11.1.0",
-    "next-mdx-remote": "^3.0.4",
-    "next-transpile-modules": "^8.0.0",
-    "nightwind": "^1.1.12",
-    "postcss": "^8.3.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.7",
-    "typescript": "^4.3.5",
-    "unist-util-visit": "^4.0.0"
+    "image-size": "^1.0.2",
+    "next": "^12.3.0",
+    "next-mdx-remote": "^4.1.0",
+    "next-transpile-modules": "^9.0.0",
+    "postcss": "^8.4.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.3",
+    "unist-util-visit": "^4.1.1"
   },
   "browserslist": {
     "production": [
@@ -44,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "esbuild": "^0.15.7"
   }
 }

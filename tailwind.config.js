@@ -1,50 +1,23 @@
-const typography = require('@tailwindcss/typography');
-
 module.exports = {
-  // mode: 'jit',
-  purge: {
-    content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
-    options: {
-      safelist: ['prose', 'nightwind', 'dark'],
-    },
-  },
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       screens: {
         print: { raw: 'print' },
       },
-    },
-    nightwind: {
-      transitionDuration: '300ms',
-      typography: {
-        color: 'gray.300',
-        code: {
-          color: 'gray.300',
+      typography: ({ theme }) => ({
+        purple: {
+          css: {
+            '--tw-prose-links': theme('colors.gray[900]'),
+            '--tw-prose-invert-code': theme('colors.gray[300]'),
+            '--tw-prose-invert-pre-bg': theme('colors.gray[800]'),
+            '--tw-prose-invert-pre-code': theme('colors.gray[200]'),
+            '--tw-prose-invert-headings': theme('colors.gray[200]'),
+            '--tw-prose-invert-links': theme('colors.gray[200]'),
+          },
         },
-        pre: {
-          backgroundColor: 'gray.800',
-          color: 'gray.200',
-        },
-        h1: {
-          color: 'gray.200',
-        },
-        h2: {
-          color: 'gray.200',
-        },
-        h3: {
-          color: 'gray.200',
-        },
-        h4: {
-          color: 'gray.200',
-        },
-        h5: {
-          color: 'gray.200',
-        },
-        h6: {
-          color: 'gray.200',
-        },
-      },
+      }),
     },
   },
   variants: {
@@ -53,10 +26,5 @@ module.exports = {
   corePlugins: {
     float: false,
   },
-  plugins: [
-    typography({
-      modifiers: ['lg'],
-    }),
-    require('nightwind'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };

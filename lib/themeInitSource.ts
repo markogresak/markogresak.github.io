@@ -1,5 +1,5 @@
-// Build with `esbuild --bundle --minify ./lib/nightwindInitSource.ts` and
-// set to `nightwindInitCode` constant in `nightwindInit`.
+// Build with `esbuild --bundle --minify ./lib/themeInitSource.ts` and
+// set to `themeInitCode` constant in `themeInit`.
 // @ts-ignore
 (function () {
   var themeLight = 'light';

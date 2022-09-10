@@ -35,7 +35,7 @@ export default function Layout({
 }: Props) {
   return (
     <div
-      className={`mx-auto px-6 lg:px-8 pt-8 lg:pt-10 pb-12 lg:pb-14 text-gray-700 ${maxWidthStyle}${
+      className={`mx-auto px-6 lg:px-8 pt-8 lg:pt-10 pb-12 lg:pb-14 text-gray-700 dark:text-gray-200 ${maxWidthStyle}${
         className ? ` ${className}` : ''
       }`}
     >

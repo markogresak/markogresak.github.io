@@ -18,7 +18,7 @@ const PostItem = ({ className, post }: Props) => (
       <PostDate dateTime={post.date} />
     </header>
     {post.description && (
-      <section className="text-gray-600">
+      <section className="text-gray-600 dark:text-gray-300">
         <p>{post.description}</p>
       </section>
     )}
