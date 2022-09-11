@@ -1,43 +1,27 @@
-import { useCallback, useEffect, useState } from 'react';
+import { signal } from '@preact/signals';
+
 import { getIsDarkMode, getStoredTheme, themeToggle } from '../lib/themeToggle';
 
-const mql = window.matchMedia('(prefers-color-scheme: dark)');
+const themeSignal = signal(getIsDarkMode());
+if (typeof window !== 'undefined' && getStoredTheme()) {
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', (event) => {
+      const currentIsDarkMode = !event.matches;
+      themeSignal.value = themeToggle(currentIsDarkMode);
+    });
+}
 
 const ColorMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(getIsDarkMode);
-  const storedTheme = getStoredTheme();
-
-  const handleToggle = useCallback(
-    (currentIsDarkMode: boolean, persist: boolean = true) => {
-      setIsDarkMode(themeToggle(currentIsDarkMode, persist));
-    },
-    [],
-  );
-
-  const handleMediaQueryChange = useCallback(
-    (event: MediaQueryListEvent) => {
-      const currentIsDarkMode = !event.matches;
-      handleToggle(currentIsDarkMode, false);
-    },
-    [handleToggle],
-  );
-
-  useEffect(() => {
-    if (storedTheme === undefined) {
-      mql.addEventListener('change', handleMediaQueryChange);
-      return () => {
-        mql.removeEventListener('change', handleMediaQueryChange);
-      };
-    }
-  }, [storedTheme, handleMediaQueryChange]);
-
   return (
     <button
       className="absolute top-4 right-4 print:hidden"
-      title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-      onClick={() => handleToggle(isDarkMode)}
+      title={`Switch to ${themeSignal.value ? 'light' : 'dark'} mode`}
+      onClick={() => {
+        themeSignal.value = themeToggle(themeSignal.value, true);
+      }}
     >
-      {isDarkMode ? (
+      {themeSignal.value ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"

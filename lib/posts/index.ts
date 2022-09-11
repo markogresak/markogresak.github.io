@@ -1,3 +1,1 @@
-export { getPostContent } from './getPostContent';
-export { getPostIds } from './getPostIds';
-export { getPostsList } from './getPostsList';
+export { getPostIds, getPostsList } from './getPostsList';

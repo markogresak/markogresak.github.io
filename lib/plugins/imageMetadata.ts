@@ -1,9 +1,8 @@
 import imageSize from 'image-size';
 import path from 'path';
-import { Node } from 'unist';
+import type { Node } from 'unist';
 import { visit } from 'unist-util-visit';
 import { promisify } from 'util';
-import { IMAGE_DIRECTORY_PUBLIC } from './constants';
 
 const sizeOf = promisify(imageSize);
 
@@ -39,10 +38,6 @@ function filterImageNode(node: ImageNode): boolean {
   return node.properties.src.startsWith('/');
 }
 
-function fixSrcPath(node: ImageNode): void {
-  node.properties.src = path.join(IMAGE_DIRECTORY_PUBLIC, node.properties.src);
-}
-
 /**
  * Adds the image's `height` and `width` to it's properties.
  */
@@ -74,7 +69,6 @@ export function imageMetadata() {
     });
 
     for (const node of imgNodes) {
-      fixSrcPath(node);
       await addMetadata(node);
     }
 

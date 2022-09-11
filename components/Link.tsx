@@ -1,8 +1,8 @@
 import NextLink from 'next/link';
-import { ReactNode } from 'react';
+import type { ComponentChildren } from 'preact';
 
 export interface LinkProps {
-  children: ReactNode;
+  children: ComponentChildren;
   href: string;
   className?: string;
   inCurrentTab?: boolean;
@@ -25,14 +25,16 @@ export const Link = ({
   if (isInternalLink) {
     return (
       <NextLink href={href}>
-        <a className={className}>{children}</a>
+        <a className={className}>
+          <>{children}</>
+        </a>
       </NextLink>
     );
   }
 
   return (
     <a href={href} className={className} {...(!inCurrentTab && newTabProps)}>
-      {children}
+      <>{children}</>
     </a>
   );
 };

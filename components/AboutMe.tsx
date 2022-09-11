@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { GithubIcon, StackOverflowIcon, TwitterIcon } from './AboutMeIcons';
 import { Link } from './Link';
 import { MaybeLink } from './MaybeLink';

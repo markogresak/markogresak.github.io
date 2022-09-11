@@ -1,14 +1,8 @@
-import type { MDXRemoteProps } from 'next-mdx-remote';
+import type { Components as MDXComponents } from '@mdx-js/preact/lib';
 import Image from 'next/image';
-import { Children, isValidElement } from 'react';
-import type { DetailedHTMLProps, ImgHTMLAttributes, ReactNode } from 'react';
+// import { isValidElement, toChildArray } from 'preact';
 
-type ImgProps = Pick<
-  DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
-  'src' | 'alt' | 'width' | 'height'
->;
-
-const Img = ({ src, alt, width, height }: ImgProps) =>
+const Img: MDXComponents['img'] = ({ src, alt, width, height }) =>
   src ? (
     <Image
       src={src}
@@ -19,23 +13,23 @@ const Img = ({ src, alt, width, height }: ImgProps) =>
     />
   ) : null;
 
-interface ParagraphProps {
-  children?: ReactNode;
-}
-
-const Paragraph = ({ children }: ParagraphProps) => {
+const Paragraph: MDXComponents['p'] = ({ children }) => {
   // Workaround to avoid p > div > img structure (React throws an error).
-  const imgChild = Children.toArray(children).find(
-    (child) => isValidElement(child) && child.props.mdxType === 'img',
-  );
-  if (isValidElement(imgChild)) {
-    return <Img {...imgChild.props} />;
-  }
+  // const imgChild = toChildArray(children).find(
+  //   (child) => isValidElement(child) && (child.props as any).mdxType === 'img',
+  // );
+  // if (isValidElement(imgChild)) {
+  //   return <Img {...(imgChild.props as any)} />;
+  // }
 
-  return <p>{children}</p>;
+  return (
+    <p>
+      <>{children}</>
+    </p>
+  );
 };
 
-export const mdxComponents: Required<MDXRemoteProps>['components'] = {
+export const mdxComponents: MDXComponents = {
   img: Img,
   p: Paragraph,
 };

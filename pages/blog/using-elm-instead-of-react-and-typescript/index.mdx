@@ -1,8 +1,13 @@
----
-title: 'Using Elm instead of React and TypeScript'
-description: Recently I republished a post about TypeScript and React. It got me thinking about recent elm experience and how it could be the better choice.
-date: '2016-10-18'
----
+import PostPage from '../../../components/PostPage';
+
+export const meta = {
+  title: 'Using Elm instead of React and TypeScript',
+  description:
+    'Recently I republished a post about TypeScript and React. It got me thinking about recent elm experience and how it could be the better choice.',
+  date: '2016-10-18',
+};
+
+export default ({ children }) => <PostPage meta={meta}>{children}</PostPage>;
 
 Recently I republished a post about [TypeScript and React](/blog/typescript-with-react-and-jsx). It got me thinking about recent elm experience and how it could be the better choice.
 

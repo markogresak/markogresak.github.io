@@ -1,10 +1,6 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
+import type { DocumentContext } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+
 import { themeInitCode } from '../lib/themeInitCode';
 
 class MyDocument extends Document {

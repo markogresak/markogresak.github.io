@@ -1,6 +1,14 @@
-import { FrontmatterData } from './FrontmatterData';
+export interface PostMeta {
+  date: string;
+  description: string;
+  title: string;
+}
 
-export interface PostData extends FrontmatterData {
+export interface PostPageData {
+  meta: PostMeta;
+}
+
+export interface PostData {
   id: string;
-  content: string;
+  data: PostPageData;
 }

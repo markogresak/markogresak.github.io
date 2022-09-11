@@ -2,14 +2,14 @@
 // set to `themeInitCode` constant in `themeInit`.
 // @ts-ignore
 (function () {
-  var themeLight = 'light';
-  var themeDark = 'dark';
-  var cl = document.documentElement.classList;
-  var ls = localStorage;
-  var persistedColorPreference = ls && ls.getItem('tm');
-  var mm = matchMedia;
-  var mql = mm && mm('(prefers-color-scheme: dark)');
-  var initialColorMode =
+  const themeLight = 'light';
+  const themeDark = 'dark';
+  const cl = document.documentElement.classList;
+  const ls = localStorage;
+  const persistedColorPreference = ls && ls.getItem('tm');
+  const mm = matchMedia;
+  const mql = mm && mm('(prefers-color-scheme: dark)');
+  const initialColorMode =
     persistedColorPreference === themeLight ||
     persistedColorPreference === themeDark
       ? persistedColorPreference
