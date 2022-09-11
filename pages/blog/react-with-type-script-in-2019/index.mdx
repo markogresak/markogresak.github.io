@@ -1,8 +1,12 @@
----
-title: 'React with TypeScript in 2019'
-description: 'An update after almost 4 years of using React with TypeScript.'
-date: '2019-09-01'
----
+import PostPage from '../../../components/PostPage';
+
+export const meta = {
+  title: 'React with TypeScript in 2019',
+  description: 'An update after almost 4 years of using React with TypeScript.',
+  date: '2019-09-01',
+};
+
+export default ({ children }) => <PostPage meta={meta}>{children}</PostPage>;
 
 My journey started almost four years ago in September 2015. That's when I first started exploring the upcoming support of JSX syntax in TypeScript, and I have [written a post about it](/blog/typescript-with-react-and-jsx).
 

@@ -6,14 +6,20 @@ const classLight: Theme = 'light';
 
 export const getIsDarkMode = (): boolean => {
   try {
-    return document.documentElement.classList.contains(classDark);
+    return (
+      typeof document !== 'undefined' &&
+      document.documentElement.classList.contains(classDark)
+    );
   } catch {
     return false;
   }
 };
 
 export const getStoredTheme = (): Theme | undefined => {
-  const theme = window.localStorage.getItem('tm');
+  const theme =
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem('tm')
+      : undefined;
   return theme === classLight || theme === classDark ? theme : undefined;
 };
 

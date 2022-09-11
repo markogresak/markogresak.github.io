@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { GithubIcon, StackOverflowIcon, TwitterIcon } from './AboutMeIcons';
 import { Link } from './Link';
 import { MaybeLink } from './MaybeLink';
@@ -11,12 +10,11 @@ interface Props {
 const AboutMe = ({ name, href }: Props) => (
   <div className="flex items-center justify-center flex-wrap">
     <MaybeLink href={href}>
-      <Image
-        priority
+      <img
         src="/images/profile.jpg"
         height={144}
         width={144}
-        alt={name}
+        alt="Profile photo"
         className="rounded-full shrink-0"
       />
     </MaybeLink>

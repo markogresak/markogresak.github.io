@@ -1,3 +1,2 @@
-export type { FrontmatterData } from './FrontmatterData';
-export type { PostContentData } from './PostContentData';
-export type { PostData } from './PostData';
+export type { AppPageProps } from './AppPageProps';
+export type { PostData, PostMeta, PostPageData } from './PostData';

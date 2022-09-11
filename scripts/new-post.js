@@ -1,9 +1,11 @@
-const fs = require('fs')
-const path = require('path')
-const inquirer = require('inquirer')
-const kebabCase = require('lodash.kebabcase')
+import { existsSync, promises as fs } from 'node:fs';
+import { dirname, relative, resolve } from 'node:path';
 
-;(async () => {
+import appRoot from 'app-root-path';
+import inquirer from 'inquirer';
+import kebabCase from 'lodash.kebabcase';
+
+(async () => {
   const response = await inquirer.prompt([
     {
       type: 'input',
@@ -17,44 +19,48 @@ const kebabCase = require('lodash.kebabcase')
       message: 'Enter description:',
       default: '',
     },
-  ])
+  ]);
 
-  const filePath = path.resolve(
-    __dirname,
-    'content',
+  const filePath = resolve(
+    appRoot.path,
+    'pages',
     'blog',
     kebabCase(response.title),
-    'index.md',
-  )
+    'index.mdx',
+  );
 
   console.log(
-    `Attempting to create a new post entry at ${path.relative(
-      __dirname,
+    `Attempting to create a new post entry at ${relative(
+      appRoot.path,
       filePath,
     )}`,
-  )
+  );
 
-  if (fs.existsSync(filePath)) {
-    throw new Error(`File for title "${response.title}" already exists!`)
+  if (existsSync(filePath)) {
+    throw new Error(`File for title "${response.title}" already exists!`);
   }
 
   const postMetadata = [
-    `---`,
-    `title: '${response.title}'`,
-    `description: '${response.description}'`,
-    `date: '${getDateString()}'`,
-    `---`,
+    `import PostPage from '../../../components/PostPage';`,
+    ``,
+    `export const meta = {`,
+    ` title: "${response.title}",`,
+    ` description: "${response.description}",`,
+    ` date: "${getDateString()}",`,
+    `};`,
+    ``,
+    `export default ({ children }) => <PostPage meta={meta}>{children}</PostPage>;`,
     ``, // final newline
-  ]
+  ];
 
-  await fs.promises.mkdir(path.dirname(filePath))
-  await fs.promises.writeFile(filePath, postMetadata.join('\n'))
-  console.log(`Post created successfully!`)
-})()
+  await fs.mkdir(dirname(filePath));
+  await fs.writeFile(filePath, postMetadata.join('\n'));
+  console.log(`Post created successfully!`);
+})();
 
 function getDateString(date = new Date()) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
     2,
     '0',
-  )}-${String(date.getDate()).padStart(2, '0')}`
+  )}-${String(date.getDate()).padStart(2, '0')}`;
 }

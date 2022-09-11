@@ -1,43 +1,32 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import { getIsDarkMode, getStoredTheme, themeToggle } from '../lib/themeToggle';
 
-const mql = window.matchMedia('(prefers-color-scheme: dark)');
-
 const ColorMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(getIsDarkMode);
-  const storedTheme = getStoredTheme();
-
-  const handleToggle = useCallback(
-    (currentIsDarkMode: boolean, persist: boolean = true) => {
-      setIsDarkMode(themeToggle(currentIsDarkMode, persist));
-    },
-    [],
-  );
-
-  const handleMediaQueryChange = useCallback(
-    (event: MediaQueryListEvent) => {
-      const currentIsDarkMode = !event.matches;
-      handleToggle(currentIsDarkMode, false);
-    },
-    [handleToggle],
-  );
+  const [themeValue, setThemeValue] = useState(getIsDarkMode);
 
   useEffect(() => {
-    if (storedTheme === undefined) {
-      mql.addEventListener('change', handleMediaQueryChange);
-      return () => {
-        mql.removeEventListener('change', handleMediaQueryChange);
+    if (typeof window !== 'undefined' && getStoredTheme()) {
+      const handleChange = (event: MediaQueryListEvent) => {
+        const currentIsDarkMode = !event.matches;
+        setThemeValue(themeToggle(currentIsDarkMode));
       };
+
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      mql.addEventListener('change', handleChange);
+      return () => mql.removeEventListener('change', handleChange);
     }
-  }, [storedTheme, handleMediaQueryChange]);
+  }, []);
 
   return (
     <button
       className="absolute top-4 right-4 print:hidden"
-      title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-      onClick={() => handleToggle(isDarkMode)}
+      title={`Switch to ${themeValue ? 'light' : 'dark'} mode`}
+      onClick={() => {
+        setThemeValue(themeToggle(themeValue, true));
+      }}
     >
-      {isDarkMode ? (
+      {themeValue ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"

@@ -1,8 +1,13 @@
----
-title: Typescript with React and JSX
-description: TypeScript introduced 1.6 beta on their blog in early September 2015, announcing they're adding JSX support. I decided to convert my project. Here is what I've learned.
-date: '2015-09-10'
----
+import PostPage from '../../../components/PostPage';
+
+export const meta = {
+  title: 'Typescript with React and JSX',
+  description:
+    "TypeScript introduced 1.6 beta on their blog in early September 2015, announcing they're adding JSX support. I decided to convert my project. Here is what I've learned.",
+  date: '2015-09-10',
+};
+
+export default ({ children }) => <PostPage meta={meta}>{children}</PostPage>;
 
 **This is an old post. [Read the updated version for 2019](/blog/react-with-type-script-in-2019).**
 

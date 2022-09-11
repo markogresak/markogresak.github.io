@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { PostData } from '../types';
+
+import type { PostData } from '../types';
 import PostDate from './PostDate';
 
 interface Props {
@@ -12,14 +13,14 @@ const PostItem = ({ className, post }: Props) => (
     <header className="mb-1">
       <h2 className="text-xl text-blue-700 dark:text-purple-400 hover:underline">
         <Link href={`/blog/${post.id}`}>
-          <a href={`/blog/${post.id}`}>{post.title}</a>
+          <a href={`/blog/${post.id}`}>{post.data.meta.title}</a>
         </Link>
       </h2>
-      <PostDate dateTime={post.date} />
+      <PostDate dateTime={post.data.meta.date} />
     </header>
-    {post.description && (
+    {post.data.meta.description && (
       <section className="text-gray-600 dark:text-gray-300">
-        <p>{post.description}</p>
+        <p>{post.data.meta.description}</p>
       </section>
     )}
   </article>
