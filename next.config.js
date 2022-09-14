@@ -19,7 +19,10 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   experimental: {
-    // runtime: 'experimental-edge',
+    runtime:
+      process.env.NEXT_USE_NETLIFY_EDGE === 'true'
+        ? 'experimental-edge'
+        : undefined,
     serverComponents: true,
     optimizeCss: {
       preload: 'default',
